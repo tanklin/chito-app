@@ -2,6 +2,7 @@
 # platform :ios, '8.0'
 
 target 'chito' do
+
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'

@@ -3,7 +3,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </mutableArray>
+        <mutableArray key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -17,36 +26,183 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-eF-bIO">
-                                <rect key="frame" x="35" y="300" width="250" height="50"/>
-                                <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="YES">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="V0O-xz-M6z">
+                                <rect key="frame" x="50" y="37" width="220" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="HoG-VA-jny"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtq-Fa-Qa2">
+                                <rect key="frame" x="75" y="500" width="171" height="30"/>
+                                <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="BuZ-11-P4J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Why have to login?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="0.5"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Jlm-Jq-Xlv" kind="modal" id="Z23-SZ-yBW"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtq-Fa-Qa2">
-                                <rect key="frame" x="35" y="358" width="250" height="50"/>
-                                <color key="backgroundColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="NO">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facebook Login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysv-Bd-3yU">
-                                <rect key="frame" x="35" y="181" width="250" height="111"/>
-                                <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKH-xa-Qis" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="50" y="430" width="220" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="M7Y-nE-4O2"/>
+                                    <constraint firstAttribute="height" constant="50" id="b5V-gR-jHN"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一分鐘 在城市找到你的下一餐" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRE-Nd-ZAX">
+                                <rect key="frame" x="37" y="149" width="246" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="MoT-J3-Hat"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V0O-xz-M6z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="50" id="0yB-Lp-4W5"/>
+                            <constraint firstItem="jtq-Fa-Qa2" firstAttribute="top" secondItem="jKH-xa-Qis" secondAttribute="bottom" constant="20" id="1S0-DX-bNa"/>
+                            <constraint firstItem="wRE-Nd-ZAX" firstAttribute="top" secondItem="V0O-xz-M6z" secondAttribute="bottom" id="2St-EZ-Dy0"/>
+                            <constraint firstItem="V0O-xz-M6z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="17" id="6RU-so-qmV"/>
+                            <constraint firstAttribute="trailing" secondItem="V0O-xz-M6z" secondAttribute="trailing" constant="50" id="Cv1-ez-VVI"/>
+                            <constraint firstItem="jKH-xa-Qis" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="50" id="EHs-ia-jqk"/>
+                            <constraint firstAttribute="trailing" secondItem="jtq-Fa-Qa2" secondAttribute="trailing" constant="74" id="PKq-Y7-lLV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wRE-Nd-ZAX" secondAttribute="trailing" constant="21" id="aNU-ue-uwK"/>
+                            <constraint firstItem="jtq-Fa-Qa2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="75" id="klv-iR-x43"/>
+                            <constraint firstAttribute="trailing" secondItem="jKH-xa-Qis" secondAttribute="trailing" constant="50" id="qjt-vw-o5f"/>
+                            <constraint firstItem="wRE-Nd-ZAX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="21" id="yev-m2-Sh8"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jtq-Fa-Qa2" secondAttribute="bottom" constant="38" id="zZt-0J-Has"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="149" y="319"/>
         </scene>
+        <!--Next View Controller-->
+        <scene sceneID="eze-OF-lQb">
+            <objects>
+                <viewController storyboardIdentifier="NextViewController" id="GYz-i5-aDK" customClass="NextViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xlp-D3-PeK"/>
+                        <viewControllerLayoutGuide type="bottom" id="0L9-Bc-IOD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sxC-ih-umv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am Logged in !!!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjW-Zu-opS">
+                                <rect key="frame" x="61" y="156" width="180" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gix-P3-dRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="592" y="319"/>
+        </scene>
+        <!--Please Login View Controller-->
+        <scene sceneID="ZMC-Zr-0Pa">
+            <objects>
+                <viewController id="Jlm-Jq-Xlv" customClass="PleaseLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bH1-jV-HPa"/>
+                        <viewControllerLayoutGuide type="bottom" id="WYs-O3-1VY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wrD-DM-lvL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJb-EA-diR">
+                                <rect key="frame" x="11" y="128" width="299" height="300"/>
+                                <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="N4i-E4-dGx"/>
+                                </constraints>
+                                <string key="text">CHiTO專屬打造圖示化介面
+進入CHiTO，不用輸入文字
+只要按下當時你想找的美食類型圖片
+
+CHiTO推薦在你附近的餐廳
+點擊後，會跳出CHiTO推薦的
+該類型餐廳列表 
+按下訂位，便能出發享受美食
+點進最有興趣的餐廳後便能
+直接向店家訂位，讓你看的到也吃的到！</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHY CHiTO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgX-mn-PH4">
+                                <rect key="frame" x="11" y="45" width="299" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="ozN-d9-tap"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5v-dA-X1o">
+                                <rect key="frame" x="35" y="474" width="250" height="50"/>
+                                <color key="backgroundColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="oRv-ap-N4F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="tintColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Ok, Got it!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="0.5"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnDidPressedYes:" destination="Jlm-Jq-Xlv" eventType="touchUpInside" id="vMq-gM-3Ug"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="S5v-dA-X1o" firstAttribute="leading" secondItem="wrD-DM-lvL" secondAttribute="leading" constant="35" id="0uz-kH-TFl"/>
+                            <constraint firstItem="wJb-EA-diR" firstAttribute="top" secondItem="UgX-mn-PH4" secondAttribute="bottom" constant="42" id="IN9-IY-vDP"/>
+                            <constraint firstAttribute="trailing" secondItem="S5v-dA-X1o" secondAttribute="trailing" constant="35" id="QoM-hn-qur"/>
+                            <constraint firstItem="WYs-O3-1VY" firstAttribute="top" secondItem="S5v-dA-X1o" secondAttribute="bottom" constant="44" id="jT0-a9-mPl"/>
+                            <constraint firstAttribute="trailing" secondItem="UgX-mn-PH4" secondAttribute="trailing" constant="10" id="oDu-wi-Bof"/>
+                            <constraint firstAttribute="trailing" secondItem="wJb-EA-diR" secondAttribute="trailing" constant="10" id="rsq-Wg-gb5"/>
+                            <constraint firstItem="wJb-EA-diR" firstAttribute="leading" secondItem="wrD-DM-lvL" secondAttribute="leading" constant="11" id="rv1-zF-p50"/>
+                            <constraint firstItem="UgX-mn-PH4" firstAttribute="top" secondItem="bH1-jV-HPa" secondAttribute="bottom" constant="25" id="wgy-mC-Q56"/>
+                            <constraint firstItem="UgX-mn-PH4" firstAttribute="leading" secondItem="wrD-DM-lvL" secondAttribute="leading" constant="11" id="zK3-65-tUj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISO-Dn-Csr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="1003"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="472" height="322"/>
+    </resources>
 </document>

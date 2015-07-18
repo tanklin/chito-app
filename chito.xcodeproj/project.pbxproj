@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FA2F6D51D37CDF05529295A /* libPods-chito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABD37D7F1F779CCE737628A /* libPods-chito.a */; };
 		C15C80D11B540A960024F0B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D01B540A960024F0B5 /* main.m */; };
 		C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D31B540A960024F0B5 /* AppDelegate.m */; };
 		C15C80D71B540A960024F0B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D61B540A960024F0B5 /* ViewController.m */; };
@@ -14,8 +15,7 @@
 		C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DB1B540A960024F0B5 /* Images.xcassets */; };
 		C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */; };
 		C15C80EB1B540A960024F0B5 /* chitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80EA1B540A960024F0B5 /* chitoTests.m */; };
-		C15C80F61B540C330024F0B5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80F51B540C330024F0B5 /* RootViewController.m */; };
-		D30F4860D793D409A3E0F732 /* libPods-chito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D67B2C9A4FCE0262067B76 /* libPods-chito.a */; };
+		C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +30,9 @@
 
 /* Begin PBXFileReference section */
 		15F6435E3A8F13D831B4A296 /* Pods-chito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chito.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chito/Pods-chito.debug.xcconfig"; sourceTree = "<group>"; };
+		1ABD37D7F1F779CCE737628A /* libPods-chito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chito.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D144E4EF0F0E4EEF293BF0F /* Pods-chito.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chito.release.xcconfig"; path = "Pods/Target Support Files/Pods-chito/Pods-chito.release.xcconfig"; sourceTree = "<group>"; };
-		A1D67B2C9A4FCE0262067B76 /* libPods-chito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chito.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C15C80CB1B540A960024F0B5 /* chito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chito.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15C80CB1B540A960024F0B5 /* CHiTO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHiTO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15C80CF1B540A960024F0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C15C80D01B540A960024F0B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C15C80D21B540A960024F0B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,11 +42,11 @@
 		C15C80D91B540A960024F0B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C15C80DB1B540A960024F0B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C15C80DE1B540A960024F0B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C15C80E41B540A960024F0B5 /* chitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHiTO.temp_caseinsensitive_rename.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15C80E91B540A960024F0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C15C80EA1B540A960024F0B5 /* chitoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chitoTests.m; sourceTree = "<group>"; };
-		C15C80F41B540C330024F0B5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		C15C80F51B540C330024F0B5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		C1D83C011B591B280043D7D4 /* PleaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PleaseLoginViewController.h; path = Login/PleaseLoginViewController.h; sourceTree = "<group>"; };
+		C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PleaseLoginViewController.m; path = Login/PleaseLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D30F4860D793D409A3E0F732 /* libPods-chito.a in Frameworks */,
+				3FA2F6D51D37CDF05529295A /* libPods-chito.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +80,7 @@
 		B0E55D18B38CEFADA2A66412 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A1D67B2C9A4FCE0262067B76 /* libPods-chito.a */,
+				1ABD37D7F1F779CCE737628A /* libPods-chito.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,8 +99,8 @@
 		C15C80CC1B540A960024F0B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C15C80CB1B540A960024F0B5 /* chito.app */,
-				C15C80E41B540A960024F0B5 /* chitoTests.xctest */,
+				C15C80CB1B540A960024F0B5 /* CHiTO.app */,
+				C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,9 +112,8 @@
 				C15C80D31B540A960024F0B5 /* AppDelegate.m */,
 				C15C80D51B540A960024F0B5 /* ViewController.h */,
 				C15C80D61B540A960024F0B5 /* ViewController.m */,
-				C15C80F41B540C330024F0B5 /* RootViewController.h */,
-				C15C80F51B540C330024F0B5 /* RootViewController.m */,
 				C15C80D81B540A960024F0B5 /* Main.storyboard */,
+				C1D83C041B591B310043D7D4 /* Login */,
 				C15C80DB1B540A960024F0B5 /* Images.xcassets */,
 				C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */,
 				C15C80CE1B540A960024F0B5 /* Supporting Files */,
@@ -148,6 +147,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C1D83C041B591B310043D7D4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C1D83C011B591B280043D7D4 /* PleaseLoginViewController.h */,
+				C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,7 +175,7 @@
 			);
 			name = chito;
 			productName = chito;
-			productReference = C15C80CB1B540A960024F0B5 /* chito.app */;
+			productReference = C15C80CB1B540A960024F0B5 /* CHiTO.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C15C80E31B540A960024F0B5 /* chitoTests */ = {
@@ -185,7 +193,7 @@
 			);
 			name = chitoTests;
 			productName = chitoTests;
-			productReference = C15C80E41B540A960024F0B5 /* chitoTests.xctest */;
+			productReference = C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C15C80C61B540A960024F0B5 /* Build configuration list for PBXProject "chito" */;
+			buildConfigurationList = C15C80C61B540A960024F0B5 /* Build configuration list for PBXProject "CHiTO" */;
 			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -284,9 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */,
 				C15C80D71B540A960024F0B5 /* ViewController.m in Sources */,
 				C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */,
-				C15C80F61B540C330024F0B5 /* RootViewController.m in Sources */,
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,7 +428,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CHiTO;
 			};
 			name = Debug;
 		};
@@ -434,7 +442,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CHiTO;
 			};
 			name = Release;
 		};
@@ -453,8 +461,8 @@
 				INFOPLIST_FILE = chitoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chito.app/chito";
+				PRODUCT_NAME = CHiTO.temp_caseinsensitive_rename;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CHiTO.temp_caseinsensitive_rename.app/CHiTO.temp_caseinsensitive_rename";
 			};
 			name = Debug;
 		};
@@ -469,15 +477,15 @@
 				INFOPLIST_FILE = chitoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chito.app/chito";
+				PRODUCT_NAME = CHiTO.temp_caseinsensitive_rename;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CHiTO.temp_caseinsensitive_rename.app/CHiTO.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C15C80C61B540A960024F0B5 /* Build configuration list for PBXProject "chito" */ = {
+		C15C80C61B540A960024F0B5 /* Build configuration list for PBXProject "CHiTO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C15C80EC1B540A960024F0B5 /* Debug */,

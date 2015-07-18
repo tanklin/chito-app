@@ -26,7 +26,7 @@
 			<key>CFBundleURLIconFile</key>
 			<string>I</string>
 			<key>CFBundleURLName</key>
-			<string></string>
+			<string>fb464996190340372</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb464996190340372</string>
@@ -38,7 +38,7 @@
 	<key>FacebookAppID</key>
 	<string>464996190340372</string>
 	<key>FacebookDisplayName</key>
-	<string>chito</string>
+	<string>CHiTO</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
