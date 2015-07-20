@@ -26,7 +26,7 @@
 			<key>CFBundleURLIconFile</key>
 			<string>I</string>
 			<key>CFBundleURLName</key>
-			<string>fb464996190340372</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb464996190340372</string>
@@ -43,6 +43,10 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

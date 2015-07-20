@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,14 @@
 		C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DB1B540A960024F0B5 /* Images.xcassets */; };
 		C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */; };
 		C15C80EB1B540A960024F0B5 /* chitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80EA1B540A960024F0B5 /* chitoTests.m */; };
+		C1AAA7331B5A8A3600B26F41 /* SortCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AAA7321B5A8A3600B26F41 /* SortCollectionViewController.m */; };
+		C1BF26001B5CDB7600CCB79B /* yelpJsonTest in Resources */ = {isa = PBXBuildFile; fileRef = C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest */; };
+		C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */; };
+		C1BF26091B5D1C3F00CCB79B /* GlobalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */; };
+		C1BF260B1B5D619D00CCB79B /* mrtJson in Resources */ = {isa = PBXBuildFile; fileRef = C1BF260A1B5D619D00CCB79B /* mrtJson */; };
 		C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */; };
+		C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EFF8C71B5B50040083C001 /* MapViewController.m */; };
+		C1EFF8CA1B5B50040083C001 /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EFF8C81B5B50040083C001 /* InfoWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +52,19 @@
 		C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHiTO.temp_caseinsensitive_rename.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15C80E91B540A960024F0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C15C80EA1B540A960024F0B5 /* chitoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chitoTests.m; sourceTree = "<group>"; };
+		C1AAA7311B5A8A3600B26F41 /* SortCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortCollectionViewController.h; sourceTree = "<group>"; };
+		C1AAA7321B5A8A3600B26F41 /* SortCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortCollectionViewController.m; sourceTree = "<group>"; };
+		C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yelpJsonTest; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
+		C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
+		C1BF26071B5D1C3F00CCB79B /* GlobalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariable.h; sourceTree = "<group>"; };
+		C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariable.m; sourceTree = "<group>"; };
+		C1BF260A1B5D619D00CCB79B /* mrtJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mrtJson; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1D83C011B591B280043D7D4 /* PleaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PleaseLoginViewController.h; path = Login/PleaseLoginViewController.h; sourceTree = "<group>"; };
 		C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PleaseLoginViewController.m; path = Login/PleaseLoginViewController.m; sourceTree = "<group>"; };
+		C1EFF8C61B5B50040083C001 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C1EFF8C71B5B50040083C001 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		C1EFF8C81B5B50040083C001 /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +131,8 @@
 				C15C80D51B540A960024F0B5 /* ViewController.h */,
 				C15C80D61B540A960024F0B5 /* ViewController.m */,
 				C15C80D81B540A960024F0B5 /* Main.storyboard */,
-				C1D83C041B591B310043D7D4 /* Login */,
+				C1AAA7341B5B4F3C00B26F41 /* Main */,
+				C1D83C041B591B310043D7D4 /* Why CHiTO */,
 				C15C80DB1B540A960024F0B5 /* Images.xcassets */,
 				C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */,
 				C15C80CE1B540A960024F0B5 /* Supporting Files */,
@@ -126,6 +145,10 @@
 			children = (
 				C15C80CF1B540A960024F0B5 /* Info.plist */,
 				C15C80D01B540A960024F0B5 /* main.m */,
+				C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest */,
+				C1BF260A1B5D619D00CCB79B /* mrtJson */,
+				C1BF26071B5D1C3F00CCB79B /* GlobalVariable.h */,
+				C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,15 +168,30 @@
 				C15C80E91B540A960024F0B5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = chitoTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		C1AAA7341B5B4F3C00B26F41 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C1AAA7311B5A8A3600B26F41 /* SortCollectionViewController.h */,
+				C1AAA7321B5A8A3600B26F41 /* SortCollectionViewController.m */,
+				C1EFF8C61B5B50040083C001 /* MapViewController.h */,
+				C1EFF8C71B5B50040083C001 /* MapViewController.m */,
+				C1EFF8C81B5B50040083C001 /* InfoWindow.xib */,
+				C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */,
+				C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
-		C1D83C041B591B310043D7D4 /* Login */ = {
+		C1D83C041B591B310043D7D4 /* Why CHiTO */ = {
 			isa = PBXGroup;
 			children = (
 				C1D83C011B591B280043D7D4 /* PleaseLoginViewController.h */,
 				C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */,
 			);
-			name = Login;
+			name = "Why CHiTO";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,12 +240,21 @@
 		C15C80C31B540A960024F0B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = CHiTO;
 				TargetAttributes = {
 					C15C80CA1B540A960024F0B5 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 8H7X36TF25;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					C15C80E31B540A960024F0B5 = {
 						CreatedOnToolsVersion = 6.4;
@@ -216,7 +263,7 @@
 				};
 			};
 			buildConfigurationList = C15C80C61B540A960024F0B5 /* Build configuration list for PBXProject "CHiTO" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -239,9 +286,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1BF260B1B5D619D00CCB79B /* mrtJson in Resources */,
 				C15C80DA1B540A960024F0B5 /* Main.storyboard in Resources */,
 				C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */,
 				C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */,
+				C1EFF8CA1B5B50040083C001 /* InfoWindow.xib in Resources */,
+				C1BF26001B5CDB7600CCB79B /* yelpJsonTest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +344,11 @@
 			files = (
 				C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */,
 				C15C80D71B540A960024F0B5 /* ViewController.m in Sources */,
+				C1BF26091B5D1C3F00CCB79B /* GlobalVariable.m in Sources */,
+				C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */,
 				C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */,
+				C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */,
+				C1AAA7331B5A8A3600B26F41 /* SortCollectionViewController.m in Sources */,
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +432,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -415,6 +470,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -423,12 +479,17 @@
 			baseConfigurationReference = 15F6435E3A8F13D831B4A296 /* Pods-chito.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = chito/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CHiTO;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "chito/chito-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -437,12 +498,16 @@
 			baseConfigurationReference = 4D144E4EF0F0E4EEF293BF0F /* Pods-chito.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = chito/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CHiTO;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "chito/chito-Bridging-Header.h";
 			};
 			name = Release;
 		};

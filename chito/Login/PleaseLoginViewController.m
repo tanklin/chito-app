@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"Login_bg_why"] drawInRect:self.view.bounds];
     UIImage *bgImage = UIGraphicsGetImageFromCurrentImageContext();
