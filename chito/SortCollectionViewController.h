@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SortCollectionViewController : UICollectionViewController
-
+/*
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *currentUserFullNameButton;
 
 @property (weak, nonatomic) NSArray *sortArray;
-
+*/
 @end

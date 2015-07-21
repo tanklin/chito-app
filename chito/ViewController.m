@@ -12,9 +12,6 @@
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
 
 
-#define ACCESS_TOKEN_KEY @"fb_access_token"
-#define EXPIRATION_DATE_KEY @"fb_expiration_date"
-
 @interface ViewController ()
 //@property BOOL isLogined;
 @property (strong, nonatomic) NSString *userIDtoSaveOK;
@@ -23,12 +20,28 @@
 
 @implementation ViewController
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [self presentVC];
+    }
+    /*
+    self.userIDtoSaveOK = [[NSString alloc] initWithString:[FBSDKAccessToken currentAccessToken].userID];
+    NSLog(@"user id to sava == %@", self.userIDtoSaveOK);
+    //    NSLog(@"%@, %@, %@", [FBSDKAccessToken currentAccessToken].tokenString, [FBSDKAccessToken currentAccessToken].appID, [FBSDKAccessToken currentAccessToken].permissions);
+    if (self.userIDtoSaveOK != nil) {
+        NSLog(@"UserID present OK");
+        [self presentVC];
+    }
+     */
 
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 改變Token,進入下個View.
     
+    /*
     if ([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
@@ -55,6 +68,7 @@
         NSLog(@"UserID present OK");
         [self presentVC];
     }
+     */
 
     /*
     if ([[FBSDKAccessToken currentAccessToken] hasGranted:@"public_profile"]) {
@@ -86,12 +100,13 @@
 }
 
 
+/// 測試用
 - (IBAction)testButton:(id)sender {
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MapView"] animated:YES completion:nil];
 }
 
 
-// Get FB token to present next view.
+/// Get FB token to present next view.
 - (void)fbTokenChangeNoti:(NSNotification*)noti {
     if ([FBSDKAccessToken currentAccessToken]) {
         NSLog(@"##### Login Successed #####");
@@ -100,7 +115,7 @@
 }
 
 - (void)presentVC {
-    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MapView"] animated:YES completion:nil];
+    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SortView"] animated:YES completion:nil];
 }
 
 - (void)fbLoginButton {

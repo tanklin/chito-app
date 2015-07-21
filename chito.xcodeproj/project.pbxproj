@@ -15,11 +15,13 @@
 		C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DB1B540A960024F0B5 /* Images.xcassets */; };
 		C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */; };
 		C15C80EB1B540A960024F0B5 /* chitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80EA1B540A960024F0B5 /* chitoTests.m */; };
-		C1AAA7331B5A8A3600B26F41 /* SortCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AAA7321B5A8A3600B26F41 /* SortCollectionViewController.m */; };
 		C1BF26001B5CDB7600CCB79B /* yelpJsonTest in Resources */ = {isa = PBXBuildFile; fileRef = C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest */; };
 		C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */; };
 		C1BF26091B5D1C3F00CCB79B /* GlobalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */; };
 		C1BF260B1B5D619D00CCB79B /* mrtJson in Resources */ = {isa = PBXBuildFile; fileRef = C1BF260A1B5D619D00CCB79B /* mrtJson */; };
+		C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF260C1B5E245200CCB79B /* SortCollectionViewController.swift */; };
+		C1BF260F1B5E27CA00CCB79B /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF260E1B5E27CA00CCB79B /* Interest.swift */; };
+		C1BF26161B5E2C2A00CCB79B /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26151B5E2C2A00CCB79B /* InterestCollectionViewCell.swift */; };
 		C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */; };
 		C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EFF8C71B5B50040083C001 /* MapViewController.m */; };
 		C1EFF8CA1B5B50040083C001 /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EFF8C81B5B50040083C001 /* InfoWindow.xib */; };
@@ -52,14 +54,16 @@
 		C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHiTO.temp_caseinsensitive_rename.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15C80E91B540A960024F0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C15C80EA1B540A960024F0B5 /* chitoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chitoTests.m; sourceTree = "<group>"; };
-		C1AAA7311B5A8A3600B26F41 /* SortCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortCollectionViewController.h; sourceTree = "<group>"; };
-		C1AAA7321B5A8A3600B26F41 /* SortCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortCollectionViewController.m; sourceTree = "<group>"; };
 		C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yelpJsonTest; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
 		C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
 		C1BF26071B5D1C3F00CCB79B /* GlobalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariable.h; sourceTree = "<group>"; };
 		C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariable.m; sourceTree = "<group>"; };
 		C1BF260A1B5D619D00CCB79B /* mrtJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mrtJson; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		C1BF260C1B5E245200CCB79B /* SortCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortCollectionViewController.swift; sourceTree = "<group>"; };
+		C1BF260E1B5E27CA00CCB79B /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		C1BF26151B5E2C2A00CCB79B /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BF26181B5E351B00CCB79B /* chito-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chito-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1D83C011B591B280043D7D4 /* PleaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PleaseLoginViewController.h; path = Login/PleaseLoginViewController.h; sourceTree = "<group>"; };
 		C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PleaseLoginViewController.m; path = Login/PleaseLoginViewController.m; sourceTree = "<group>"; };
 		C1EFF8C61B5B50040083C001 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				C15C80D51B540A960024F0B5 /* ViewController.h */,
 				C15C80D61B540A960024F0B5 /* ViewController.m */,
 				C15C80D81B540A960024F0B5 /* Main.storyboard */,
+				C1BF26101B5E2BBB00CCB79B /* Sort Screen */,
+				C1BF26111B5E2BD000CCB79B /* Model */,
 				C1AAA7341B5B4F3C00B26F41 /* Main */,
 				C1D83C041B591B310043D7D4 /* Why CHiTO */,
 				C15C80DB1B540A960024F0B5 /* Images.xcassets */,
@@ -174,8 +180,6 @@
 		C1AAA7341B5B4F3C00B26F41 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C1AAA7311B5A8A3600B26F41 /* SortCollectionViewController.h */,
-				C1AAA7321B5A8A3600B26F41 /* SortCollectionViewController.m */,
 				C1EFF8C61B5B50040083C001 /* MapViewController.h */,
 				C1EFF8C71B5B50040083C001 /* MapViewController.m */,
 				C1EFF8C81B5B50040083C001 /* InfoWindow.xib */,
@@ -183,6 +187,24 @@
 				C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		C1BF26101B5E2BBB00CCB79B /* Sort Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF260C1B5E245200CCB79B /* SortCollectionViewController.swift */,
+				C1BF26151B5E2C2A00CCB79B /* InterestCollectionViewCell.swift */,
+				C1BF26181B5E351B00CCB79B /* chito-Bridging-Header.h */,
+			);
+			name = "Sort Screen";
+			sourceTree = "<group>";
+		};
+		C1BF26111B5E2BD000CCB79B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF260E1B5E27CA00CCB79B /* Interest.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		C1D83C041B591B310043D7D4 /* Why CHiTO */ = {
@@ -345,11 +367,13 @@
 				C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */,
 				C15C80D71B540A960024F0B5 /* ViewController.m in Sources */,
 				C1BF26091B5D1C3F00CCB79B /* GlobalVariable.m in Sources */,
+				C1BF26161B5E2C2A00CCB79B /* InterestCollectionViewCell.swift in Sources */,
 				C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */,
 				C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */,
 				C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */,
-				C1AAA7331B5A8A3600B26F41 /* SortCollectionViewController.m in Sources */,
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
+				C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */,
+				C1BF260F1B5E27CA00CCB79B /* Interest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +507,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = chito/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CHiTO;
@@ -502,7 +526,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = chito/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CHiTO;
