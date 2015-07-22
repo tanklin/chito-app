@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "CustomInfoWindow.h"
 
-@interface MapViewController () <GMSMapViewDelegate>
+@interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) GMSMapView *mapView_;
 @property (copy, nonatomic) NSSet *markers;
 
@@ -20,6 +20,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self mapViewDidLoad];
+    [self setUpMarkerData];
+}
+- (void)mrtLocationData {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"yelpJsonTest" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSLog(@"json%@", json);
+}
+
+- (void)mapViewDidLoad
+{
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.035981
                                                             longitude:121.553327
                                                                  zoom:15];
@@ -36,16 +49,14 @@
     self.mapView_.settings.compassButton = YES;
     self.mapView_.settings.rotateGestures = YES;
     
-    self.mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 5, 0,self.bottomLayoutGuide.length + 5, 0);
+    self.mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 5, 0, self.bottomLayoutGuide.length + 5, 0);
     
     [self.mapView_ setMinZoom:8 maxZoom:18];
     [self.view addSubview:self.mapView_];
-    
-    
-    
-    [self setUpMarkerData];
 }
 
+
+/// Custom marker info window
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
@@ -60,7 +71,6 @@
 
 
 /*
-
  // Info window 舊寫法
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
@@ -89,6 +99,7 @@
     return infoWindow;
 }
 */
+
 /// Alert視窗
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
@@ -121,7 +132,7 @@
     testMarker2.position = CLLocationCoordinate2DMake(25.04, 121.56);
     testMarker2.appearAnimation = kGMSMarkerAnimationPop;
     testMarker2.icon = [UIImage imageNamed:@"CHiTO_Pin"];
-    testMarker2.map =  nil;
+    testMarker2.map = nil;
 
     self.markers = [NSSet setWithObjects:testMarker, testMarker2, nil];
     
@@ -142,7 +153,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 
 /*

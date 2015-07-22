@@ -35,6 +35,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>歡迎使用CHiTO</string>
 	<key>FacebookAppID</key>
 	<string>464996190340372</string>
 	<key>FacebookDisplayName</key>

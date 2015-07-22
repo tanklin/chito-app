@@ -40,7 +40,7 @@ extension SortCollectionViewController: UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        println(interests.count)
+//        println(interests.count)
         return interests.count
     }
     

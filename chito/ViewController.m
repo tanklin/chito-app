@@ -11,7 +11,6 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
 
-
 @interface ViewController ()
 //@property BOOL isLogined;
 @property (strong, nonatomic) NSString *userIDtoSaveOK;
@@ -34,6 +33,11 @@
         [self presentVC];
     }
      */
+
+    
+
+
+
 
 }
 
@@ -115,7 +119,7 @@
 }
 
 - (void)presentVC {
-    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SortView"] animated:YES completion:nil];
+    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"navView"] animated:YES completion:nil];
 }
 
 - (void)fbLoginButton {
