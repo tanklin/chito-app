@@ -9,9 +9,17 @@
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "CustomInfoWindow.h"
+#import "CSMarker.h"
+
+#define chitoURL_ @"http://www.chito.city/api/v1/restaurants.json"
 
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
-@property (strong, nonatomic) GMSMapView *mapView_;
+{
+    GMSMapView *mapView_;
+}
+
+@property (strong, nonatomic) NSURLSession *markerSession;
+//@property (strong, nonatomic) GMSMapView *mapView_;
 @property (copy, nonatomic) NSSet *markers;
 
 @end
@@ -20,43 +28,98 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    config.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:2*1024*1024 diskCapacity:10*1024*1024 diskPath:@"MarkerData"];
+    self.markerSession = [NSURLSession sessionWithConfiguration:config];
+
     [self mapViewDidLoad];
-    [self setUpMarkerData];
+//    [self setUpMarkerData];
+//    [self mrtLocationData];
+//    [self downloadMarkerData];
 }
+
+/// Download Marker Data
+- (void)downloadMarkerData {
+    NSURL *chitoURL = [NSURL URLWithString:chitoURL_];
+
+    NSURLSessionDataTask *task = [self.markerSession dataTaskWithURL:chitoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *e) {
+
+
+        NSArray *json = [NSJSONSerialization JSONObjectWithData:data
+                                                        options:0
+                                                          error:nil];
+//        NSLog(@"demo json: %@", json);
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self createMarkerObjectsWithJson:json];
+        }];
+    }];
+
+    [task resume];
+}
+
+/// MRT location
+/*
 - (void)mrtLocationData {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"yelpJsonTest" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     NSLog(@"json%@", json);
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self createMarkerObjectsWithJson:json];
+    }];
 }
+*/
+
+/// Create market with JSON
+- (void)createMarkerObjectsWithJson:(NSArray *)json {
+    NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:self.markers];
+    for (NSDictionary *markerData in json) {
+        CSMarker *newMarker = [[CSMarker alloc] init];
+        newMarker.objectID = [markerData[@"id"] stringValue];
+        newMarker.appearAnimation = [markerData[@"appearAnimation"] integerValue];
+        newMarker.position = CLLocationCoordinate2DMake([markerData[@"lat"] doubleValue],
+                                                        [markerData[@"lat"] doubleValue]);
+        newMarker.title = markerData[@"title"];
+        newMarker.snippet = markerData[@"snippet"];
+        newMarker = nil;
+
+        [mutableSet addObject:newMarker];
+    }
+    self.markers = [mutableSet copy];
+    [self drawMarkers];
+}
+
+
 
 - (void)mapViewDidLoad
 {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.035981
-                                                            longitude:121.553327
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.0517118
+                                                            longitude:121.5319346
                                                                  zoom:15];
-    self.mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
+    mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
     
-    self.mapView_.delegate = self;
+    mapView_.delegate = self;
     
-    self.mapView_.myLocationEnabled = YES;
-    NSLog(@"User's location: %@", self.mapView_.myLocation);
-    self.mapView_.accessibilityElementsHidden = NO;
+    mapView_.myLocationEnabled = YES;
+    NSLog(@"User's location: %@", mapView_.myLocation);
+    mapView_.accessibilityElementsHidden = NO;
     
-    self.mapView_.settings.scrollGestures = YES;
-    self.mapView_.settings.zoomGestures = YES;
-    self.mapView_.settings.compassButton = YES;
-    self.mapView_.settings.rotateGestures = YES;
+    mapView_.settings.scrollGestures = YES;
+    mapView_.settings.zoomGestures = YES;
+    mapView_.settings.compassButton = YES;
+    mapView_.settings.rotateGestures = YES;
     
-    self.mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 5, 0, self.bottomLayoutGuide.length + 5, 0);
+    mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 5, 0, self.bottomLayoutGuide.length + 5, 0);
     
-    [self.mapView_ setMinZoom:8 maxZoom:18];
-    [self.view addSubview:self.mapView_];
+    [mapView_ setMinZoom:8 maxZoom:18];
+    [self.view addSubview:mapView_];
 }
 
 
 /// Custom marker info window
+/*
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
@@ -68,10 +131,10 @@
     
     return infoWindow;
 }
+*/
 
-
+// Info window 舊寫法
 /*
- // Info window 舊寫法
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     // info window setup
@@ -101,8 +164,8 @@
 */
 
 /// Alert視窗
-- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
-{
+/*
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
     NSString *message = [NSString stringWithFormat:@"你按的地點是%@", marker.title];
     UIAlertView *windowTapped = [[UIAlertView alloc]
                                  initWithTitle:@"餐廳限時優惠中"
@@ -113,8 +176,10 @@
     
     [windowTapped show];
 }
+*/
 
-/// Markers資料
+// 手刻Markers資料
+/*
 - (void)setUpMarkerData
 {
     GMSMarker *testMarker = [[GMSMarker alloc] init];
@@ -138,17 +203,15 @@
     
     [self drawMarkers];
 }
-
+*/
 - (void)drawMarkers
 {
-    for (GMSMarker *marker in self.markers) {
+    for (CSMarker *marker in self.markers) {
         if (marker.map == nil) {
-            marker.map = self.mapView_;
+            marker.map = mapView_;
         }
     }
 }
-
-
 
 
 - (void)didReceiveMemoryWarning {

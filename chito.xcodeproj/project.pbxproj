@@ -16,9 +16,9 @@
 		C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DB1B540A960024F0B5 /* Images.xcassets */; };
 		C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */; };
 		C15C80EB1B540A960024F0B5 /* chitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80EA1B540A960024F0B5 /* chitoTests.m */; };
+		C16B0FFE1B5FE1A000316783 /* CSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C16B0FFD1B5FE1A000316783 /* CSMarker.m */; };
 		C1BF26001B5CDB7600CCB79B /* yelpJsonTest.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */; };
 		C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */; };
-		C1BF26091B5D1C3F00CCB79B /* GlobalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */; };
 		C1BF260B1B5D619D00CCB79B /* mrtJson.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF260A1B5D619D00CCB79B /* mrtJson.json */; };
 		C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF260C1B5E245200CCB79B /* SortCollectionViewController.swift */; };
 		C1BF260F1B5E27CA00CCB79B /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF260E1B5E27CA00CCB79B /* Interest.swift */; };
@@ -57,11 +57,11 @@
 		C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHiTO.temp_caseinsensitive_rename.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15C80E91B540A960024F0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C15C80EA1B540A960024F0B5 /* chitoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chitoTests.m; sourceTree = "<group>"; };
+		C16B0FFC1B5FE1A000316783 /* CSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMarker.h; sourceTree = "<group>"; };
+		C16B0FFD1B5FE1A000316783 /* CSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMarker.m; sourceTree = "<group>"; };
 		C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yelpJsonTest.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
 		C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
-		C1BF26071B5D1C3F00CCB79B /* GlobalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariable.h; sourceTree = "<group>"; };
-		C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariable.m; sourceTree = "<group>"; };
 		C1BF260A1B5D619D00CCB79B /* mrtJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mrtJson.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1BF260C1B5E245200CCB79B /* SortCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortCollectionViewController.swift; sourceTree = "<group>"; };
 		C1BF260E1B5E27CA00CCB79B /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
@@ -138,10 +138,10 @@
 				C15C80D51B540A960024F0B5 /* ViewController.h */,
 				C15C80D61B540A960024F0B5 /* ViewController.m */,
 				C15C80D81B540A960024F0B5 /* Main.storyboard */,
-				C1BF26101B5E2BBB00CCB79B /* Sort View */,
+				C1BF26101B5E2BBB00CCB79B /* Sort Controller */,
+				C1AAA7341B5B4F3C00B26F41 /* Map Controller */,
+				C1D83C041B591B310043D7D4 /* View */,
 				C1BF26111B5E2BD000CCB79B /* Model */,
-				C1AAA7341B5B4F3C00B26F41 /* Map View */,
-				C1D83C041B591B310043D7D4 /* Why CHiTO */,
 				C15C80DB1B540A960024F0B5 /* Images.xcassets */,
 				C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */,
 				C15C80CE1B540A960024F0B5 /* Supporting Files */,
@@ -154,10 +154,6 @@
 			children = (
 				C15C80CF1B540A960024F0B5 /* Info.plist */,
 				C15C80D01B540A960024F0B5 /* main.m */,
-				C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */,
-				C1BF260A1B5D619D00CCB79B /* mrtJson.json */,
-				C1BF26071B5D1C3F00CCB79B /* GlobalVariable.h */,
-				C1BF26081B5D1C3F00CCB79B /* GlobalVariable.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,31 +176,33 @@
 			path = chitoTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		C1AAA7341B5B4F3C00B26F41 /* Map View */ = {
+		C1AAA7341B5B4F3C00B26F41 /* Map Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C1EFF8C61B5B50040083C001 /* MapViewController.h */,
 				C1EFF8C71B5B50040083C001 /* MapViewController.m */,
-				C1EFF8C81B5B50040083C001 /* InfoWindow.xib */,
-				C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */,
-				C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */,
+				C16B0FFC1B5FE1A000316783 /* CSMarker.h */,
+				C16B0FFD1B5FE1A000316783 /* CSMarker.m */,
+				C1F953451B60D0D8002BA437 /* Infowindow View */,
 			);
-			name = "Map View";
+			name = "Map Controller";
 			sourceTree = "<group>";
 		};
-		C1BF26101B5E2BBB00CCB79B /* Sort View */ = {
+		C1BF26101B5E2BBB00CCB79B /* Sort Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C1BF260C1B5E245200CCB79B /* SortCollectionViewController.swift */,
 				C1BF26151B5E2C2A00CCB79B /* InterestCollectionViewCell.swift */,
 				C1BF26181B5E351B00CCB79B /* chito-Bridging-Header.h */,
 			);
-			name = "Sort View";
+			name = "Sort Controller";
 			sourceTree = "<group>";
 		};
 		C1BF26111B5E2BD000CCB79B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */,
+				C1BF260A1B5D619D00CCB79B /* mrtJson.json */,
 				C1BF260E1B5E27CA00CCB79B /* Interest.swift */,
 				C13CCC9B1B5F917400A87C8A /* YelpDataModel.h */,
 				C13CCC9C1B5F917400A87C8A /* YelpDataModel.m */,
@@ -212,13 +210,23 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		C1D83C041B591B310043D7D4 /* Why CHiTO */ = {
+		C1D83C041B591B310043D7D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C1D83C011B591B280043D7D4 /* PleaseLoginViewController.h */,
 				C1D83C021B591B280043D7D4 /* PleaseLoginViewController.m */,
 			);
-			name = "Why CHiTO";
+			name = View;
+			sourceTree = "<group>";
+		};
+		C1F953451B60D0D8002BA437 /* Infowindow View */ = {
+			isa = PBXGroup;
+			children = (
+				C1EFF8C81B5B50040083C001 /* InfoWindow.xib */,
+				C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */,
+				C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */,
+			);
+			name = "Infowindow View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,9 +378,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C13CCC9D1B5F917400A87C8A /* YelpDataModel.m in Sources */,
+				C16B0FFE1B5FE1A000316783 /* CSMarker.m in Sources */,
 				C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */,
 				C15C80D71B540A960024F0B5 /* ViewController.m in Sources */,
-				C1BF26091B5D1C3F00CCB79B /* GlobalVariable.m in Sources */,
 				C1BF26161B5E2C2A00CCB79B /* InterestCollectionViewCell.swift in Sources */,
 				C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */,
 				C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */,

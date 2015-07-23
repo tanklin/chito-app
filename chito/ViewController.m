@@ -12,7 +12,7 @@
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
 
 @interface ViewController ()
-//@property BOOL isLogined;
+
 @property (strong, nonatomic) NSString *userIDtoSaveOK;
 
 @end
@@ -21,24 +21,10 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
     if ([FBSDKAccessToken currentAccessToken]) {
         [self presentVC];
     }
-    /*
-    self.userIDtoSaveOK = [[NSString alloc] initWithString:[FBSDKAccessToken currentAccessToken].userID];
-    NSLog(@"user id to sava == %@", self.userIDtoSaveOK);
-    //    NSLog(@"%@, %@, %@", [FBSDKAccessToken currentAccessToken].tokenString, [FBSDKAccessToken currentAccessToken].appID, [FBSDKAccessToken currentAccessToken].permissions);
-    if (self.userIDtoSaveOK != nil) {
-        NSLog(@"UserID present OK");
-        [self presentVC];
-    }
-     */
-
-    
-
-
-
-
 }
 
 - (void)viewDidLoad {
