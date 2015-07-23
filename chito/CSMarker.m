@@ -12,8 +12,12 @@
 
 - (BOOL)isEqual:(id)object {
     CSMarker *otherMarker = (CSMarker *)object;
-    if (self.objectID == otherMarker.objectID) {
-        return YES;
+
+    if ([otherMarker isKindOfClass:[CSMarker class]]) {
+        if (self.objectID == otherMarker.objectID) {
+            return YES;
+        }
+
     }
     return NO;
 }

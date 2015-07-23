@@ -34,9 +34,11 @@
     self.markerSession = [NSURLSession sessionWithConfiguration:config];
 
     [self mapViewDidLoad];
-//    [self setUpMarkerData];
-//    [self mrtLocationData];
+    [self setUpMarkerData];
+
 //    [self downloadMarkerData];
+//    [self mrtLocationData];
+
 }
 
 /// Download Marker Data
@@ -60,17 +62,17 @@
 }
 
 /// MRT location
-/*
 - (void)mrtLocationData {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"yelpJsonTest" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    NSLog(@"json%@", json);
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [self createMarkerObjectsWithJson:json];
-    }];
+    NSLog(@"===Yelp Test JSON=== %@", json);
+    [self createMarkerObjectsWithJson:json];
+//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//
+//    }];
 }
-*/
+
 
 /// Create market with JSON
 - (void)createMarkerObjectsWithJson:(NSArray *)json {
@@ -79,10 +81,10 @@
         CSMarker *newMarker = [[CSMarker alloc] init];
         newMarker.objectID = [markerData[@"id"] stringValue];
         newMarker.appearAnimation = [markerData[@"appearAnimation"] integerValue];
-        newMarker.position = CLLocationCoordinate2DMake([markerData[@"lat"] doubleValue],
-                                                        [markerData[@"lat"] doubleValue]);
-        newMarker.title = markerData[@"title"];
-        newMarker.snippet = markerData[@"snippet"];
+        newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
+                                                        [markerData[@"longtitude"] doubleValue]);
+        newMarker.title = markerData[@"name"];
+        newMarker.snippet = markerData[@"tel"];
         newMarker = nil;
 
         [mutableSet addObject:newMarker];
@@ -178,15 +180,15 @@
 }
 */
 
-// 手刻Markers資料
-/*
+/// 手刻Markers資料
+
 - (void)setUpMarkerData
 {
     GMSMarker *testMarker = [[GMSMarker alloc] init];
     testMarker.position = CLLocationCoordinate2DMake(25.035981, 121.553327);
     testMarker.appearAnimation = kGMSMarkerAnimationPop;
-//    testMarker.title = @"Taiwan";
-//    testMarker.snippet = @"I love Google Map !!!";
+    testMarker.title = @"Taiwan";
+    testMarker.snippet = @"I love Google Map !!!";
 //    testMarker.infoWindowAnchor = CGPointMake(0, 0);
     testMarker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
 //    testMarker.groundAnchor = CGPointMake(1, 1);
@@ -196,6 +198,9 @@
     GMSMarker *testMarker2 = [[GMSMarker alloc] init];
     testMarker2.position = CLLocationCoordinate2DMake(25.04, 121.56);
     testMarker2.appearAnimation = kGMSMarkerAnimationPop;
+    testMarker.title = @"Taiwan";
+    testMarker.snippet = @"I love Google Map !!!";
+
     testMarker2.icon = [UIImage imageNamed:@"CHiTO_Pin"];
     testMarker2.map = nil;
 
@@ -203,7 +208,7 @@
     
     [self drawMarkers];
 }
-*/
+
 - (void)drawMarkers
 {
     for (CSMarker *marker in self.markers) {
