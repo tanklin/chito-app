@@ -198,9 +198,9 @@
     GMSMarker *testMarker2 = [[GMSMarker alloc] init];
     testMarker2.position = CLLocationCoordinate2DMake(25.04, 121.56);
     testMarker2.appearAnimation = kGMSMarkerAnimationPop;
-    testMarker.title = @"Taiwan";
-    testMarker.snippet = @"I love Google Map !!!";
-
+    testMarker2.title = @"Taiwan";
+    testMarker2.snippet = @"I love Google Map !!!";
+    testMarker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     testMarker2.icon = [UIImage imageNamed:@"CHiTO_Pin"];
     testMarker2.map = nil;
 
