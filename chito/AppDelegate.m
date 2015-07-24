@@ -10,8 +10,6 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import "MapViewController.h"
-#import "ViewController.h"
 
 
 @interface AppDelegate ()
@@ -26,36 +24,36 @@
     [FBSDKLoginButton class];    
 
     [GMSServices provideAPIKey:@"AIzaSyC7ztLan0fjcgHcUwbAX3jplG_vq0cbd-k"];
-//    NSLog(@"Default : I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
-//    if ([FBSDKAccessToken currentAccessToken].userID == nil) {
-//        NSLog(@"I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
-//
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-//    }else {
-//        NSLog(@"esle: I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
-//    }
+    /*
+    NSLog(@"Default : I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
+    if ([FBSDKAccessToken currentAccessToken].userID == nil) {
+        NSLog(@"I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
+
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+    }else {
+        NSLog(@"esle: I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
+    }
     
-//    if ([FBSDKAccessToken currentAccessToken] == nil) {
-//        NSLog(@"123");
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-//    }
+    if ([FBSDKAccessToken currentAccessToken] == nil) {
+        NSLog(@"123");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+    }
+     */
+
+
+
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                                           openURL:url
                                                 sourceApplication:sourceApplication
                                                        annotation:annotation];
 }
-
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

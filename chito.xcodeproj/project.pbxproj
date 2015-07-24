@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3FA2F6D51D37CDF05529295A /* libPods-chito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABD37D7F1F779CCE737628A /* libPods-chito.a */; };
+		C11CD62A1B6235A200D2A1E1 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD6281B6235A200D2A1E1 /* RightViewController.m */; };
+		C11CD6361B62759B00D2A1E1 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD6351B62759B00D2A1E1 /* FirstViewController.m */; };
+		C11CD6391B6275AA00D2A1E1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */; };
+		C11CD63C1B62892C00D2A1E1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD63B1B62892C00D2A1E1 /* RootViewController.m */; };
 		C13CCC9D1B5F917400A87C8A /* YelpDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C13CCC9C1B5F917400A87C8A /* YelpDataModel.m */; };
 		C15C80D11B540A960024F0B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D01B540A960024F0B5 /* main.m */; };
 		C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D31B540A960024F0B5 /* AppDelegate.m */; };
@@ -42,6 +46,14 @@
 		15F6435E3A8F13D831B4A296 /* Pods-chito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chito.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chito/Pods-chito.debug.xcconfig"; sourceTree = "<group>"; };
 		1ABD37D7F1F779CCE737628A /* libPods-chito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chito.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D144E4EF0F0E4EEF293BF0F /* Pods-chito.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chito.release.xcconfig"; path = "Pods/Target Support Files/Pods-chito/Pods-chito.release.xcconfig"; sourceTree = "<group>"; };
+		C11CD6271B6235A200D2A1E1 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		C11CD6281B6235A200D2A1E1 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		C11CD6341B62759B00D2A1E1 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		C11CD6351B62759B00D2A1E1 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		C11CD63A1B62892C00D2A1E1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		C11CD63B1B62892C00D2A1E1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		C13CCC9B1B5F917400A87C8A /* YelpDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpDataModel.h; sourceTree = "<group>"; };
 		C13CCC9C1B5F917400A87C8A /* YelpDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpDataModel.m; sourceTree = "<group>"; };
 		C15C80CB1B540A960024F0B5 /* CHiTO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHiTO.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +122,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C11CD6241B62358900D2A1E1 /* SideMenu Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C11CD6271B6235A200D2A1E1 /* RightViewController.h */,
+				C11CD6281B6235A200D2A1E1 /* RightViewController.m */,
+				C11CD6341B62759B00D2A1E1 /* FirstViewController.h */,
+				C11CD6351B62759B00D2A1E1 /* FirstViewController.m */,
+				C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */,
+				C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */,
+			);
+			name = "SideMenu Controller";
+			sourceTree = "<group>";
+		};
 		C15C80C21B540A960024F0B5 = {
 			isa = PBXGroup;
 			children = (
@@ -135,11 +160,14 @@
 			children = (
 				C15C80D21B540A960024F0B5 /* AppDelegate.h */,
 				C15C80D31B540A960024F0B5 /* AppDelegate.m */,
+				C11CD63A1B62892C00D2A1E1 /* RootViewController.h */,
+				C11CD63B1B62892C00D2A1E1 /* RootViewController.m */,
 				C15C80D51B540A960024F0B5 /* ViewController.h */,
 				C15C80D61B540A960024F0B5 /* ViewController.m */,
 				C15C80D81B540A960024F0B5 /* Main.storyboard */,
 				C1BF26101B5E2BBB00CCB79B /* Sort Controller */,
 				C1AAA7341B5B4F3C00B26F41 /* Map Controller */,
+				C11CD6241B62358900D2A1E1 /* SideMenu Controller */,
 				C1D83C041B591B310043D7D4 /* View */,
 				C1BF26111B5E2BD000CCB79B /* Model */,
 				C15C80DB1B540A960024F0B5 /* Images.xcassets */,
@@ -284,7 +312,7 @@
 						DevelopmentTeam = 8H7X36TF25;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.SafariKeychain = {
 								enabled = 0;
@@ -382,12 +410,16 @@
 				C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */,
 				C15C80D71B540A960024F0B5 /* ViewController.m in Sources */,
 				C1BF26161B5E2C2A00CCB79B /* InterestCollectionViewCell.swift in Sources */,
+				C11CD62A1B6235A200D2A1E1 /* RightViewController.m in Sources */,
 				C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */,
+				C11CD6361B62759B00D2A1E1 /* FirstViewController.m in Sources */,
 				C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */,
 				C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */,
+				C11CD6391B6275AA00D2A1E1 /* SecondViewController.m in Sources */,
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
 				C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */,
 				C1BF260F1B5E27CA00CCB79B /* Interest.swift in Sources */,
+				C11CD63C1B62892C00D2A1E1 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -504,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

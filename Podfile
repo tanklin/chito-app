@@ -15,5 +15,6 @@ pod "AFNetworking", "~> 2.0"
 
 pod 'ChameleonFramework'
 pod 'RESideMenu', '~> 4.0.7'
+pod 'TheSidebarController', '~> 0.6'
 
 end

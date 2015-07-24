@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "RESideMenu.h"
 
 @interface MapViewController : UIViewController <GMSMapViewDelegate>
 

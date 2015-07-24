@@ -8,13 +8,11 @@
 
 #import "ViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface ViewController ()
-
-@property (strong, nonatomic) NSString *userIDtoSaveOK;
-
+//@property (strong, nonatomic) NSString *userIDtoSaveOK;
 @end
 
 @implementation ViewController
@@ -92,7 +90,11 @@
 
 /// 測試用
 - (IBAction)testButton:(id)sender {
-    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MapView"] animated:YES completion:nil];
+//    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MapView"] animated:YES completion:nil];
+    NSLog(@"### Test Button ###");
+}
+- (IBAction)fbLoginButtonDidPressed:(UIButton *)sender {
+    NSLog(@"### FB Login Button Did Pressed ###");
 }
 
 
@@ -106,11 +108,12 @@
 
 - (void)presentVC {
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"navView"] animated:YES completion:nil];
+    [ViewController dealloc];
 }
 
 - (void)fbLoginButton {
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = CGPointMake(self.view.center.x-100, -480);
+    loginButton.center = CGPointMake(self.view.center.x, self.view.center.y+100);
     [self.view addSubview:loginButton];
 }
 - (void)background {

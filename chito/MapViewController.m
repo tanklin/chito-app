@@ -11,6 +11,8 @@
 #import "CustomInfoWindow.h"
 #import "CSMarker.h"
 
+#import "RightViewController.h"
+
 #define chitoURL_ @"http://www.chito.city/api/v1/restaurants.json"
 
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
@@ -19,16 +21,21 @@
 }
 
 @property (strong, nonatomic) NSURLSession *markerSession;
-//@property (strong, nonatomic) GMSMapView *mapView_;
 @property (copy, nonatomic) NSSet *markers;
 
 @end
 
 @implementation MapViewController
 
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+/// Session generate markers
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     config.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:2*1024*1024 diskCapacity:10*1024*1024 diskPath:@"MarkerData"];
     self.markerSession = [NSURLSession sessionWithConfiguration:config];
@@ -40,7 +47,7 @@
 //    [self mrtLocationData];
 
 }
-
+/*
 /// Download Marker Data
 - (void)downloadMarkerData {
     NSURL *chitoURL = [NSURL URLWithString:chitoURL_];
@@ -75,6 +82,7 @@
 
 
 /// Create market with JSON
+
 - (void)createMarkerObjectsWithJson:(NSArray *)json {
     NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:self.markers];
     for (NSDictionary *markerData in json) {
@@ -92,9 +100,13 @@
     self.markers = [mutableSet copy];
     [self drawMarkers];
 }
+*/
 
+- (IBAction)rightButtonDidPressed:(UIBarButtonItem *)sender {
+    NSLog(@"Right Button Did Pressed");
+}
 
-
+/// Load Google Map
 - (void)mapViewDidLoad
 {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.0517118
@@ -120,28 +132,30 @@
 }
 
 
-/// Custom marker info window
-/*
+/// 用nib客製marker infoWindow
+
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
+//    infoWindow.frame = CGRectMake(150, 200, 230, 227);
     infoWindow.shopImage.image = [UIImage imageNamed:@"sort_cocoa"];
-    infoWindow.shopImage.transform = CGAffineTransformMakeRotation(-.08);
+//    infoWindow.shopImage.transform = CGAffineTransformMakeRotation(-.08);
     infoWindow.shopName.text = @"佳佳牛排";
     infoWindow.shopTel.text= @"02-2631-2436";
     infoWindow.shopAddress.text = @"台灣台北市內湖區東湖路119巷30號";
     
     return infoWindow;
 }
-*/
 
-// Info window 舊寫法
+
+/// 手刻marker InfoWindow
 /*
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     // info window setup
     UIView *infoWindow = [[UIView alloc] init];
-    infoWindow.frame = CGRectMake(15, 0, 230, 227);
+    infoWindow.frame = CGRectMake(100, 250, 500, 270);
+    infoWindow.contentMode = UIViewContentModeScaleAspectFit;
     infoWindow.backgroundColor = [UIColor clearColor];
     
     // custom Info Window
@@ -149,21 +163,46 @@
     [infoWindow addSubview:backgroundImage];
     
     
-    // name label setup
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.frame = CGRectMake(14, 11, 175, 16);
-    [infoWindow addSubview:titleLabel];
-    titleLabel.text = marker.title;
+    // shopName label setup
+    UILabel *shopName = [[UILabel alloc] init];
+    shopName.frame = CGRectMake(100, 10, 175, 16);
+    [infoWindow addSubview:shopName];
+    shopName.text = marker.title;
     
-    // tel label setup
-    UILabel *snippetLabel = [[UILabel alloc] init];
-    snippetLabel.frame = CGRectMake(14, 42, 175, 16);
-    [infoWindow addSubview:snippetLabel];
-    snippetLabel.text = marker.snippet;
-    
+    // shopTel label setup
+    UILabel *shopTel = [[UILabel alloc] init];
+    shopTel.frame = CGRectMake(100, 45, 175, 16);
+    [infoWindow addSubview:shopTel];
+    shopTel.text = marker.snippet;
+
+    //shopAddress
+    UILabel *shopAddress = [[UILabel alloc] init];
+    shopAddress.frame = CGRectMake(14, 42, 175, 16);
+    [infoWindow addSubview:shopAddress];
+    shopAddress.text = @"台灣台北市內湖區東湖路119巷30號";
+
+    // shopImage label setup
+    UIImageView *shopView = [[UIImageView alloc] init];
+    shopView.frame = CGRectMake(10, 10, 90, 90);
+    shopView.contentMode = UIViewContentModeScaleAspectFit;
+    [infoWindow addSubview:shopView];
+    shopView.image = [UIImage imageNamed:@"sort_cocoa"];
+
     return infoWindow;
 }
 */
+- (UIImage *)imageFromView:(UIView *) view
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, [[UIScreen mainScreen] scale]);
+    } else {
+        UIGraphicsBeginImageContext(view.frame.size);
+    }
+    [view.layer renderInContext: UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 
 /// Alert視窗
 /*
@@ -185,52 +224,47 @@
 - (void)setUpMarkerData
 {
     GMSMarker *testMarker = [[GMSMarker alloc] init];
-    testMarker.position = CLLocationCoordinate2DMake(25.035981, 121.553327);
+    testMarker.position = CLLocationCoordinate2DMake(25.051775, 121.534016);
     testMarker.appearAnimation = kGMSMarkerAnimationPop;
-    testMarker.title = @"Taiwan";
-    testMarker.snippet = @"I love Google Map !!!";
-//    testMarker.infoWindowAnchor = CGPointMake(0, 0);
-    testMarker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-//    testMarker.groundAnchor = CGPointMake(1, 1);
+    testMarker.title = @"品田牧場";
+    testMarker.snippet = @"02 2507 7279";
+//    testMarker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     testMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
-    testMarker.map = nil;
+//    testMarker.icon = [self imageFromView:[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] [0]];
+    testMarker.map = mapView_;
     
     GMSMarker *testMarker2 = [[GMSMarker alloc] init];
-    testMarker2.position = CLLocationCoordinate2DMake(25.04, 121.56);
+    testMarker2.position = CLLocationCoordinate2DMake(25.050643, 121.532047);
     testMarker2.appearAnimation = kGMSMarkerAnimationPop;
-    testMarker2.title = @"Taiwan";
-    testMarker2.snippet = @"I love Google Map !!!";
-    testMarker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+    testMarker2.title = @"京東洋食燒烤";
+    testMarker2.snippet = @"02 2523 6737";
+//    testMarker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     testMarker2.icon = [UIImage imageNamed:@"CHiTO_Pin"];
-    testMarker2.map = nil;
+    testMarker2.map = mapView_;
 
-    self.markers = [NSSet setWithObjects:testMarker, testMarker2, nil];
-    
-    [self drawMarkers];
+//    self.markers = [NSSet setWithObjects:testMarker, testMarker2, nil];
+
+//    [self drawMarkers];
 }
 
-- (void)drawMarkers
-{
-    for (CSMarker *marker in self.markers) {
-        if (marker.map == nil) {
-            marker.map = mapView_;
-        }
-    }
-}
+//- (void)drawMarkers
+//{
+//    for (CSMarker *marker in self.markers) {
+//        if (marker.map == nil) {
+//            marker.map = mapView_;
+//        }
+//    }
+//}
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
+
+
 
 @end

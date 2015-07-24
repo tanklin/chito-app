@@ -20,10 +20,12 @@ class InterestCollectionViewCell: UICollectionViewCell
     // private
     @IBOutlet weak var featuredImageView: UIImageView!
     @IBOutlet weak var interestTitleLabel: UILabel!
+    @IBOutlet weak var interestDescriptLabel: UILabel!
     
     private func updateUI()
     {
         interestTitleLabel?.text! = interest.title
+        interestDescriptLabel?.text! = interest.description
         featuredImageView?.image = interest.featuredImage
     }
 }

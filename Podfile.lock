@@ -44,6 +44,7 @@ PODS:
     - FBSDKCoreKit
   - GoogleMaps (1.10.1)
   - RESideMenu (4.0.7)
+  - TheSidebarController (0.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - FBSDKShareKit
   - GoogleMaps
   - RESideMenu (~> 4.0.7)
+  - TheSidebarController (~> 0.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -63,5 +65,6 @@ SPEC CHECKSUMS:
   FBSDKShareKit: a42865f20ba2d1cc548c4d0f73ad22cff6377ddb
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  TheSidebarController: ccb0143e17dcb27d1420e91a2f70fe14103a6f6a
 
 COCOAPODS: 0.38.0
