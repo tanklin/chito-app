@@ -13,6 +13,7 @@
 		C11CD6391B6275AA00D2A1E1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */; };
 		C11CD63C1B62892C00D2A1E1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD63B1B62892C00D2A1E1 /* RootViewController.m */; };
 		C13CCC9D1B5F917400A87C8A /* YelpDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C13CCC9C1B5F917400A87C8A /* YelpDataModel.m */; };
+		C15A90CB1B6364020084C8C7 /* color in Resources */ = {isa = PBXBuildFile; fileRef = C15A90CA1B6364020084C8C7 /* color */; };
 		C15C80D11B540A960024F0B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D01B540A960024F0B5 /* main.m */; };
 		C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D31B540A960024F0B5 /* AppDelegate.m */; };
 		C15C80D71B540A960024F0B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80D61B540A960024F0B5 /* ViewController.m */; };
@@ -56,6 +57,7 @@
 		C11CD63B1B62892C00D2A1E1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		C13CCC9B1B5F917400A87C8A /* YelpDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpDataModel.h; sourceTree = "<group>"; };
 		C13CCC9C1B5F917400A87C8A /* YelpDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpDataModel.m; sourceTree = "<group>"; };
+		C15A90CA1B6364020084C8C7 /* color */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = color; sourceTree = "<group>"; };
 		C15C80CB1B540A960024F0B5 /* CHiTO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHiTO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15C80CF1B540A960024F0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C15C80D01B540A960024F0B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				C1BF260E1B5E27CA00CCB79B /* Interest.swift */,
 				C13CCC9B1B5F917400A87C8A /* YelpDataModel.h */,
 				C13CCC9C1B5F917400A87C8A /* YelpDataModel.m */,
+				C15A90CA1B6364020084C8C7 /* color */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */,
 				C1EFF8CA1B5B50040083C001 /* InfoWindow.xib in Resources */,
 				C1BF26001B5CDB7600CCB79B /* yelpJsonTest.json in Resources */,
+				C15A90CB1B6364020084C8C7 /* color in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -84,7 +84,9 @@
                                                  name:FBSDKAccessTokenDidChangeNotification object:nil];
     
     [self background];
-    [self fbLoginButton];
+//    [self fbLoginButton];
+
+    
 }
 
 
@@ -110,12 +112,13 @@
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"navView"] animated:YES completion:nil];
     [ViewController dealloc];
 }
-
+/*
 - (void)fbLoginButton {
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.center = CGPointMake(self.view.center.x, self.view.center.y+100);
     [self.view addSubview:loginButton];
 }
+*/
 - (void)background {
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"Login_bg"] drawInRect:self.view.bounds];
@@ -124,8 +127,18 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:bgImage];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 @end

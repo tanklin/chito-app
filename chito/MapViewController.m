@@ -10,10 +10,10 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "CustomInfoWindow.h"
 #import "CSMarker.h"
-
 #import "RightViewController.h"
 
 #define chitoURL_ @"http://www.chito.city/api/v1/restaurants.json"
+#define testURL_ @"https://raw.githubusercontent.com/evenchange4/mrt_opendata/master/mrt.json"
 
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
@@ -41,13 +41,13 @@
     self.markerSession = [NSURLSession sessionWithConfiguration:config];
 
     [self mapViewDidLoad];
-    [self setUpMarkerData];
 
-//    [self downloadMarkerData];
-//    [self mrtLocationData];
 
+//    [self setUpMarkerData];
+    [self downloadMarkerData];
+//    [self yelpLocationData];
 }
-/*
+
 /// Download Marker Data
 - (void)downloadMarkerData {
     NSURL *chitoURL = [NSURL URLWithString:chitoURL_];
@@ -58,7 +58,7 @@
         NSArray *json = [NSJSONSerialization JSONObjectWithData:data
                                                         options:0
                                                           error:nil];
-//        NSLog(@"demo json: %@", json);
+        NSLog(@"### Download json ### %@", json);
 
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self createMarkerObjectsWithJson:json];
@@ -68,50 +68,47 @@
     [task resume];
 }
 
+
 /// MRT location
-- (void)mrtLocationData {
+/*
+- (void)yelpLocationData {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"yelpJsonTest" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"===Yelp Test JSON=== %@", json);
     [self createMarkerObjectsWithJson:json];
 //    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 //
 //    }];
 }
-
+*/
 
 /// Create market with JSON
-
 - (void)createMarkerObjectsWithJson:(NSArray *)json {
     NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:self.markers];
     for (NSDictionary *markerData in json) {
         CSMarker *newMarker = [[CSMarker alloc] init];
         newMarker.objectID = [markerData[@"id"] stringValue];
-        newMarker.appearAnimation = [markerData[@"appearAnimation"] integerValue];
-        newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
-                                                        [markerData[@"longtitude"] doubleValue]);
         newMarker.title = markerData[@"name"];
-        newMarker.snippet = markerData[@"tel"];
-        newMarker = nil;
+        newMarker.snippet = markerData[@"address"];
+//        newMarker.appearAnimation = [markerData[@"appearAnimation"] integerValue];
+        newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
+                                                        [markerData[@"longitude"] doubleValue]);
+        newMarker.map = nil;
 
         [mutableSet addObject:newMarker];
     }
     self.markers = [mutableSet copy];
     [self drawMarkers];
 }
-*/
 
-- (IBAction)rightButtonDidPressed:(UIBarButtonItem *)sender {
-    NSLog(@"Right Button Did Pressed");
-}
 
 /// Load Google Map
 - (void)mapViewDidLoad
 {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.0517118
                                                             longitude:121.5319346
-                                                                 zoom:15];
+                                                                 zoom:18];
     mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
     
     mapView_.delegate = self;
@@ -133,7 +130,7 @@
 
 
 /// 用nib客製marker infoWindow
-
+/*
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
@@ -146,7 +143,7 @@
     
     return infoWindow;
 }
-
+*/
 
 /// 手刻marker InfoWindow
 /*
@@ -191,6 +188,7 @@
     return infoWindow;
 }
 */
+/*
 - (UIImage *)imageFromView:(UIView *) view
 {
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
@@ -203,31 +201,33 @@
     UIGraphicsEndImageContext();
     return image;
 }
+*/
 
 /// Alert視窗
-/*
+
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-    NSString *message = [NSString stringWithFormat:@"你按的地點是%@", marker.title];
+    NSString *tel = [NSString stringWithFormat:@"%@", marker.snippet];
+    NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title];
     UIAlertView *windowTapped = [[UIAlertView alloc]
-                                 initWithTitle:@"餐廳限時優惠中"
+                                 initWithTitle:tel
                                        message:message
                                       delegate:nil
-                             cancelButtonTitle:@"點我詳情"
+                             cancelButtonTitle:@"確定撥打電話"
                              otherButtonTitles:nil];
     
     [windowTapped show];
 }
-*/
+
 
 /// 手刻Markers資料
-
+/*
 - (void)setUpMarkerData
 {
     GMSMarker *testMarker = [[GMSMarker alloc] init];
     testMarker.position = CLLocationCoordinate2DMake(25.051775, 121.534016);
     testMarker.appearAnimation = kGMSMarkerAnimationPop;
     testMarker.title = @"品田牧場";
-    testMarker.snippet = @"02 2507 7279";
+    testMarker.snippet = @"0225077279";
 //    testMarker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     testMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
 //    testMarker.icon = [self imageFromView:[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] [0]];
@@ -237,7 +237,7 @@
     testMarker2.position = CLLocationCoordinate2DMake(25.050643, 121.532047);
     testMarker2.appearAnimation = kGMSMarkerAnimationPop;
     testMarker2.title = @"京東洋食燒烤";
-    testMarker2.snippet = @"02 2523 6737";
+    testMarker2.snippet = @"0225236737";
 //    testMarker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     testMarker2.icon = [UIImage imageNamed:@"CHiTO_Pin"];
     testMarker2.map = mapView_;
@@ -246,25 +246,15 @@
 
 //    [self drawMarkers];
 }
+*/
 
-//- (void)drawMarkers
-//{
-//    for (CSMarker *marker in self.markers) {
-//        if (marker.map == nil) {
-//            marker.map = mapView_;
-//        }
-//    }
-//}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)drawMarkers
+{
+    for (CSMarker *marker in self.markers) {
+        if (marker.map == nil) {
+            marker.map = mapView_;
+        }
+    }
 }
-
-
-
-
-
-
 
 @end
