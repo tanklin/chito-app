@@ -24,6 +24,7 @@ class SortCollectionViewController: UIViewController
     
     override func viewDidLoad() {
          super.viewDidLoad()
+        self.title = "心情"
     }
     
     private struct Storyboard {
