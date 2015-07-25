@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import <AFNetworking.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "CustomInfoWindow.h"
 #import "CSMarker.h"
@@ -23,14 +24,12 @@
 @property (strong, nonatomic) NSURLSession *markerSession;
 @property (copy, nonatomic) NSSet *markers;
 
+//@property (strong, nonatomic) NSData *yelpData;
+
 @end
 
 @implementation MapViewController
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,29 +43,66 @@
 
 
 //    [self setUpMarkerData];
-    [self downloadMarkerData];
+//    [self downloadMarkerData];
 //    [self yelpLocationData];
+    [self postJson];
+
+}
+
+- (void)postJson
+{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{
+                                 @"category":@3,
+                                 @"latitude":@25.055288,
+                                 @"longitude":@121.6175001
+                                 };
+    [manager POST:chitoURL_ parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"]
+//                                                 forKey:@"auto_token"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+            NSLog(@"===Post JSON === %@", responseObject);
+            NSLog(@"Hi!");
+
+//          NSData *yelpData_ = (NSData *)responseObject;
+          NSData *yelpData_ = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+          NSLog(@"NSData === %@", yelpData_);
+            NSArray *json = [NSJSONSerialization JSONObjectWithData:yelpData_
+                                                            options:kNilOptions
+                                                              error:nil];
+          NSLog(@"Hi2!");
+                    NSLog(@"### Download json ### %@", json);
+
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                NSLog(@"Hi3!");
+                [self createMarkerObjectsWithJson:json];
+            }];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"=== Post Error === %@", error);
+    }];
 }
 
 /// Download Marker Data
-- (void)downloadMarkerData {
-    NSURL *chitoURL = [NSURL URLWithString:chitoURL_];
-
-    NSURLSessionDataTask *task = [self.markerSession dataTaskWithURL:chitoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *e) {
-
-
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data
-                                                        options:0
-                                                          error:nil];
-        NSLog(@"### Download json ### %@", json);
-
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self createMarkerObjectsWithJson:json];
-        }];
-    }];
-
-    [task resume];
-}
+//- (void)downloadMarkerData {
+//    NSURL *chitoURL = [NSURL URLWithString:testURL_];
+//
+//    NSURLSessionDataTask *task = [self.markerSession dataTaskWithURL:chitoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *e) {
+//
+//
+//        NSArray *json = [NSJSONSerialization JSONObjectWithData:data
+//                                                        options:0
+//                                                          error:nil];
+//        NSLog(@"### Download json ### %@", json);
+//
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            [self createMarkerObjectsWithJson:json];
+//        }];
+//    }];
+//
+//    [task resume];
+//}
 
 
 /// MRT location
@@ -84,18 +120,27 @@
 */
 
 /// Create market with JSON
-- (void)createMarkerObjectsWithJson:(NSArray *)json {
+- (void)createMarkerObjectsWithJson:(NSObject *)json {
+    NSLog(@"Hi ## 1!");
+    NSDictionary *dicJson = (NSDictionary*)json;
     NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:self.markers];
-    for (NSDictionary *markerData in json) {
+    for (NSDictionary *markerData in dicJson[@"data"]) {
+        NSLog(@"Hi ## 2!");
+        NSLog(@"markerData: %@", markerData);
         CSMarker *newMarker = [[CSMarker alloc] init];
+        NSLog(@"Hi ## 3!");
         newMarker.objectID = [markerData[@"id"] stringValue];
+        NSLog(@"Hi ## 4!");
         newMarker.title = markerData[@"name"];
-        newMarker.snippet = markerData[@"address"];
+        NSLog(@"Hi ## 5!");
+        newMarker.snippet = markerData[@"tel"];
+        NSLog(@"Hi ## 6!");
 //        newMarker.appearAnimation = [markerData[@"appearAnimation"] integerValue];
         newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
-                                                        [markerData[@"longitude"] doubleValue]);
+                                                        [markerData[@"longtitude"] doubleValue]);
+        NSLog(@"Hi ## 7!");
         newMarker.map = nil;
-
+        NSLog(@"Hi ## 8!");
         [mutableSet addObject:newMarker];
     }
     self.markers = [mutableSet copy];
