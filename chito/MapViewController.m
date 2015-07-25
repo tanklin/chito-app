@@ -62,21 +62,16 @@
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"]
 //                                                 forKey:@"auto_token"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-            NSLog(@"===Post JSON === %@", responseObject);
-            NSLog(@"Hi!");
+        [[NSUserDefaults standardUserDefaults] synchronize];
 
 //          NSData *yelpData_ = (NSData *)responseObject;
           NSData *yelpData_ = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
-          NSLog(@"NSData === %@", yelpData_);
+
             NSArray *json = [NSJSONSerialization JSONObjectWithData:yelpData_
                                                             options:kNilOptions
                                                               error:nil];
-          NSLog(@"Hi2!");
-                    NSLog(@"### Download json ### %@", json);
 
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                NSLog(@"Hi3!");
                 [self createMarkerObjectsWithJson:json];
             }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -121,26 +116,19 @@
 
 /// Create market with JSON
 - (void)createMarkerObjectsWithJson:(NSObject *)json {
-    NSLog(@"Hi ## 1!");
     NSDictionary *dicJson = (NSDictionary*)json;
     NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:self.markers];
     for (NSDictionary *markerData in dicJson[@"data"]) {
-        NSLog(@"Hi ## 2!");
-        NSLog(@"markerData: %@", markerData);
         CSMarker *newMarker = [[CSMarker alloc] init];
-        NSLog(@"Hi ## 3!");
         newMarker.objectID = [markerData[@"id"] stringValue];
-        NSLog(@"Hi ## 4!");
         newMarker.title = markerData[@"name"];
-        NSLog(@"Hi ## 5!");
         newMarker.snippet = markerData[@"tel"];
-        NSLog(@"Hi ## 6!");
-//        newMarker.appearAnimation = [markerData[@"appearAnimation"] integerValue];
+        newMarker.appearAnimation = kGMSMarkerAnimationPop;
         newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
                                                         [markerData[@"longtitude"] doubleValue]);
-        NSLog(@"Hi ## 7!");
+        newMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
         newMarker.map = nil;
-        NSLog(@"Hi ## 8!");
+
         [mutableSet addObject:newMarker];
     }
     self.markers = [mutableSet copy];
@@ -153,7 +141,7 @@
 {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.0517118
                                                             longitude:121.5319346
-                                                                 zoom:18];
+                                                                 zoom:13];
     mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
     
     mapView_.delegate = self;
@@ -167,9 +155,10 @@
     mapView_.settings.compassButton = YES;
     mapView_.settings.rotateGestures = YES;
     
-    mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 5, 0, self.bottomLayoutGuide.length + 5, 0);
+    mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 10, 0, self.bottomLayoutGuide.length + 10, 0);
     
     [mapView_ setMinZoom:8 maxZoom:18];
+
     [self.view addSubview:mapView_];
 }
 
