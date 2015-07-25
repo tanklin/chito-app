@@ -29,7 +29,19 @@
 @end
 
 @implementation MapViewController
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [mapView_ addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+}
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqual:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
+        [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude longitude:mapView_.myLocation.coordinate.longitude zoom:15]];
+        NSLog(@"User's location: %@", (NSString*)mapView_.myLocation);
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,9 +61,10 @@
 
 }
 
+
+/// POST and GET Restaurant Categories.
 - (void)postJson
 {
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{
                                  @"category":@3,
@@ -135,19 +148,23 @@
     [self drawMarkers];
 }
 
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
+{
+    
+}
 
 /// Load Google Map
 - (void)mapViewDidLoad
 {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.0517118
-                                                            longitude:121.5319346
-                                                                 zoom:13];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude
+                                                            longitude:mapView_.myLocation.coordinate.longitude
+                                                                 zoom:10];
     mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
-    
+
     mapView_.delegate = self;
     
     mapView_.myLocationEnabled = YES;
-    NSLog(@"User's location: %@", mapView_.myLocation);
+
     mapView_.accessibilityElementsHidden = NO;
     
     mapView_.settings.scrollGestures = YES;
@@ -290,5 +307,12 @@
         }
     }
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [mapView_ removeObserver:self forKeyPath:@"myLocation"];
+}
+
 
 @end
