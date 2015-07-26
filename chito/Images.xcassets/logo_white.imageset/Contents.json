@@ -2,13 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "CHiTO_Pin.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "CHiTO_Pin@2x.png"
+      "filename" : "logo_white.png"
     },
     {
       "idiom" : "universal",

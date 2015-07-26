@@ -23,6 +23,9 @@
 
 @property (strong, nonatomic) NSURLSession *markerSession;
 @property (copy, nonatomic) NSSet *markers;
+@property BOOL isFirstTimeGetLocation;
+
+
 
 //@property (strong, nonatomic) NSData *yelpData;
 
@@ -38,14 +41,17 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqual:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-        [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude longitude:mapView_.myLocation.coordinate.longitude zoom:15]];
-        NSLog(@"User's location: %@", (NSString*)mapView_.myLocation);
+        if (self.isFirstTimeGetLocation) {
+            [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude longitude:mapView_.myLocation.coordinate.longitude zoom:15]];
+            self.isFirstTimeGetLocation = NO;
+            NSLog(@"User's location: %@", (NSString*)mapView_.myLocation);
+        }
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.isFirstTimeGetLocation = YES;
 /// Session generate markers
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     config.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:2*1024*1024 diskCapacity:10*1024*1024 diskPath:@"MarkerData"];
@@ -169,6 +175,7 @@
     
     mapView_.settings.scrollGestures = YES;
     mapView_.settings.zoomGestures = YES;
+    mapView_.settings.myLocationButton = YES;
     mapView_.settings.compassButton = YES;
     mapView_.settings.rotateGestures = YES;
     

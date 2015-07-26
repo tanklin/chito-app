@@ -43,12 +43,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="V0O-xz-M6z">
-                                <rect key="frame" x="50" y="37" width="220" height="112"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="HoG-VA-jny"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtq-Fa-Qa2">
                                 <rect key="frame" x="75" y="500" width="171" height="30"/>
                                 <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
@@ -80,15 +74,6 @@
                                     <action selector="fbLoginButtonDidPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1ZX-Y9-STT"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="一分鐘 在城市找到你的下一餐" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRE-Nd-ZAX">
-                                <rect key="frame" x="37" y="149" width="246" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="MoT-J3-Hat"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92M-M6-lUH">
                                 <rect key="frame" x="20" y="538" width="22" height="22"/>
                                 <connections>
@@ -96,13 +81,28 @@
                                     <segue destination="GYz-i5-aDK" kind="push" id="DfF-KD-Dst"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="V0O-xz-M6z">
+                                <rect key="frame" x="81" y="120" width="158" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="HoG-VA-jny"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一分鐘 在城市找到你的下一餐" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRE-Nd-ZAX">
+                                <rect key="frame" x="37" y="208" width="246" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="MoT-J3-Hat"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V0O-xz-M6z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="50" id="0yB-Lp-4W5"/>
-                            <constraint firstItem="wRE-Nd-ZAX" firstAttribute="top" secondItem="V0O-xz-M6z" secondAttribute="bottom" id="2St-EZ-Dy0"/>
-                            <constraint firstItem="V0O-xz-M6z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="17" id="6RU-so-qmV"/>
-                            <constraint firstAttribute="trailing" secondItem="V0O-xz-M6z" secondAttribute="trailing" constant="50" id="Cv1-ez-VVI"/>
+                            <constraint firstItem="V0O-xz-M6z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="81" id="0yB-Lp-4W5"/>
+                            <constraint firstItem="wRE-Nd-ZAX" firstAttribute="top" secondItem="V0O-xz-M6z" secondAttribute="bottom" constant="8" id="2St-EZ-Dy0"/>
+                            <constraint firstItem="V0O-xz-M6z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="56" id="6RU-so-qmV"/>
+                            <constraint firstAttribute="trailing" secondItem="V0O-xz-M6z" secondAttribute="trailing" constant="81" id="Cv1-ez-VVI"/>
                             <constraint firstItem="jKH-xa-Qis" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="50" id="EHs-ia-jqk"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jtq-Fa-Qa2" secondAttribute="bottom" constant="38" id="Lqi-PY-t7x"/>
                             <constraint firstItem="jtq-Fa-Qa2" firstAttribute="centerX" secondItem="jKH-xa-Qis" secondAttribute="centerX" id="VrL-Xi-rbe"/>
@@ -181,7 +181,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kza-UZ-5p7">
                                                                             <rect key="frame" x="8" y="31" width="264" height="21"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -473,7 +473,7 @@ CHiTO推薦在你附近的餐廳
     </scenes>
     <resources>
         <image name="Login_bg_why" width="375" height="667"/>
-        <image name="logo" width="472" height="322"/>
+        <image name="logo" width="230" height="109"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
