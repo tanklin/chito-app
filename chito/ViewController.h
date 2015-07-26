@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RESideMenu.h"
+#import "RESideMenu/RESideMenu.h"
+#import "EAIntroView/EAIntroView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <EAIntroDelegate>
 
 
 @end

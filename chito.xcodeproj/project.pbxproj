@@ -22,6 +22,12 @@
 		C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */; };
 		C15C80EB1B540A960024F0B5 /* chitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80EA1B540A960024F0B5 /* chitoTests.m */; };
 		C16B0FFE1B5FE1A000316783 /* CSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C16B0FFD1B5FE1A000316783 /* CSMarker.m */; };
+		C1A6AA8A1B64D8AB0058CCC4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A6AA861B64D8AB0058CCC4 /* Bolts.framework */; };
+		C1A6AA8B1B64D8AC0058CCC4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A6AA871B64D8AB0058CCC4 /* FBSDKCoreKit.framework */; };
+		C1A6AA8C1B64D8AC0058CCC4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A6AA881B64D8AB0058CCC4 /* FBSDKLoginKit.framework */; };
+		C1A6AA8D1B64D8AC0058CCC4 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A6AA891B64D8AB0058CCC4 /* FBSDKShareKit.framework */; };
+		C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA8F1B64F7B10058CCC4 /* GV.m */; };
+		C1A6AA931B652D230058CCC4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA921B652D230058CCC4 /* ThirdViewController.m */; };
 		C1BF26001B5CDB7600CCB79B /* yelpJsonTest.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */; };
 		C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */; };
 		C1BF260B1B5D619D00CCB79B /* mrtJson.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF260A1B5D619D00CCB79B /* mrtJson.json */; };
@@ -73,6 +79,14 @@
 		C15C80EA1B540A960024F0B5 /* chitoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chitoTests.m; sourceTree = "<group>"; };
 		C16B0FFC1B5FE1A000316783 /* CSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMarker.h; sourceTree = "<group>"; };
 		C16B0FFD1B5FE1A000316783 /* CSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMarker.m; sourceTree = "<group>"; };
+		C1A6AA861B64D8AB0058CCC4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C1A6AA871B64D8AB0058CCC4 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C1A6AA881B64D8AB0058CCC4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C1A6AA891B64D8AB0058CCC4 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		C1A6AA8E1B64F7B10058CCC4 /* GV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GV.h; sourceTree = "<group>"; };
+		C1A6AA8F1B64F7B10058CCC4 /* GV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GV.m; sourceTree = "<group>"; };
+		C1A6AA911B652D230058CCC4 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		C1A6AA921B652D230058CCC4 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yelpJsonTest.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
 		C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
@@ -94,6 +108,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FA2F6D51D37CDF05529295A /* libPods-chito.a in Frameworks */,
+				C1A6AA8B1B64D8AC0058CCC4 /* FBSDKCoreKit.framework in Frameworks */,
+				C1A6AA8D1B64D8AC0058CCC4 /* FBSDKShareKit.framework in Frameworks */,
+				C1A6AA8C1B64D8AC0058CCC4 /* FBSDKLoginKit.framework in Frameworks */,
+				C1A6AA8A1B64D8AB0058CCC4 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +137,10 @@
 		B0E55D18B38CEFADA2A66412 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1A6AA861B64D8AB0058CCC4 /* Bolts.framework */,
+				C1A6AA871B64D8AB0058CCC4 /* FBSDKCoreKit.framework */,
+				C1A6AA881B64D8AB0058CCC4 /* FBSDKLoginKit.framework */,
+				C1A6AA891B64D8AB0058CCC4 /* FBSDKShareKit.framework */,
 				1ABD37D7F1F779CCE737628A /* libPods-chito.a */,
 			);
 			name = Frameworks;
@@ -127,12 +149,16 @@
 		C11CD6241B62358900D2A1E1 /* SideMenu Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C11CD63A1B62892C00D2A1E1 /* RootViewController.h */,
+				C11CD63B1B62892C00D2A1E1 /* RootViewController.m */,
 				C11CD6271B6235A200D2A1E1 /* RightViewController.h */,
 				C11CD6281B6235A200D2A1E1 /* RightViewController.m */,
 				C11CD6341B62759B00D2A1E1 /* FirstViewController.h */,
 				C11CD6351B62759B00D2A1E1 /* FirstViewController.m */,
 				C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */,
 				C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */,
+				C1A6AA911B652D230058CCC4 /* ThirdViewController.h */,
+				C1A6AA921B652D230058CCC4 /* ThirdViewController.m */,
 			);
 			name = "SideMenu Controller";
 			sourceTree = "<group>";
@@ -162,8 +188,6 @@
 			children = (
 				C15C80D21B540A960024F0B5 /* AppDelegate.h */,
 				C15C80D31B540A960024F0B5 /* AppDelegate.m */,
-				C11CD63A1B62892C00D2A1E1 /* RootViewController.h */,
-				C11CD63B1B62892C00D2A1E1 /* RootViewController.m */,
 				C15C80D51B540A960024F0B5 /* ViewController.h */,
 				C15C80D61B540A960024F0B5 /* ViewController.m */,
 				C15C80D81B540A960024F0B5 /* Main.storyboard */,
@@ -224,6 +248,7 @@
 				C1BF260C1B5E245200CCB79B /* SortCollectionViewController.swift */,
 				C1BF26151B5E2C2A00CCB79B /* InterestCollectionViewCell.swift */,
 				C1BF26181B5E351B00CCB79B /* chito-Bridging-Header.h */,
+				C1BF260E1B5E27CA00CCB79B /* Interest.swift */,
 			);
 			name = "Sort Controller";
 			sourceTree = "<group>";
@@ -233,10 +258,11 @@
 			children = (
 				C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */,
 				C1BF260A1B5D619D00CCB79B /* mrtJson.json */,
-				C1BF260E1B5E27CA00CCB79B /* Interest.swift */,
 				C13CCC9B1B5F917400A87C8A /* YelpDataModel.h */,
 				C13CCC9C1B5F917400A87C8A /* YelpDataModel.m */,
 				C15A90CA1B6364020084C8C7 /* color */,
+				C1A6AA8E1B64F7B10058CCC4 /* GV.h */,
+				C1A6AA8F1B64F7B10058CCC4 /* GV.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -416,11 +442,13 @@
 				C1BF26161B5E2C2A00CCB79B /* InterestCollectionViewCell.swift in Sources */,
 				C11CD62A1B6235A200D2A1E1 /* RightViewController.m in Sources */,
 				C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */,
+				C1A6AA931B652D230058CCC4 /* ThirdViewController.m in Sources */,
 				C11CD6361B62759B00D2A1E1 /* FirstViewController.m in Sources */,
 				C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */,
 				C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */,
 				C11CD6391B6275AA00D2A1E1 /* SecondViewController.m in Sources */,
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
+				C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */,
 				C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */,
 				C1BF260F1B5E27CA00CCB79B /* Interest.swift in Sources */,
 				C11CD63C1B62892C00D2A1E1 /* RootViewController.m in Sources */,
@@ -556,6 +584,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = chito/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -575,6 +607,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = chito/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

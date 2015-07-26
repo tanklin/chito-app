@@ -10,5 +10,6 @@
 #import "TheSidebarController.h"
 
 @interface SecondViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIWebView *webChito;
+@property (strong, nonatomic) UIBarButtonItem *rightButton;
 @end

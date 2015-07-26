@@ -50,7 +50,36 @@ extension SortCollectionViewController: UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Storyboard.CellIdentifier, forIndexPath: indexPath) as! InterestCollectionViewCell
         
         cell.interest = self.interests[indexPath.item]
-        
+        println((indexPath.item)+1)
+//        var indexNum = (indexPath.item)+1
+//        println(indexNum)
         return cell
+    }
+}
+
+extension SortCollectionViewController : UICollectionViewDelegate
+{
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    {
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        kID = (indexPath.item) + 1
+//        println("row \(kID) was selected!!")
+    }
+}
+
+extension SortCollectionViewController : UIScrollViewDelegate
+{
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+    {
+        let layout = self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumInteritemSpacing
+
+        var offset = targetContentOffset.memory
+
+        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
+        let roundedIndex = round(index)
+
+        offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
+        targetContentOffset.memory = offset
     }
 }

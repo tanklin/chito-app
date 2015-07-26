@@ -13,6 +13,8 @@
 #import "CSMarker.h"
 #import "RightViewController.h"
 
+#import "GV.h"
+
 #define chitoURL_ @"http://www.chito.city/api/v1/restaurants.json"
 #define testURL_ @"https://raw.githubusercontent.com/evenchange4/mrt_opendata/master/mrt.json"
 
@@ -25,29 +27,13 @@
 @property (copy, nonatomic) NSSet *markers;
 @property BOOL isFirstTimeGetLocation;
 
-
+//@property (assign, nonatomic) id receiveIndexpath;
 
 //@property (strong, nonatomic) NSData *yelpData;
 
 @end
 
 @implementation MapViewController
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [mapView_ addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqual:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-        if (self.isFirstTimeGetLocation) {
-            [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude longitude:mapView_.myLocation.coordinate.longitude zoom:15]];
-            self.isFirstTimeGetLocation = NO;
-            NSLog(@"User's location: %@", (NSString*)mapView_.myLocation);
-        }
-    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,16 +51,33 @@
 //    [self yelpLocationData];
     [self postJson];
 
+    NSLog(@"IDIDID %@", kID);
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [mapView_ addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqual:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
+        if (self.isFirstTimeGetLocation) {
+            [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude longitude:mapView_.myLocation.coordinate.longitude zoom:15]];
+            self.isFirstTimeGetLocation = NO;
+            NSLog(@"User's location: %@", (NSString*)mapView_.myLocation);
+        }
+    }
+}
 
 /// POST and GET Restaurant Categories.
 - (void)postJson
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{
-                                 @"category":@3,
-                                 @"latitude":@25.055288,
+                                 @"category":kID,
+                                 @"latitude":@25.055288,    //南港展覽館
                                  @"longitude":@121.6175001
                                  };
     [manager POST:chitoURL_ parameters:parameters
@@ -143,6 +146,7 @@
         newMarker.title = markerData[@"name"];
         newMarker.snippet = markerData[@"tel"];
         newMarker.appearAnimation = kGMSMarkerAnimationPop;
+        newMarker.infoWindowAnchor = CGPointMake(0.7, 0);
         newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
                                                         [markerData[@"longtitude"] doubleValue]);
         newMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
@@ -152,11 +156,6 @@
     }
     self.markers = [mutableSet copy];
     [self drawMarkers];
-}
-
-- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
-{
-    
 }
 
 /// Load Google Map

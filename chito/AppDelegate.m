@@ -24,6 +24,7 @@
     [FBSDKLoginButton class];    
 
     [GMSServices provideAPIKey:@"AIzaSyC7ztLan0fjcgHcUwbAX3jplG_vq0cbd-k"];
+
     /*
     NSLog(@"Default : I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
     if ([FBSDKAccessToken currentAccessToken].userID == nil) {
@@ -41,8 +42,6 @@
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
     }
      */
-
-
 
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
