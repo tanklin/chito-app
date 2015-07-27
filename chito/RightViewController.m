@@ -110,13 +110,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
 
-    NSArray *titles = @[@" ", @" ", @" ", @" ", @"Home", @"My Pofile", @"About CHiTO", @"Tutorial", @" ", @"Logout"];
+    NSArray *titles = @[@" ", @" ", @" ", @" ", @"首頁", @"收藏", @"關於CHiTO", @"Tutorial", @" ", @"Logout"];
     cell.textLabel.text = titles[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentRight;
 

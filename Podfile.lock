@@ -20,12 +20,31 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Bolts (1.2.0):
+    - Bolts/AppLinks (= 1.2.0)
+    - Bolts/Tasks (= 1.2.0)
+  - Bolts/AppLinks (1.2.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.2.0)
   - ChameleonFramework (1.2.1):
     - ChameleonFramework/Default (= 1.2.1)
   - ChameleonFramework/Default (1.2.1)
   - EAIntroView (2.7.4):
     - EARestrictedScrollView (~> 0.2.0)
   - EARestrictedScrollView (0.2.0)
+  - FBSDKCoreKit (4.4.0):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc (= 4.4.0)
+    - FBSDKCoreKit/no-arc (= 4.4.0)
+  - FBSDKCoreKit/arc (4.4.0):
+    - Bolts (~> 1.1)
+  - FBSDKCoreKit/no-arc (4.4.0):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc
+  - FBSDKLoginKit (4.4.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.4.0):
+    - FBSDKCoreKit
   - GoogleMaps (1.10.1)
   - RESideMenu (4.0.7)
   - TheSidebarController (0.7)
@@ -34,15 +53,22 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - ChameleonFramework
   - EAIntroView (~> 2.7.0)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
   - GoogleMaps
   - RESideMenu (~> 4.0.7)
   - TheSidebarController (~> 0.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
   ChameleonFramework: 3476f813ac1615aef0a9a958f05520dfca47e09d
   EAIntroView: 50b85eedf414260e61330070ffe5947e72493a62
   EARestrictedScrollView: f86d61e16c61d3e93c84f8e96e83122a2a3b7631
+  FBSDKCoreKit: 75bdd75c980e811db218488d99dd93b7740f4474
+  FBSDKLoginKit: 02a9254a4c132412fa03577b0d53e936d068a7fb
+  FBSDKShareKit: a42865f20ba2d1cc548c4d0f73ad22cff6377ddb
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   TheSidebarController: ccb0143e17dcb27d1420e91a2f70fe14103a6f6a

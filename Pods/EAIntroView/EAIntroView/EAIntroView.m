@@ -254,7 +254,7 @@
 - (UIButton *)skipButton {
     if (!_skipButton) {
         _skipButton = [[UIButton alloc] init];
-        [_skipButton setTitle:NSLocalizedString(@"Skip", nil) forState:UIControlStateNormal];
+        [_skipButton setTitle:NSLocalizedString(@"立即開始", nil) forState:UIControlStateNormal];
         [self applyDefaultsToSkipButton];
     }
     return _skipButton;

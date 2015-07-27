@@ -21,10 +21,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [FBSDKLoginButton class];    
+    [FBSDKLoginButton class];
 
     [GMSServices provideAPIKey:@"AIzaSyC7ztLan0fjcgHcUwbAX3jplG_vq0cbd-k"];
 
+    // check if user is logged in and had a token
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"auth_token"]) {
+        UIViewController *firstVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"rootController"];
+        self.window.rootViewController = firstVC;
+    }
     /*
     NSLog(@"Default : I got user id == %@", [FBSDKAccessToken currentAccessToken].userID);
     if ([FBSDKAccessToken currentAccessToken].userID == nil) {
@@ -54,6 +59,14 @@
                                                        annotation:annotation];
 }
 
+/*
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"### token ### %@", token);
+}
+*/
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

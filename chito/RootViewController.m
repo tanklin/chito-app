@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "RightViewController.h"
 #import "ViewController.h"
+#import <FBSDKCoreKit/FBSDKAccessToken.h>
 
 @interface RootViewController ()
 
@@ -29,7 +30,7 @@
     self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenuViewController"];
     self.backgroundImage = [UIImage imageNamed:@"bg_sideMenu"];
     self.delegate = self;
-
+    NSLog(@"%@",[FBSDKAccessToken currentAccessToken].tokenString);
 }
 
 #pragma mark -
@@ -37,22 +38,22 @@
 
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
 {
-    NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+//    NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
 {
-    NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+//    NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
 {
-    NSLog(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+//    NSLog(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
 {
-    NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+//    NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 @end

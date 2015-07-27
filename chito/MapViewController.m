@@ -16,11 +16,15 @@
 #import "GV.h"
 
 #define chitoURL_ @"http://www.chito.city/api/v1/restaurants.json"
+#define favoriteURL_ @"http://www.chito.city/api/v1/"
 #define testURL_ @"https://raw.githubusercontent.com/evenchange4/mrt_opendata/master/mrt.json"
 
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
     GMSMapView *mapView_;
+    double kLati;
+    double kLong;
+    id kkLati;
 }
 
 @property (strong, nonatomic) NSURLSession *markerSession;
@@ -46,12 +50,12 @@
     [self mapViewDidLoad];
 
 
-//    [self setUpMarkerData];
+    [self setUpMarkerData];
 //    [self downloadMarkerData];
 //    [self yelpLocationData];
     [self postJson];
 
-    NSLog(@"IDIDID %@", kID);
+    NSLog(@"Restaurant Type: %@", kID);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -66,7 +70,9 @@
         if (self.isFirstTimeGetLocation) {
             [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude longitude:mapView_.myLocation.coordinate.longitude zoom:15]];
             self.isFirstTimeGetLocation = NO;
-            NSLog(@"User's location: %@", (NSString*)mapView_.myLocation);
+            kLati = mapView_.myLocation.coordinate.latitude;
+            kLong = mapView_.myLocation.coordinate.longitude;
+            NSLog(@"User's location:%f,%f", kLati, kLong);
         }
     }
 }
@@ -76,9 +82,9 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{
-                                 @"category":kID,
-                                 @"latitude":@25.055288,    //南港展覽館
-                                 @"longitude":@121.6175001
+                                 @"category":kID,           //南港展覽館
+                                 @"latitude":@25.055288,    //25.055288
+                                 @"longitude":@121.6175001  //121.6175001
                                  };
     [manager POST:chitoURL_ parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -277,33 +283,31 @@
 
 
 /// 手刻Markers資料
-/*
 - (void)setUpMarkerData
 {
     GMSMarker *testMarker = [[GMSMarker alloc] init];
-    testMarker.position = CLLocationCoordinate2DMake(25.051775, 121.534016);
+    testMarker.position = CLLocationCoordinate2DMake(24.163397, 120.662579);
     testMarker.appearAnimation = kGMSMarkerAnimationPop;
-    testMarker.title = @"品田牧場";
-    testMarker.snippet = @"0225077279";
+    testMarker.title = @"我是Tank, I❤️CODE";
+    testMarker.snippet = @"iOS Developer, I need a job";
 //    testMarker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-    testMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
+    testMarker.icon = [UIImage imageNamed:@"tank_marker"];
 //    testMarker.icon = [self imageFromView:[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] [0]];
     testMarker.map = mapView_;
     
-    GMSMarker *testMarker2 = [[GMSMarker alloc] init];
-    testMarker2.position = CLLocationCoordinate2DMake(25.050643, 121.532047);
-    testMarker2.appearAnimation = kGMSMarkerAnimationPop;
-    testMarker2.title = @"京東洋食燒烤";
-    testMarker2.snippet = @"0225236737";
-//    testMarker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-    testMarker2.icon = [UIImage imageNamed:@"CHiTO_Pin"];
-    testMarker2.map = mapView_;
+//    GMSMarker *testMarker2 = [[GMSMarker alloc] init];
+//    testMarker2.position = CLLocationCoordinate2DMake(25.050643, 121.532047);
+//    testMarker2.appearAnimation = kGMSMarkerAnimationPop;
+//    testMarker2.title = @"京東洋食燒烤";
+//    testMarker2.snippet = @"0225236737";
+////    testMarker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+//    testMarker2.icon = [UIImage imageNamed:@"CHiTO_Pin"];
+//    testMarker2.map = mapView_;
 
 //    self.markers = [NSSet setWithObjects:testMarker, testMarker2, nil];
 
 //    [self drawMarkers];
 }
-*/
 
 - (void)drawMarkers
 {

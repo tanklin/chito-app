@@ -10,4 +10,6 @@
 
 @implementation GV
 id kID = 0;
+//id kLati = 0;
+//id kLong = 0;
 @end

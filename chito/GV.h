@@ -10,4 +10,6 @@
 
 @interface GV : NSObject
 extern id kID;
+//extern id kLati; // 緯度
+//extern id kLong; // 經度
 @end
