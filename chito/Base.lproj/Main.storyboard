@@ -79,23 +79,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92M-M6-lUH">
-                                <rect key="frame" x="16" y="538" width="22" height="22"/>
-                                <connections>
-                                    <action selector="testButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="i0p-Xg-OqM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBr-kZ-IIt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBr-kZ-IIt">
                                 <rect key="frame" x="37" y="445" width="246" height="46"/>
                                 <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="buA-ws-xEN"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Facebook Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" title="Facebook Login"/>
                                 <connections>
                                     <action selector="fbLoginButtonDidPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3dM-Hm-xUS"/>
                                 </connections>
@@ -113,13 +104,11 @@
                             <constraint firstItem="V0O-xz-M6z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="81" id="0yB-Lp-4W5"/>
                             <constraint firstItem="wRE-Nd-ZAX" firstAttribute="top" secondItem="V0O-xz-M6z" secondAttribute="bottom" constant="8" id="2St-EZ-Dy0"/>
                             <constraint firstItem="V0O-xz-M6z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="6RU-so-qmV"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="92M-M6-lUH" secondAttribute="bottom" constant="8" id="BGR-DJ-G8b"/>
                             <constraint firstAttribute="trailing" secondItem="V0O-xz-M6z" secondAttribute="trailing" constant="81" id="Cv1-ez-VVI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ApN-sU-jVR" secondAttribute="trailing" constant="21" id="F2I-UA-Iw4"/>
                             <constraint firstItem="ApN-sU-jVR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="21" id="F6h-6D-ZIE"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jtq-Fa-Qa2" secondAttribute="bottom" constant="27" id="Lqi-PY-t7x"/>
                             <constraint firstItem="jtq-Fa-Qa2" firstAttribute="top" secondItem="kBr-kZ-IIt" secondAttribute="bottom" constant="20" id="SCa-OH-8NY"/>
-                            <constraint firstItem="92M-M6-lUH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Teb-w6-aiq"/>
                             <constraint firstItem="kBr-kZ-IIt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="37" id="WOG-ts-Dpm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wRE-Nd-ZAX" secondAttribute="trailing" constant="21" id="aNU-ue-uwK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jtq-Fa-Qa2" secondAttribute="trailing" constant="58" id="aYf-RX-1KC"/>
@@ -317,12 +306,26 @@
                     <view key="view" contentMode="scaleToFill" id="Hbb-Pu-6TV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97670525312423706" green="0.60546392202377319" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="iDW-uX-8JH">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ypT-UP-xQt">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="osu-7R-1nw">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <connections>
+                                <action selector="presentRightMenuViewController:" destination="YoI-Nu-eqF" id="fhf-SR-tON"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk7-m6-qSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="319"/>
+            <point key="canvasLocation" x="1945" y="-325"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="wK6-Oh-j19">
@@ -361,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfu-SY-mh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="959"/>
+            <point key="canvasLocation" x="1945" y="315"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="cjk-w9-D8a">
@@ -379,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MM-Gn-jrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="1606"/>
+            <point key="canvasLocation" x="1945" y="962"/>
         </scene>
         <!--Right View Controller-->
         <scene sceneID="rgR-jp-LXj">
@@ -518,7 +521,7 @@ CHiTO推薦在你附近的餐廳
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3U-aL-j58" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1123" y="959"/>
+            <point key="canvasLocation" x="1529" y="315"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hPi-Q7-efS">
@@ -538,6 +541,24 @@ CHiTO推薦在你附近的餐廳
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPd-bI-eNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="374" y="319"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Clc-e0-r4V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EDc-2J-JdI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbR-dI-MoP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YoI-Nu-eqF" kind="relationship" relationship="rootViewController" id="N3X-C2-23u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="deP-g7-PwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1529" y="-325"/>
         </scene>
     </scenes>
     <resources>

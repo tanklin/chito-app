@@ -7,17 +7,25 @@
 //
 
 #import "MapViewController.h"
-#import <AFNetworking.h>
-#import <GoogleMaps/GoogleMaps.h>
 #import "CustomInfoWindow.h"
 #import "CSMarker.h"
 #import "RightViewController.h"
-
 #import "GV.h"
+#import <SIAlertView/SIAlertView.h>
+#import <AFNetworking.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-#define chitoURL_ @"http://www.chito.city/api/v1/restaurants.json"
-#define favoriteURL_ @"http://www.chito.city/api/v1/"
-#define testURL_ @"https://raw.githubusercontent.com/evenchange4/mrt_opendata/master/mrt.json"
+#define chitoURL_ @"http://www.chito.city/api/v1/restaurants"
+
+#define visit @"http://www.chito.city/api/v1/visit" //點marker 傳 user_id 及 res_id
+#define visit_get @"http://www.chito.city/api/v1/visit_get" //最近瀏覽 user_id
+
+#define favorite_get @"http://www.chito.city/api/v1/favorite_get" //取得收藏的資料 user_id
+#define favorite_Like @"http://www.chito.city/api/v1/favorite_like"  //加入收藏 user_id 及 res_id
+
+#define favorite_no_more @"http://www.chito.city/api/v1/favorite_no_more"  //取消收藏 user_id 及 res_id
+#define favorite_dislike @"http://www.chito.city/api/v1/favorite_dislike"  //不再看到餐廳 user_id 及 res_id
+
 
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
@@ -25,6 +33,7 @@
     double kLati;
     double kLong;
     id kkLati;
+    NSString *tel;
 }
 
 @property (strong, nonatomic) NSURLSession *markerSession;
@@ -64,6 +73,7 @@
     [mapView_ addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+/// Observe User Loction
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqual:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
@@ -90,7 +100,7 @@
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"]
 //                                                 forKey:@"auto_token"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
 
 //          NSData *yelpData_ = (NSData *)responseObject;
           NSData *yelpData_ = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
@@ -142,7 +152,7 @@
 }
 */
 
-/// Create market with JSON
+/// Create market with Networking Json
 - (void)createMarkerObjectsWithJson:(NSObject *)json {
     NSDictionary *dicJson = (NSDictionary*)json;
     NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:self.markers];
@@ -154,7 +164,7 @@
         newMarker.appearAnimation = kGMSMarkerAnimationPop;
         newMarker.infoWindowAnchor = CGPointMake(0.7, 0);
         newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
-                                                        [markerData[@"longtitude"] doubleValue]);
+                                                        [markerData[@"longitude"] doubleValue]);
         newMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
         newMarker.map = nil;
 
@@ -268,32 +278,78 @@
 
 /// Alert視窗
 
-- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-    NSString *tel = [NSString stringWithFormat:@"%@", marker.snippet];
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+{
+    tel = [NSString stringWithFormat:@"%@", marker.snippet];
     NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title];
-    UIAlertView *windowTapped = [[UIAlertView alloc]
-                                 initWithTitle:tel
-                                       message:message
-                                      delegate:nil
-                             cancelButtonTitle:@"確定撥打電話"
-                             otherButtonTitles:nil];
-    
-    [windowTapped show];
-}
+//    UIAlertView *windowTapped = [[UIAlertView alloc]
+//                                 initWithTitle:tel
+//                                       message:message
+//                                      delegate:nil
+//                             cancelButtonTitle:@"取消"
+//                             otherButtonTitles:@"確定撥打電話", nil];
+//    
+//    [windowTapped show];
 
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:tel andMessage:message];
+
+    [alertView addButtonWithTitle:@"確定撥打電話"
+                             type:SIAlertViewButtonTypeDefault
+                          handler:^(SIAlertView *alert) {
+                              [self callServices];
+                              NSLog(@"Button1 Clicked");
+                          }];
+    [alertView addButtonWithTitle:@"再看看"
+                             type:SIAlertViewButtonTypeCancel
+                          handler:^(SIAlertView *alert) {
+                              NSLog(@"Button2 Clicked");
+                          }];
+    //    [alertView addButtonWithTitle:@"Button3"
+    //                             type:SIAlertViewButtonTypeDestructive
+    //                          handler:^(SIAlertView *alert) {
+    //                              NSLog(@"Button3 Clicked");
+    //                          }];
+
+    alertView.willShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willShowHandler", alertView);
+    };
+    alertView.didShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didShowHandler", alertView);
+    };
+    alertView.willDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willDismissHandler", alertView);
+    };
+    alertView.didDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didDismissHandler", alertView);
+    };
+    
+    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+    
+    [alertView show];
+}
+- (void)callServices
+{
+    NSString *temp = [tel stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *phoneURL = [NSString stringWithFormat:@"tel://%@", temp];
+    NSLog(@"Call %@", phoneURL);
+    BOOL ifCall = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneURL]];
+    if (!ifCall) {
+        NSLog(@"calling error");
+    }
+}
 
 /// 手刻Markers資料
 - (void)setUpMarkerData
 {
-    GMSMarker *testMarker = [[GMSMarker alloc] init];
-    testMarker.position = CLLocationCoordinate2DMake(24.163397, 120.662579);
-    testMarker.appearAnimation = kGMSMarkerAnimationPop;
-    testMarker.title = @"我是Tank, I❤️CODE";
-    testMarker.snippet = @"iOS Developer, I need a job";
+    GMSMarker *markerTank = [[GMSMarker alloc] init];
+    markerTank.position = CLLocationCoordinate2DMake(24.163397, 120.662579);
+    markerTank.appearAnimation = kGMSMarkerAnimationPop;
+    markerTank.title = @"我是Tank, I❤️CODE";
+    markerTank.snippet = @"iOS Developer, I need a job";
 //    testMarker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-    testMarker.icon = [UIImage imageNamed:@"tank_marker"];
+    markerTank.icon = [UIImage imageNamed:@"tank_marker"];
 //    testMarker.icon = [self imageFromView:[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] [0]];
-    testMarker.map = mapView_;
+    markerTank.map = mapView_;
     
 //    GMSMarker *testMarker2 = [[GMSMarker alloc] init];
 //    testMarker2.position = CLLocationCoordinate2DMake(25.050643, 121.532047);

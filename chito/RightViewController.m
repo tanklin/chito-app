@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 10) / 2.0f, self.view.frame.size.width, 54 * 10) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 11) / 2.0f, self.view.frame.size.width, 54 * 11) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -65,18 +65,20 @@
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 6:
+            break;
+        case 7:
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 7:
+        case 8:
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 8:
-            break;
         case 9:
+            break;
+        case 10:
             break;
         default:
             break;
@@ -98,7 +100,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 10;
+    return 11;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,7 +118,7 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
 
-    NSArray *titles = @[@" ", @" ", @" ", @" ", @"首頁", @"收藏", @"關於CHiTO", @"Tutorial", @" ", @"Logout"];
+    NSArray *titles = @[@" ", @" ", @" ", @" ", @"首頁", @"我的收藏", @"最近瀏覽", @"關於CHiTO", @"Tutorial", @" ", @"Logout"];
     cell.textLabel.text = titles[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentRight;
 
