@@ -13,7 +13,7 @@
 #import <AFNetworking.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-#define favoriteURL_ @"http://www.chito.city/api/v1/restaurants"
+#define favoriteURL_ @"http://4c5f9266.ngrok.com/api/v1/visit_get"
 
 @interface FirstViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
@@ -81,9 +81,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{
-                                 @"category":@6,           //南港展覽館
-                                 @"latitude":@25.055288,    //25.055288
-                                 @"longitude":@121.6175001  //121.6175001
+                                 @"user_id":@5
                                  };
     [manager POST:favoriteURL_ parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {

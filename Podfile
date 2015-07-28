@@ -18,5 +18,6 @@ pod 'RESideMenu', '~> 4.0.7'
 pod 'TheSidebarController', '~> 0.6'
 pod 'EAIntroView', '~> 2.7.0'
 pod 'MBProgressHUD', '~> 0.8'
+pod 'SIAlertView'
 
 end

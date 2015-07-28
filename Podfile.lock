@@ -48,6 +48,7 @@ PODS:
   - GoogleMaps (1.10.1)
   - MBProgressHUD (0.9.1)
   - RESideMenu (4.0.7)
+  - SIAlertView (1.3)
   - TheSidebarController (0.7)
 
 DEPENDENCIES:
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - GoogleMaps
   - MBProgressHUD (~> 0.8)
   - RESideMenu (~> 4.0.7)
+  - SIAlertView
   - TheSidebarController (~> 0.6)
 
 SPEC CHECKSUMS:
@@ -74,6 +76,7 @@ SPEC CHECKSUMS:
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SIAlertView: 20c794b55eaf44d888773ea51647cf8907723919
   TheSidebarController: ccb0143e17dcb27d1420e91a2f70fe14103a6f6a
 
 COCOAPODS: 0.38.2

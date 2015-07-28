@@ -23,6 +23,7 @@
 		C16B0FFE1B5FE1A000316783 /* CSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C16B0FFD1B5FE1A000316783 /* CSMarker.m */; };
 		C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA8F1B64F7B10058CCC4 /* GV.m */; };
 		C1A6AA931B652D230058CCC4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA921B652D230058CCC4 /* ThirdViewController.m */; };
+		C1A6AA961B67C2540058CCC4 /* VisitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */; };
 		C1BF26001B5CDB7600CCB79B /* yelpJsonTest.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */; };
 		C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */; };
 		C1BF260B1B5D619D00CCB79B /* mrtJson.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF260A1B5D619D00CCB79B /* mrtJson.json */; };
@@ -76,6 +77,8 @@
 		C1A6AA8F1B64F7B10058CCC4 /* GV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GV.m; sourceTree = "<group>"; };
 		C1A6AA911B652D230058CCC4 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		C1A6AA921B652D230058CCC4 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitTableViewController.h; sourceTree = "<group>"; };
+		C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitTableViewController.m; sourceTree = "<group>"; };
 		C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yelpJsonTest.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
 		C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				C11CD6281B6235A200D2A1E1 /* RightViewController.m */,
 				C11CD6341B62759B00D2A1E1 /* FirstViewController.h */,
 				C11CD6351B62759B00D2A1E1 /* FirstViewController.m */,
+				C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */,
+				C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */,
 				C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */,
 				C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */,
 				C1A6AA911B652D230058CCC4 /* ThirdViewController.h */,
@@ -417,6 +422,7 @@
 				C16B0FFE1B5FE1A000316783 /* CSMarker.m in Sources */,
 				C1D83C031B591B280043D7D4 /* PleaseLoginViewController.m in Sources */,
 				C15C80D71B540A960024F0B5 /* ViewController.m in Sources */,
+				C1A6AA961B67C2540058CCC4 /* VisitTableViewController.m in Sources */,
 				C1BF26161B5E2C2A00CCB79B /* InterestCollectionViewCell.swift in Sources */,
 				C11CD62A1B6235A200D2A1E1 /* RightViewController.m in Sources */,
 				C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */,
