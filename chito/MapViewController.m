@@ -7,13 +7,13 @@
 //
 
 #import "MapViewController.h"
-#import <AFNetworking.h>
-#import <GoogleMaps/GoogleMaps.h>
 #import "CustomInfoWindow.h"
 #import "CSMarker.h"
 #import "RightViewController.h"
-
 #import "GV.h"
+
+#import <AFNetworking.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 #define chitoURL_ @"http://www.chito.city/api/v1/restaurants.json"
 #define favoriteURL_ @"http://www.chito.city/api/v1/"
@@ -64,6 +64,7 @@
     [mapView_ addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+/// Observe User Loction
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqual:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
@@ -90,7 +91,7 @@
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"]
 //                                                 forKey:@"auto_token"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
 
 //          NSData *yelpData_ = (NSData *)responseObject;
           NSData *yelpData_ = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
@@ -142,7 +143,7 @@
 }
 */
 
-/// Create market with JSON
+/// Create market with Networking Json
 - (void)createMarkerObjectsWithJson:(NSObject *)json {
     NSDictionary *dicJson = (NSDictionary*)json;
     NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:self.markers];
@@ -154,7 +155,7 @@
         newMarker.appearAnimation = kGMSMarkerAnimationPop;
         newMarker.infoWindowAnchor = CGPointMake(0.7, 0);
         newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
-                                                        [markerData[@"longtitude"] doubleValue]);
+                                                        [markerData[@"longitude"] doubleValue]);
         newMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
         newMarker.map = nil;
 
@@ -268,7 +269,8 @@
 
 /// Alert視窗
 
-- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+{
     NSString *tel = [NSString stringWithFormat:@"%@", marker.snippet];
     NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title];
     UIAlertView *windowTapped = [[UIAlertView alloc]

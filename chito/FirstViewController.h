@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TheSidebarController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <GMSMapViewDelegate>
 
 @end

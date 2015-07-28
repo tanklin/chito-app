@@ -46,6 +46,7 @@ PODS:
   - FBSDKShareKit (4.4.0):
     - FBSDKCoreKit
   - GoogleMaps (1.10.1)
+  - MBProgressHUD (0.9.1)
   - RESideMenu (4.0.7)
   - TheSidebarController (0.7)
 
@@ -57,6 +58,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - GoogleMaps
+  - MBProgressHUD (~> 0.8)
   - RESideMenu (~> 4.0.7)
   - TheSidebarController (~> 0.6)
 
@@ -70,7 +72,8 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 02a9254a4c132412fa03577b0d53e936d068a7fb
   FBSDKShareKit: a42865f20ba2d1cc548c4d0f73ad22cff6377ddb
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   TheSidebarController: ccb0143e17dcb27d1420e91a2f70fe14103a6f6a
 
-COCOAPODS: 0.38.0
+COCOAPODS: 0.38.2

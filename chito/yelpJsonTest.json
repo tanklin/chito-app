@@ -1,22 +1,20 @@
 {
-    "json": [
+    "data": [
         {
-             "appearAnimation": 1,
              "id": 1,
              "name": "佳佳牛排",
              "tel": "02-2631-2436",
-             "address": "東湖路119巷30號 內湖區 Taiwan",
+             "address": "台北市內湖區東湖路119巷30號",
              "latitude": 25.0691798,
-             "longtitude": 121.6169441
+             "longitude": 121.6169441
         },
         {
-             "appearAnimation": 1,
              "id": 2,
              "name": "滿堂紅頂級麻辣鴛鴦火鍋",
              "tel": "02-2517-0889",
              "address": "台北市中山區松江路185號2樓",
              "latitude": 25.0584368,
-             "longtitude": 121.532857
+             "longitude": 121.532857
         }
 
     ]

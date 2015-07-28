@@ -11,8 +11,10 @@
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <AFNetworking.h>
+#import "MBProgressHUD.h"
 
 #define loginURL_ @"http://www.chito.city/api/v1/login"
+#define testloginURL_ @"http://4c5f9266.ngrok.com/api/v1/login"
 
 @interface ViewController ()
 {
@@ -92,6 +94,14 @@
 
     [self background];
 
+    /// ProgressHUD
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        // Do something...
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -106,7 +116,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":[FBSDKAccessToken currentAccessToken].tokenString};
-    [manager POST:loginURL_ parameters:parameters
+    [manager POST:testloginURL_ parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"] forKey:@"auto_token"];
               [[NSUserDefaults standardUserDefaults] synchronize];
@@ -133,7 +143,7 @@
 - (IBAction)fbLoginButtonDidPressed:(UIButton *)sender {
     NSLog(@"### FB Login Button Did Pressed ###");
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[@"public_profile", @"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    [login logInWithReadPermissions:@[@"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
             // Process error
         } else if (result.isCancelled) {
