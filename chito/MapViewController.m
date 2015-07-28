@@ -98,17 +98,12 @@
                                  };
     [manager POST:chitoURL_ parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"]
-//                                                 forKey:@"auto_token"];
+//        [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"] forKey:@"auto_token"];
 //        [[NSUserDefaults standardUserDefaults] synchronize];
-
 //          NSData *yelpData_ = (NSData *)responseObject;
-          NSData *yelpData_ = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
-
-            NSArray *json = [NSJSONSerialization JSONObjectWithData:yelpData_
-                                                            options:kNilOptions
-                                                              error:nil];
-
+            NSData *yelpData_ = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+            NSArray *json = [NSJSONSerialization JSONObjectWithData:yelpData_ options:kNilOptions error:nil];
+            NSLog(@"=== Post Visit Restaurants === %@",json);
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self createMarkerObjectsWithJson:json];
             }];
@@ -181,28 +176,21 @@
                                                             longitude:mapView_.myLocation.coordinate.longitude
                                                                  zoom:10];
     mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
-
     mapView_.delegate = self;
-    
     mapView_.myLocationEnabled = YES;
-
     mapView_.accessibilityElementsHidden = NO;
-    
     mapView_.settings.scrollGestures = YES;
     mapView_.settings.zoomGestures = YES;
     mapView_.settings.myLocationButton = YES;
     mapView_.settings.compassButton = YES;
     mapView_.settings.rotateGestures = YES;
-    
     mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 10, 0, self.bottomLayoutGuide.length + 10, 0);
-    
     [mapView_ setMinZoom:8 maxZoom:18];
-
     [self.view addSubview:mapView_];
 }
 
 
-/// 用nib客製marker infoWindow
+// 用nib客製marker infoWindow
 /*
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
@@ -216,10 +204,10 @@
     
     return infoWindow;
 }
-*/
+
 
 /// 手刻marker InfoWindow
-/*
+
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     // info window setup
@@ -260,8 +248,7 @@
 
     return infoWindow;
 }
-*/
-/*
+
 - (UIImage *)imageFromView:(UIView *) view
 {
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
@@ -277,10 +264,10 @@
 */
 
 /// Alert視窗
-
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
-    tel = [NSString stringWithFormat:@"%@", marker.snippet];
+    [self visitPost];
+    tel = [NSString stringWithFormat:@"致電 %@", marker.snippet];
     NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title];
 //    UIAlertView *windowTapped = [[UIAlertView alloc]
 //                                 initWithTitle:tel
@@ -291,8 +278,8 @@
 //    
 //    [windowTapped show];
 
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:tel andMessage:message];
-
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:message
+                                                     andMessage:tel];
     [alertView addButtonWithTitle:@"確定撥打電話"
                              type:SIAlertViewButtonTypeDefault
                           handler:^(SIAlertView *alert) {
@@ -337,6 +324,28 @@
         NSLog(@"calling error");
     }
 }
+
+/// 點marker 傳 user_id 及 res_id
+- (void)visitPost
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{
+                                 @"user_id": @5,
+                                 @"res_id": @18
+                                 };
+    [manager POST:visit parameters:parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"=== Post Visit Restaurants === %@",responseObject);
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"=== Post Visit Restaurants Error === %@", error);
+          }];
+}
+
+
+
+
+
+
 
 /// 手刻Markers資料
 - (void)setUpMarkerData

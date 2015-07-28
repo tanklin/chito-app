@@ -7,51 +7,84 @@
 //
 
 #import "VisitTableViewController.h"
+#import <AFNetworking.h>
+
+#define visit_get @"http://www.chito.city/api/v1/visit_get" //最近瀏覽 user_id
 
 @interface VisitTableViewController ()
-
+@property (weak, nonatomic) NSArray *visitArray;
 @end
 
 @implementation VisitTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)loadVisitRestaurant
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:visit_get parameters:@{@"user_id": @5}
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSData *visitData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+             NSArray *json = [NSJSONSerialization JSONObjectWithData:visitData options:kNilOptions error:nil];
+             NSLog(@"=== Post Visit Restaurants === %@",json);
+//             self.visitArray = json[@"name"];
+             [self.tableView reloadData];
+             NSLog(@"response: %@", responseObject);
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@", error);
+     }];
 }
 
 #pragma mark - Table view data source
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *header;
+
+    switch (section) {
+        case 0:
+            header = @"最近瀏覽的餐廳";
+            break;
+
+        default:
+            break;
+    }
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return 10;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    static NSString *CellIdentifier = @"CellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.textLabel.text = @"Name";
+    cell.imageView.image = [UIImage imageNamed:@"title1.png"];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

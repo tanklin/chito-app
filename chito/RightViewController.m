@@ -65,6 +65,9 @@
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 6:
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"visitTableViewController"]]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
             break;
         case 7:
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
@@ -118,7 +121,17 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
 
-    NSArray *titles = @[@" ", @" ", @" ", @" ", @"首頁", @"我的收藏", @"最近瀏覽", @"關於CHiTO", @"Tutorial", @" ", @"Logout"];
+    NSArray *titles = @[@" ",
+                        @" ",
+                        @" ",
+                        @" ",
+                        @"首頁",
+                        @"我的收藏",
+                        @"最近瀏覽",
+                        @"關於CHiTO",
+                        @"Tutorial",
+                        @" ",
+                        @"Logout"];
     cell.textLabel.text = titles[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentRight;
 

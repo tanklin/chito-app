@@ -327,6 +327,33 @@
             </objects>
             <point key="canvasLocation" x="1945" y="-325"/>
         </scene>
+        <!--Visit Table View Controller-->
+        <scene sceneID="PfH-sI-hbZ">
+            <objects>
+                <tableViewController storyboardIdentifier="visitTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JUv-jS-JIS" customClass="VisitTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zUi-nw-IrZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="jAV-Zs-fno">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cellIdentifier" tableViewCell="jAV-Zs-fno" id="NJR-v1-StD">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JUv-jS-JIS" id="Pp2-oH-tc3"/>
+                            <outlet property="delegate" destination="JUv-jS-JIS" id="wff-5d-su7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="O9t-Py-F9G"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibU-XX-aOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="319"/>
+        </scene>
         <!--Second View Controller-->
         <scene sceneID="wK6-Oh-j19">
             <objects>
@@ -364,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfu-SY-mh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="315"/>
+            <point key="canvasLocation" x="1945" y="975"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="cjk-w9-D8a">
@@ -382,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MM-Gn-jrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="962"/>
+            <point key="canvasLocation" x="1945" y="1622"/>
         </scene>
         <!--Right View Controller-->
         <scene sceneID="rgR-jp-LXj">
@@ -521,7 +548,7 @@ CHiTO推薦在你附近的餐廳
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3U-aL-j58" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529" y="315"/>
+            <point key="canvasLocation" x="1529" y="975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hPi-Q7-efS">
@@ -559,6 +586,24 @@ CHiTO推薦在你附近的餐廳
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deP-g7-PwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1529" y="-325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KnD-cp-enl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IrZ-0D-Afv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KP5-20-p7n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JUv-jS-JIS" kind="relationship" relationship="rootViewController" id="JCW-al-mhQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VMn-o7-5TP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1529" y="319"/>
         </scene>
     </scenes>
     <resources>
