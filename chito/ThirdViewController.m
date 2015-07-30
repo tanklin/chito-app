@@ -13,12 +13,9 @@
     UIView *rootView;
     EAIntroView *_intro;
 }
-@property (nonatomic, strong) UIButton *skipButton;
 @end
 
 @implementation ThirdViewController
-
-@synthesize skipButton = _skipButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

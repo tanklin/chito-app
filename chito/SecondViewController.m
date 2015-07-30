@@ -24,7 +24,7 @@
     [self.webChito loadRequest:urlRequest];
 
     UIImage *img = [UIImage imageNamed:@"logo.png"];
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.frame.origin.y, 30, 20)];
     [imgView setImage:img];
     [imgView setContentMode:UIViewContentModeScaleAspectFit];
     self.navigationItem.titleView = imgView;

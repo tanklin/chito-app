@@ -7,35 +7,40 @@
 //
 
 #import "VisitTableViewController.h"
+#import "VisitTableViewCell.h"
+#import "GV.h"
 #import <AFNetworking.h>
-
-#define visit_get @"http://www.chito.city/api/v1/visit_get" //最近瀏覽 user_id
 
 @interface VisitTableViewController ()
 @property (weak, nonatomic) NSArray *visitArray;
 @end
 
 @implementation VisitTableViewController
-
+//static NSString *visitTableViewCellIdentifier = @"visitCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
+    [self.tableView registerNib:[UINib nibWithNibName:@"visitTabelViewCell" bundle:nil] forCellReuseIdentifier:@"visitCell"];
+    [self loadVisitRestaurant];
 }
 
-- (void)loadVisitRestaurant
+- (void)loadVisitRestaurant //visit_git
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:visit_get parameters:@{@"user_id": @5}
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [manager POST:kVisit_get parameters:@{
+                                         kAuth_token:[defaults stringForKey:kAuth_token],
+                                         kUser_id:kID
+                                         }
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSData *visitData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
              NSArray *json = [NSJSONSerialization JSONObjectWithData:visitData options:kNilOptions error:nil];
              NSLog(@"=== Post Visit Restaurants === %@",json);
 //             self.visitArray = json[@"name"];
              [self.tableView reloadData];
-             NSLog(@"response: %@", responseObject);
+             NSLog(@"=== Post Visit response === %@", responseObject);
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"failure: %@", error);
+             NSLog(@"=== Post Visit failure === %@", error);
      }];
 }
 
@@ -75,13 +80,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.text = @"Name";
-    cell.imageView.image = [UIImage imageNamed:@"title1.png"];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
+//    cell.textLabel.text = @"Name";
+//    cell.imageView.image = [UIImage imageNamed:@"title1.png"];
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+
     return cell;
 }
 

@@ -11,12 +11,11 @@
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <AFNetworking.h>
+#import <GoogleMaps/GoogleMaps.h>
 #import "MBProgressHUD.h"
+#import "GV.h"
 
-#define loginURL_ @"http://www.chito.city/api/v1/login"
-#define testloginURL_ @"http://4c5f9266.ngrok.com/api/v1/login"
-
-@interface ViewController ()
+@interface ViewController () <CLLocationManagerDelegate>
 {
     UIView *rootView;
     EAIntroView *_intro;
@@ -28,12 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    /// Tutorial rootview
-    rootView = self.navigationController.view;
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]) {
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self showIntroWithCrossDissolve];
-    }
+
 
     // 改變Token,進入下個View.
     /*
@@ -94,7 +88,7 @@
 
     [self background];
 
-    /// ProgressHUD
+/// ProgressHUD
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // Do something...
@@ -106,6 +100,17 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
+    CLLocationManager *myLocationManager = [[CLLocationManager alloc] init];
+    [myLocationManager requestWhenInUseAuthorization];
+    
+    /// Tutorial rootview
+    rootView = self.navigationController.view;
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]) {
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self showIntroWithCrossDissolve];
+    }
+
     if ([FBSDKAccessToken currentAccessToken]) {
         [self postToken];
         [self presentVC];
@@ -116,13 +121,16 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":[FBSDKAccessToken currentAccessToken].tokenString};
-    [manager POST:testloginURL_ parameters:parameters
+    [manager POST:kLogin parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"] forKey:@"auto_token"];
+              [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"] forKey:kAuth_token];
+              [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"user_id"] forKey:kUser_id];
               [[NSUserDefaults standardUserDefaults] synchronize];
-              NSLog(@"=== Post token OK === %@", responseObject);
+              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+              NSLog(@"Hi! %@", [defaults stringForKey:kUser_id]);
+              NSLog(@"=== Post auth_token OK === %@", responseObject);
           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              NSLog(@"=== Post token Error === %@", error);
+              NSLog(@"=== Post auth_token Error === %@", error);
           }];
 }
 
@@ -134,12 +142,13 @@
 }
 
 
-
+/*
 /// 測試用
 - (IBAction)testButton:(id)sender {
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"rootController"] animated:YES completion:nil];
     NSLog(@"### Test Button ###");
 }
+*/
 - (IBAction)fbLoginButtonDidPressed:(UIButton *)sender {
     NSLog(@"### FB Login Button Did Pressed ###");
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
@@ -182,7 +191,6 @@
 
 - (void)presentVC {
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"rootController"] animated:YES completion:nil];
-//    [ViewController dealloc];hb
 }
 
 - (void)fbLoginButton {

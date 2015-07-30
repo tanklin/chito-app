@@ -9,11 +9,10 @@
 #import "FirstViewController.h"
 #import "RightViewController.h"
 #import "CSMarker.h"
-
+#import "GV.h"
 #import <AFNetworking.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-#define favoriteURL_ @"http://4c5f9266.ngrok.com/api/v1/visit_get"
 
 @interface FirstViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
@@ -33,14 +32,17 @@
 
     [self mapViewDidLoad];
 //    [self favoriteMarkerData];
-    [self getFavoriteRestaurantsJson];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [mapView_ addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
 }
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self getFavoriteRestaurantsJson];
+}
 /// Observe User Loction
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -67,11 +69,8 @@
     mapView_.settings.myLocationButton = YES;
     mapView_.settings.compassButton = YES;
     mapView_.settings.rotateGestures = YES;
-
     mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 40, 0, self.bottomLayoutGuide.length + 10, 0);
-
     [mapView_ setMinZoom:8 maxZoom:18];
-
     [self.view addSubview:mapView_];
 }
 
@@ -80,10 +79,12 @@
 - (void)getFavoriteRestaurantsJson
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *parameters = @{
-                                 @"user_id":@5
+//                                 @"auth_token": [defaults stringForKey:kAuth_token],
+                                 @"user_id":[defaults stringForKey:kUser_id]
                                  };
-    [manager POST:favoriteURL_ parameters:parameters
+    [manager POST:TEST_FAVORITE_GET parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
               NSData *favoriteRestaurantsData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
@@ -126,7 +127,6 @@
                                                         [markerData[@"longitude"] doubleValue]);
         newMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
         newMarker.map = nil;
-        NSLog(@"hi");
         [mutableSet addObject:newMarker];
     }
     self.markers = [mutableSet copy];
@@ -140,7 +140,6 @@
             marker.map = mapView_;
         }
     }
-    NSLog(@"hi2");
 }
 
 @end

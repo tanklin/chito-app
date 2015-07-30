@@ -125,10 +125,10 @@
                         @" ",
                         @" ",
                         @" ",
-                        @"首頁",
-                        @"我的收藏",
-                        @"最近瀏覽",
-                        @"關於CHiTO",
+                        @"Home",  //首頁
+                        @"Favorites",    //我的收藏
+                        @"History",    //最近瀏覽
+                        @"About CHiTO",   //關於CHiTO
                         @"Tutorial",
                         @" ",
                         @"Logout"];

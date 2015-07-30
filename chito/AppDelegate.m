@@ -21,7 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [FBSDKLoginButton class];
+//    [FBSDKLoginButton class];
 
     [GMSServices provideAPIKey:@"AIzaSyC7ztLan0fjcgHcUwbAX3jplG_vq0cbd-k"];
 
@@ -47,6 +47,7 @@
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
     }
      */
+
 
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];

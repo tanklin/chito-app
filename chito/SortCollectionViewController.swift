@@ -24,7 +24,7 @@ class SortCollectionViewController: UIViewController
     
     override func viewDidLoad() {
          super.viewDidLoad()
-        self.title = "心情"
+        self.title = "選擇你喜愛的類別"
     }
     
     private struct Storyboard {
@@ -50,6 +50,7 @@ extension SortCollectionViewController: UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Storyboard.CellIdentifier, forIndexPath: indexPath) as! InterestCollectionViewCell
         
         cell.interest = self.interests[indexPath.item]
+//        kID = (indexPath.item)
         println((indexPath.item)+1)
 //        var indexNum = (indexPath.item)+1
 //        println(indexNum)
@@ -62,8 +63,8 @@ extension SortCollectionViewController : UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-        kID = (indexPath.item) + 1
-//        println("row \(kID) was selected!!")
+        kID = (indexPath.item)
+        println("Row \(kID) was selected!!")
     }
 }
 

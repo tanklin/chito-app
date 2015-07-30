@@ -1,0 +1,46 @@
+/* Class = "UILabel"; text = "Text something"; ObjectID = "1nu-FM-KxE"; */
+"1nu-FM-KxE.text" = "Text something";
+
+/* Class = "UILabel"; text = "EXPLORE"; ObjectID = "1xe-aM-hq5"; */
+"1xe-aM-hq5.text" = "美食探索";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "7gR-Fe-Qbz"; */
+"7gR-Fe-Qbz.title" = "取消";
+
+/* Class = "UIButton"; normalTitle = "Ok, Got it!"; ObjectID = "S5v-dA-X1o"; */
+"S5v-dA-X1o.normalTitle" = "好!我瞭解了!!";
+
+/* Class = "UILabel"; text = "WHY CHiTO"; ObjectID = "UgX-mn-PH4"; */
+"UgX-mn-PH4.text" = "為何使用CHiTO";
+
+/* Class = "UIBarButtonItem"; title = "CHiTOer"; ObjectID = "fCy-nd-PHw"; */
+"fCy-nd-PHw.title" = "CHiTOer";
+
+/* Class = "UIButton"; normalTitle = "Why have to login?"; ObjectID = "jtq-Fa-Qa2"; */
+"jtq-Fa-Qa2.normalTitle" = "為何需要使用FB Login?";
+
+/* Class = "UIButton"; normalTitle = "Facebook Login"; ObjectID = "kBr-kZ-IIt"; */
+"kBr-kZ-IIt.normalTitle" = "Facebook Login";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "kza-UZ-5p7"; */
+"kza-UZ-5p7.text" = "Description";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "osu-7R-1nw"; */
+"osu-7R-1nw.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "CHiTO專屬打造圖示化介面\n進入CHiTO，不用輸入文字\n只要按下當時你想找的美食類型圖片\n\nCHiTO推薦在你附近的餐廳\n點擊後，會跳出CHiTO推薦的\n該類型餐廳列表 \n按下訂位，便能出發享受美食\n點進最有興趣的餐廳後便能\n直接向店家訂位，讓你看的到也吃的到！"; ObjectID = "wJb-EA-diR"; */
+"wJb-EA-diR.text" = "CHiTO專屬打造圖示化介面
+進入CHiTO，不用輸入文字
+只要按下當時你想找的美食類型圖片
+
+CHiTO推薦在你附近的餐廳
+點擊後，會跳出CHiTO推薦的
+該類型餐廳列表
+
+按下訂位，便能出發享受美食
+點進最有興趣的餐廳後便能
+直接向店家訂位，讓你看的到也吃的到！";
+
+/* Class = "UILabel"; text = "One minute, One Cuisine"; ObjectID = "wRE-Nd-ZAX"; */
+"wRE-Nd-ZAX.text" = "一分鐘 在城市找到你的下一餐";
+

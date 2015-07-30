@@ -7,13 +7,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="X6s-uX-Tnq">
-                    <rect key="frame" x="110" y="97" width="260" height="123"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_launch" translatesAutoresizingMaskIntoConstraints="NO" id="TTH-Ky-wUY">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X6s-uX-Tnq">
+                    <rect key="frame" x="95" y="119" width="224" height="148"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="123" id="4fi-LO-7zo"/>
+                        <constraint firstAttribute="height" constant="148" id="4fi-LO-7zo"/>
                         <constraint firstAttribute="height" constant="100" id="7nz-4m-ELI"/>
                         <constraint firstAttribute="width" constant="260" id="Im8-xI-Bsa"/>
                     </constraints>
@@ -25,18 +28,21 @@
                     </variation>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.43529411764705883" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" none="YES" image="YES"/>
+            </accessibility>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="X6s-uX-Tnq" secondAttribute="trailing" constant="110" id="YsL-W2-Ik5"/>
-                <constraint firstItem="X6s-uX-Tnq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="110" id="d1M-lE-znl"/>
-                <constraint firstItem="X6s-uX-Tnq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="97" id="ifo-h0-Lwv"/>
+                <constraint firstAttribute="trailing" secondItem="X6s-uX-Tnq" secondAttribute="trailing" constant="95" id="YsL-W2-Ik5"/>
+                <constraint firstItem="X6s-uX-Tnq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="95" id="d1M-lE-znl"/>
+                <constraint firstItem="X6s-uX-Tnq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="119" id="ifo-h0-Lwv"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <point key="canvasLocation" x="552" y="583"/>
         </view>
     </objects>
     <resources>
-        <image name="logo_white" width="465" height="220"/>
+        <image name="bg_launch" width="284" height="509"/>
+        <image name="logo" width="230" height="109"/>
     </resources>
 </document>

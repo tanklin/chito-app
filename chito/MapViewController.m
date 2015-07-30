@@ -15,18 +15,6 @@
 #import <AFNetworking.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-#define chitoURL_ @"http://www.chito.city/api/v1/restaurants"
-
-#define visit @"http://www.chito.city/api/v1/visit" //點marker 傳 user_id 及 res_id
-#define visit_get @"http://www.chito.city/api/v1/visit_get" //最近瀏覽 user_id
-
-#define favorite_get @"http://www.chito.city/api/v1/favorite_get" //取得收藏的資料 user_id
-#define favorite_Like @"http://www.chito.city/api/v1/favorite_like"  //加入收藏 user_id 及 res_id
-
-#define favorite_no_more @"http://www.chito.city/api/v1/favorite_no_more"  //取消收藏 user_id 及 res_id
-#define favorite_dislike @"http://www.chito.city/api/v1/favorite_dislike"  //不再看到餐廳 user_id 及 res_id
-
-
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
     GMSMapView *mapView_;
@@ -34,15 +22,13 @@
     double kLong;
     id kkLati;
     NSString *tel;
+    NSString *res_id;
 }
 
 @property (strong, nonatomic) NSURLSession *markerSession;
 @property (copy, nonatomic) NSSet *markers;
 @property BOOL isFirstTimeGetLocation;
 
-//@property (assign, nonatomic) id receiveIndexpath;
-
-//@property (strong, nonatomic) NSData *yelpData;
 
 @end
 
@@ -58,13 +44,46 @@
 
     [self mapViewDidLoad];
 
-
     [self setUpMarkerData];
 //    [self downloadMarkerData];
 //    [self yelpLocationData];
-    [self postJson];
 
-    NSLog(@"Restaurant Type: %@", kID);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"\n ##########\n auth_token:%@\n user_id:%@\n ##########", [defaults stringForKey:kAuth_token], [defaults stringForKey:kUser_id]);
+
+
+/// custom title
+    CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
+    UIView* _headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
+    _headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
+    _headerTitleSubtitleView.autoresizesSubviews = NO;
+
+    CGRect titleFrame = CGRectMake(16, 2, 160, 24);
+    UILabel *titleView = [[UILabel alloc] initWithFrame:titleFrame];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont boldSystemFontOfSize:18];
+    titleView.textAlignment = NSTextAlignmentCenter;
+    titleView.textColor = [UIColor blackColor];
+//    titleView.shadowColor = [UIColor darkGrayColor];
+    titleView.shadowOffset = CGSizeMake(0, -1);
+    titleView.text = @"台北市";
+    titleView.adjustsFontSizeToFitWidth = YES;
+    [_headerTitleSubtitleView addSubview:titleView];
+
+    CGRect subtitleFrame = CGRectMake(16, 24, 160, 44-24);
+    UILabel *subtitleView = [[UILabel alloc] initWithFrame:subtitleFrame];
+    subtitleView.backgroundColor = [UIColor clearColor];
+    subtitleView.font = [UIFont boldSystemFontOfSize:12];
+    subtitleView.textAlignment = NSTextAlignmentCenter;
+    subtitleView.textColor = [UIColor darkGrayColor];
+//    subtitleView.shadowColor = [UIColor darkGrayColor];
+    subtitleView.shadowOffset = CGSizeMake(0, -1);
+    subtitleView.text = @"敦化南路2段, 大安區";    //敦化南路2段, 大安區
+    subtitleView.adjustsFontSizeToFitWidth = YES;
+    [_headerTitleSubtitleView addSubview:subtitleView];
+    
+    self.navigationItem.titleView = _headerTitleSubtitleView;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -73,6 +92,11 @@
     [mapView_ addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self apiPostToGetRestaurantMarkers];
+}
 /// Observe User Loction
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -80,23 +104,30 @@
         if (self.isFirstTimeGetLocation) {
             [mapView_ animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView_.myLocation.coordinate.latitude longitude:mapView_.myLocation.coordinate.longitude zoom:15]];
             self.isFirstTimeGetLocation = NO;
-            kLati = mapView_.myLocation.coordinate.latitude;
-            kLong = mapView_.myLocation.coordinate.longitude;
-            NSLog(@"User's location:%f,%f", kLati, kLong);
         }
     }
 }
 
+#pragma  API-Restaurants
 /// POST and GET Restaurant Categories.
-- (void)postJson
+- (void)apiPostToGetRestaurantMarkers
 {
+//    NSNumber *number = [NSNumber numberWithInt:kID];
+//
+//    NSArray *arr = @[@3,@5,@6,@7,@8];
+//    NSLog(@"kID:%d, Array_ID:%d", kID, arr[number]);
+
+    kLati = mapView_.myLocation.coordinate.latitude;
+    kLong = mapView_.myLocation.coordinate.longitude;
+    NSLog(@"User's location:%f,%f", kLati, kLong);
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{
-                                 @"category":kID,           //南港展覽館
-                                 @"latitude":@25.055288,    //25.055288
-                                 @"longitude":@121.6175001  //121.6175001
+                                 @"category":kID,    //南港展覽館
+                                 @"latitude":@25.02379,   //25.055288  (kLati)
+                                 @"longitude":@121.553126     //121.6175001  (kLong)
                                  };
-    [manager POST:chitoURL_ parameters:parameters
+    [manager POST:kRestaurants parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"auth_token"] forKey:@"auto_token"];
 //        [[NSUserDefaults standardUserDefaults] synchronize];
@@ -113,25 +144,26 @@
 }
 
 /// Download Marker Data
-//- (void)downloadMarkerData {
-//    NSURL *chitoURL = [NSURL URLWithString:testURL_];
-//
-//    NSURLSessionDataTask *task = [self.markerSession dataTaskWithURL:chitoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *e) {
-//
-//
-//        NSArray *json = [NSJSONSerialization JSONObjectWithData:data
-//                                                        options:0
-//                                                          error:nil];
-//        NSLog(@"### Download json ### %@", json);
-//
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            [self createMarkerObjectsWithJson:json];
-//        }];
-//    }];
-//
-//    [task resume];
-//}
+/*
+- (void)downloadMarkerData {
+    NSURL *chitoURL = [NSURL URLWithString:testURL_];
 
+    NSURLSessionDataTask *task = [self.markerSession dataTaskWithURL:chitoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *e) {
+
+
+        NSArray *json = [NSJSONSerialization JSONObjectWithData:data
+                                                        options:0
+                                                          error:nil];
+        NSLog(@"### Download json ### %@", json);
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self createMarkerObjectsWithJson:json];
+        }];
+    }];
+
+    [task resume];
+}
+*/
 
 /// MRT location
 /*
@@ -190,22 +222,23 @@
 }
 
 
-// 用nib客製marker infoWindow
+/// 用nib客製marker infoWindow
 /*
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 {
     CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
 //    infoWindow.frame = CGRectMake(150, 200, 230, 227);
     infoWindow.shopImage.image = [UIImage imageNamed:@"sort_cocoa"];
-//    infoWindow.shopImage.transform = CGAffineTransformMakeRotation(-.08);
+//    infoWindow.shopImage.transform = CGAffineTransformMakeRotation(-.08); // 照片傾斜
     infoWindow.shopName.text = @"佳佳牛排";
     infoWindow.shopTel.text= @"02-2631-2436";
     infoWindow.shopAddress.text = @"台灣台北市內湖區東湖路119巷30號";
     
     return infoWindow;
 }
+*/
 
-
+/*
 /// 手刻marker InfoWindow
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
@@ -266,9 +299,10 @@
 /// Alert視窗
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
+//    res_id = marker.id;
     [self visitPost];
-    tel = [NSString stringWithFormat:@"致電 %@", marker.snippet];
-    NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title];
+    tel = [NSString stringWithFormat:@"%@", marker.snippet];
+    NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title]; //您撥打的餐廳是
 //    UIAlertView *windowTapped = [[UIAlertView alloc]
 //                                 initWithTitle:tel
 //                                       message:message
@@ -284,12 +318,12 @@
                              type:SIAlertViewButtonTypeDefault
                           handler:^(SIAlertView *alert) {
                               [self callServices];
-                              NSLog(@"Button1 Clicked");
+                              NSLog(@"Call Button Clicked");
                           }];
-    [alertView addButtonWithTitle:@"再看看"
+    [alertView addButtonWithTitle:@"再看看"    //再看看
                              type:SIAlertViewButtonTypeCancel
                           handler:^(SIAlertView *alert) {
-                              NSLog(@"Button2 Clicked");
+                              NSLog(@"Cancel Button Clicked");
                           }];
     //    [alertView addButtonWithTitle:@"Button3"
     //                             type:SIAlertViewButtonTypeDestructive
@@ -329,22 +363,19 @@
 - (void)visitPost
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *parameters = @{
-                                 @"user_id": @5,
-                                 @"res_id": @18
+                                 @"auth_token":[defaults stringForKey:kAuth_token],
+                                 @"user_id":[defaults stringForKey:kUser_id],
+                                 @"res_id":@10
                                  };
-    [manager POST:visit parameters:parameters
+    [manager POST:kVisit parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSLog(@"=== Post Visit Restaurants === %@",responseObject);
           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"=== Post Visit Restaurants Error === %@", error);
           }];
 }
-
-
-
-
-
 
 
 /// 手刻Markers資料

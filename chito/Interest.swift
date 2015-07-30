@@ -33,27 +33,28 @@ class Interest
         return [
             Interest(title: "We Love Hamburgers",
                 description: "We recommand this restaurant",
-                featuredImage: UIImage(named: "sort_hamburger")!), // 0
-
-            Interest(title: "Enjoy Coffee Time",
-                description: "Why not have ac cup of coffee with your best family",
-                featuredImage: UIImage(named: "sort_coffee")!), // 1
-
-            Interest(title: "Let's Cocoa",
-                description: "Best Choice",
-                featuredImage: UIImage(named: "sort_cocoa")!), // 2
-
-            Interest(title: "It's Tea Time",
-                description: "Make time, make Tetley.",
-                featuredImage: UIImage(named: "sort_teatime")!), // 3
+                featuredImage: UIImage(named: "sort_hamburger")!), // 1
 
             Interest(title: "Dinner with Family",
                 description: "Life tastes better with Family",
-                featuredImage: UIImage(named: "sort_dinner")!), // 4
+                featuredImage: UIImage(named: "sort_dinner")!), // 2
+
+            Interest(title: "Let's Japan",
+                description: "Best Choice",
+                featuredImage: UIImage(named: "sort_japan")!), // 3
+
+            Interest(title: "Enjoy Coffee Time",
+                description: "Why not have ac cup of coffee with your best family",
+                featuredImage: UIImage(named: "sort_coffee")!), // 4
+
+            Interest(title: "It's Korean Food",
+                description: "Make time, make Tetley.",
+                featuredImage: UIImage(named: "sort_korean")!), // 5
+
 
             Interest(title: "TGI.Friday Cheer!!!",
                 description: "In here, it's always Friday",
-                featuredImage: UIImage(named: "sort_beer")!) // 5
+                featuredImage: UIImage(named: "sort_beer")!) // 6
         ]
     }
 }

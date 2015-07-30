@@ -24,3 +24,7 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 #Pods/
+
+images/CHiTO_Pin.png
+
+images/CHiTO_Pin@2x.png

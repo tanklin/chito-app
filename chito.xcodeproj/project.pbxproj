@@ -19,11 +19,12 @@
 		C15C80DA1B540A960024F0B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15C80D81B540A960024F0B5 /* Main.storyboard */; };
 		C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DB1B540A960024F0B5 /* Images.xcassets */; };
 		C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15C80DD1B540A960024F0B5 /* LaunchScreen.xib */; };
-		C15C80EB1B540A960024F0B5 /* chitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C15C80EA1B540A960024F0B5 /* chitoTests.m */; };
 		C16B0FFE1B5FE1A000316783 /* CSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C16B0FFD1B5FE1A000316783 /* CSMarker.m */; };
 		C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA8F1B64F7B10058CCC4 /* GV.m */; };
 		C1A6AA931B652D230058CCC4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA921B652D230058CCC4 /* ThirdViewController.m */; };
 		C1A6AA961B67C2540058CCC4 /* VisitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */; };
+		C1AF703E1B6893A7006AD083 /* visitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1AF703D1B6893A7006AD083 /* visitTableViewCell.xib */; };
+		C1AF70411B68A0AE006AD083 /* VisitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AF70401B68A0AE006AD083 /* VisitTableViewCell.m */; };
 		C1BF26001B5CDB7600CCB79B /* yelpJsonTest.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */; };
 		C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */; };
 		C1BF260B1B5D619D00CCB79B /* mrtJson.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF260A1B5D619D00CCB79B /* mrtJson.json */; };
@@ -34,16 +35,6 @@
 		C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EFF8C71B5B50040083C001 /* MapViewController.m */; };
 		C1EFF8CA1B5B50040083C001 /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EFF8C81B5B50040083C001 /* InfoWindow.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C15C80E51B540A960024F0B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C15C80C31B540A960024F0B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C15C80CA1B540A960024F0B5;
-			remoteInfo = chito;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		15F6435E3A8F13D831B4A296 /* Pods-chito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chito.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chito/Pods-chito.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,9 +59,6 @@
 		C15C80D91B540A960024F0B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C15C80DB1B540A960024F0B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C15C80DE1B540A960024F0B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHiTO.temp_caseinsensitive_rename.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C15C80E91B540A960024F0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C15C80EA1B540A960024F0B5 /* chitoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chitoTests.m; sourceTree = "<group>"; };
 		C16B0FFC1B5FE1A000316783 /* CSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMarker.h; sourceTree = "<group>"; };
 		C16B0FFD1B5FE1A000316783 /* CSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMarker.m; sourceTree = "<group>"; };
 		C1A6AA8E1B64F7B10058CCC4 /* GV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GV.h; sourceTree = "<group>"; };
@@ -79,6 +67,9 @@
 		C1A6AA921B652D230058CCC4 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitTableViewController.h; sourceTree = "<group>"; };
 		C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitTableViewController.m; sourceTree = "<group>"; };
+		C1AF703D1B6893A7006AD083 /* visitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = visitTableViewCell.xib; sourceTree = "<group>"; };
+		C1AF703F1B68A0AE006AD083 /* VisitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitTableViewCell.h; sourceTree = "<group>"; };
+		C1AF70401B68A0AE006AD083 /* VisitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitTableViewCell.m; sourceTree = "<group>"; };
 		C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yelpJsonTest.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
 		C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
@@ -100,13 +91,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FA2F6D51D37CDF05529295A /* libPods-chito.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C15C80E11B540A960024F0B5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +125,9 @@
 				C11CD6351B62759B00D2A1E1 /* FirstViewController.m */,
 				C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */,
 				C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */,
+				C1AF703F1B68A0AE006AD083 /* VisitTableViewCell.h */,
+				C1AF70401B68A0AE006AD083 /* VisitTableViewCell.m */,
+				C1AF703D1B6893A7006AD083 /* visitTableViewCell.xib */,
 				C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */,
 				C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */,
 				C1A6AA911B652D230058CCC4 /* ThirdViewController.h */,
@@ -153,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				C15C80CD1B540A960024F0B5 /* chito */,
-				C15C80E71B540A960024F0B5 /* chitoTests */,
 				C15C80CC1B540A960024F0B5 /* Products */,
 				463463592EF054A8B9029326 /* Pods */,
 				B0E55D18B38CEFADA2A66412 /* Frameworks */,
@@ -164,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				C15C80CB1B540A960024F0B5 /* CHiTO.app */,
-				C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,24 +182,6 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
-		};
-		C15C80E71B540A960024F0B5 /* chitoTests */ = {
-			isa = PBXGroup;
-			children = (
-				C15C80EA1B540A960024F0B5 /* chitoTests.m */,
-				C15C80E81B540A960024F0B5 /* Supporting Files */,
-			);
-			path = chitoTests;
-			sourceTree = "<group>";
-		};
-		C15C80E81B540A960024F0B5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C15C80E91B540A960024F0B5 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			path = chitoTests;
-			sourceTree = SOURCE_ROOT;
 		};
 		C1AAA7341B5B4F3C00B26F41 /* Map Controller */ = {
 			isa = PBXGroup;
@@ -292,24 +259,6 @@
 			productReference = C15C80CB1B540A960024F0B5 /* CHiTO.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C15C80E31B540A960024F0B5 /* chitoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C15C80F11B540A960024F0B5 /* Build configuration list for PBXNativeTarget "chitoTests" */;
-			buildPhases = (
-				C15C80E01B540A960024F0B5 /* Sources */,
-				C15C80E11B540A960024F0B5 /* Frameworks */,
-				C15C80E21B540A960024F0B5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C15C80E61B540A960024F0B5 /* PBXTargetDependency */,
-			);
-			name = chitoTests;
-			productName = chitoTests;
-			productReference = C15C80E41B540A960024F0B5 /* CHiTO.temp_caseinsensitive_rename.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -332,10 +281,6 @@
 							};
 						};
 					};
-					C15C80E31B540A960024F0B5 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = C15C80CA1B540A960024F0B5;
-					};
 				};
 			};
 			buildConfigurationList = C15C80C61B540A960024F0B5 /* Build configuration list for PBXProject "CHiTO" */;
@@ -352,7 +297,6 @@
 			projectRoot = "";
 			targets = (
 				C15C80CA1B540A960024F0B5 /* chito */,
-				C15C80E31B540A960024F0B5 /* chitoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -363,19 +307,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BF260B1B5D619D00CCB79B /* mrtJson.json in Resources */,
+				C1AF703E1B6893A7006AD083 /* visitTableViewCell.xib in Resources */,
 				C15C80DA1B540A960024F0B5 /* Main.storyboard in Resources */,
 				C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */,
 				C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */,
 				C1EFF8CA1B5B50040083C001 /* InfoWindow.xib in Resources */,
 				C1BF26001B5CDB7600CCB79B /* yelpJsonTest.json in Resources */,
 				C15A90CB1B6364020084C8C7 /* color in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C15C80E21B540A960024F0B5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,28 +372,13 @@
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
 				C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */,
 				C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */,
+				C1AF70411B68A0AE006AD083 /* VisitTableViewCell.m in Sources */,
 				C1BF260F1B5E27CA00CCB79B /* Interest.swift in Sources */,
 				C11CD63C1B62892C00D2A1E1 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C15C80E01B540A960024F0B5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C15C80EB1B540A960024F0B5 /* chitoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C15C80E61B540A960024F0B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C15C80CA1B540A960024F0B5 /* chito */;
-			targetProxy = C15C80E51B540A960024F0B5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C15C80D81B540A960024F0B5 /* Main.storyboard */ = {
@@ -565,6 +488,7 @@
 			baseConfigurationReference = 15F6435E3A8F13D831B4A296 /* Pods-chito.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -588,6 +512,7 @@
 			baseConfigurationReference = 4D144E4EF0F0E4EEF293BF0F /* Pods-chito.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -602,42 +527,6 @@
 				PRODUCT_NAME = CHiTO;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "chito/chito-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		C15C80F21B540A960024F0B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = chitoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CHiTO.temp_caseinsensitive_rename;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CHiTO.temp_caseinsensitive_rename.app/CHiTO.temp_caseinsensitive_rename";
-			};
-			name = Debug;
-		};
-		C15C80F31B540A960024F0B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = chitoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alphacamp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CHiTO.temp_caseinsensitive_rename;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CHiTO.temp_caseinsensitive_rename.app/CHiTO.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
@@ -658,15 +547,6 @@
 			buildConfigurations = (
 				C15C80EF1B540A960024F0B5 /* Debug */,
 				C15C80F01B540A960024F0B5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C15C80F11B540A960024F0B5 /* Build configuration list for PBXNativeTarget "chitoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C15C80F21B540A960024F0B5 /* Debug */,
-				C15C80F31B540A960024F0B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
