@@ -7,11 +7,18 @@
 //
 
 #import "VisitTableViewController.h"
-#import "VisitTableViewCell.h"
 #import "GV.h"
 #import <AFNetworking.h>
 
 @interface VisitTableViewController ()
+{
+    NSArray *json;
+    NSMutableArray *jsonDataMutableArray;
+    NSDictionary *dataDictionaryFromArrayJson;
+    NSMutableString *titleData;
+    NSMutableString *telData;
+    NSMutableString *addressData;
+}
 @property (weak, nonatomic) NSArray *visitArray;
 @end
 
@@ -19,9 +26,8 @@
 //static NSString *visitTableViewCellIdentifier = @"visitCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"visitTabelViewCell" bundle:nil] forCellReuseIdentifier:@"visitCell"];
     [self loadVisitRestaurant];
+    [self.tableView reloadData];
 }
 
 - (void)loadVisitRestaurant //visit_git
@@ -29,16 +35,36 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [manager POST:kVisit_get parameters:@{
-                                         @"auth_tokent":[defaults stringForKey:kAuth_token],
+                                         @"auth_token":[defaults stringForKey:kAuth_token],
                                          @"user_id":[defaults stringForKey:kUser_id]
                                          }
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSData *visitData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
-             NSArray *json = [NSJSONSerialization JSONObjectWithData:visitData options:kNilOptions error:nil];
-             NSLog(@"=== Post Visit Restaurants === %@",json);
-//             self.visitArray = json[@"name"];
-             [self.tableView reloadData];
-             NSLog(@"=== Post Visit response === %@", responseObject);
+             json = [NSJSONSerialization JSONObjectWithData:visitData options:NSJSONReadingMutableContainers error:nil];
+
+             NSLog(@"=== Post Visit response === %@", json);
+
+             jsonDataMutableArray = [NSMutableArray new];
+
+             for (NSDictionary *dataDict in json) {
+                 telData = [dataDict objectForKey:@"title"];
+                 telData = [dataDict objectForKey:@"tel"];
+                 addressData = [dataDict objectForKey:@"address"];
+
+                 NSLog(@"Title: %@", titleData);
+                 NSLog(@"Tel: %@", telData);
+                 NSLog(@"Address: %@", addressData);
+
+                 dataDictionaryFromArrayJson = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                titleData, @"title",
+                                                telData, @"tel",
+                                                addressData, @"address",
+                                                nil];
+                 [jsonDataMutableArray addObject:dataDictionaryFromArrayJson];
+                 NSLog(@"=== json count \"%ld\" ===",jsonDataMutableArray.count);
+             }
+
+
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"=== Post Visit failure === %@", error);
      }];
@@ -60,10 +86,10 @@
     return header;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 50;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 50;
+//}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
@@ -74,15 +100,33 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [jsonDataMutableArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+
+    NSDictionary *tmpDict = [jsonDataMutableArray objectAtIndex:indexPath.row];
+
+    titleData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"title"]];
+    telData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"tel"]];
+    addressData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"address"]];
+
+    UILabel *titleLabel = (UILabel*)[cell viewWithTag:100];
+    titleLabel.text = titleData;
+    NSLog(@"$$$ 3 %@", titleLabel.text);
+
+    UILabel *telLabel = (UILabel*)[cell viewWithTag:200];
+    telLabel.text = telData;
+
+    UILabel *addressLabel = (UILabel*)[cell viewWithTag:300];
+    addressLabel.text = addressData;
+
+
 //    cell.textLabel.text = @"Name";
 //    cell.imageView.image = [UIImage imageNamed:@"title1.png"];
 //    cell.accessoryType = UITableViewCellAccessoryCheckmark;

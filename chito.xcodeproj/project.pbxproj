@@ -29,8 +29,6 @@
 		C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA8F1B64F7B10058CCC4 /* GV.m */; };
 		C1A6AA931B652D230058CCC4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA921B652D230058CCC4 /* ThirdViewController.m */; };
 		C1A6AA961B67C2540058CCC4 /* VisitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */; };
-		C1AF703E1B6893A7006AD083 /* visitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1AF703D1B6893A7006AD083 /* visitTableViewCell.xib */; };
-		C1AF70411B68A0AE006AD083 /* VisitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AF70401B68A0AE006AD083 /* VisitTableViewCell.m */; };
 		C1BF26001B5CDB7600CCB79B /* yelpJsonTest.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */; };
 		C1BF26031B5CEF3400CCB79B /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */; };
 		C1BF260B1B5D619D00CCB79B /* mrtJson.json in Resources */ = {isa = PBXBuildFile; fileRef = C1BF260A1B5D619D00CCB79B /* mrtJson.json */; };
@@ -89,9 +87,6 @@
 		C1A6AA921B652D230058CCC4 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitTableViewController.h; sourceTree = "<group>"; };
 		C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitTableViewController.m; sourceTree = "<group>"; };
-		C1AF703D1B6893A7006AD083 /* visitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = visitTableViewCell.xib; sourceTree = "<group>"; };
-		C1AF703F1B68A0AE006AD083 /* VisitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitTableViewCell.h; sourceTree = "<group>"; };
-		C1AF70401B68A0AE006AD083 /* VisitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitTableViewCell.m; sourceTree = "<group>"; };
 		C1BF25FF1B5CDB7600CCB79B /* yelpJsonTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yelpJsonTest.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		C1BF26011B5CEF3400CCB79B /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
 		C1BF26021B5CEF3400CCB79B /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
@@ -158,9 +153,6 @@
 				C11CD6351B62759B00D2A1E1 /* FirstViewController.m */,
 				C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */,
 				C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */,
-				C1AF703F1B68A0AE006AD083 /* VisitTableViewCell.h */,
-				C1AF70401B68A0AE006AD083 /* VisitTableViewCell.m */,
-				C1AF703D1B6893A7006AD083 /* visitTableViewCell.xib */,
 				C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */,
 				C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */,
 				C1A6AA911B652D230058CCC4 /* ThirdViewController.h */,
@@ -326,6 +318,9 @@
 						DevelopmentTeam = 8H7X36TF25;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
 							com.apple.SafariKeychain = {
@@ -359,7 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BF260B1B5D619D00CCB79B /* mrtJson.json in Resources */,
-				C1AF703E1B6893A7006AD083 /* visitTableViewCell.xib in Resources */,
 				C15C80DA1B540A960024F0B5 /* Main.storyboard in Resources */,
 				C15C80DF1B540A960024F0B5 /* LaunchScreen.xib in Resources */,
 				C15C80DC1B540A960024F0B5 /* Images.xcassets in Resources */,
@@ -424,7 +418,6 @@
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
 				C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */,
 				C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */,
-				C1AF70411B68A0AE006AD083 /* VisitTableViewCell.m in Sources */,
 				C1BF260F1B5E27CA00CCB79B /* Interest.swift in Sources */,
 				C11CD63C1B62892C00D2A1E1 /* RootViewController.m in Sources */,
 			);

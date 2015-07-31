@@ -54,6 +54,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>請開啟定位，讓CHiTO幫你三步驟找到餐廳</string>
+	<key>UIBackgroundModes</key>
+	<array/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

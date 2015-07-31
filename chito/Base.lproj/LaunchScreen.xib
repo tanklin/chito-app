@@ -42,7 +42,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg_launch" width="284" height="509"/>
+        <image name="bg_launch" width="142" height="254"/>
         <image name="logo" width="230" height="109"/>
     </resources>
 </document>
