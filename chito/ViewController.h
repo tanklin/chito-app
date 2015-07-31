@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RESideMenu/RESideMenu.h"
 #import "EAIntroView/EAIntroView.h"
+#import "GAITrackedViewController.h"
 
-@interface ViewController : UIViewController <EAIntroDelegate>
+@interface ViewController : GAITrackedViewController <EAIntroDelegate>
 
 
 @end

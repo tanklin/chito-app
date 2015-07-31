@@ -11,5 +11,7 @@
 @interface VisitTableViewCell : UITableViewCell
 @property (atomic, weak) IBOutlet UIImageView *shopImag;
 @property (atomic, weak) IBOutlet UILabel *titleLabel;
-@property (atomic, weak) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *telLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+
 @end

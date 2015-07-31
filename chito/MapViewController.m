@@ -10,6 +10,7 @@
 #import "CustomInfoWindow.h"
 #import "CSMarker.h"
 #import "RightViewController.h"
+#import "MBProgressHUD.h"
 #import "GV.h"
 #import <SIAlertView/SIAlertView.h>
 #import <AFNetworking.h>
@@ -112,10 +113,9 @@
 /// POST and GET Restaurant Categories.
 - (void)apiPostToGetRestaurantMarkers
 {
-//    NSNumber *number = [NSNumber numberWithInt:kID];
-//
-//    NSArray *arr = @[@3,@5,@6,@7,@8];
-//    NSLog(@"kID:%d, Array_ID:%d", kID, arr[number]);
+    NSArray *arr = @[@3,@5,@6,@7,@8];
+    NSNumber *temp = arr[kID];
+    NSLog(@"kID:%@", temp);
 
     kLati = mapView_.myLocation.coordinate.latitude;
     kLong = mapView_.myLocation.coordinate.longitude;
@@ -123,9 +123,9 @@
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{
-                                 @"category":kID,    //南港展覽館
-                                 @"latitude":@25.02379,   //25.055288  (kLati)
-                                 @"longitude":@121.553126     //121.6175001  (kLong)
+                                 @"category":temp,    //六張犁
+                                 @"latitude":@(kLati),   //25.02379
+                                 @"longitude":@(kLong)     //121.553126
                                  };
     [manager POST:kRestaurants parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -320,16 +320,40 @@
                               [self callServices];
                               NSLog(@"Call Button Clicked");
                           }];
-    [alertView addButtonWithTitle:@"再看看"    //再看看
+    [alertView addButtonWithTitle:@"加入收藏"
+                             type:SIAlertViewButtonTypeDestructive
+                          handler:^(SIAlertView *alert) {
+                              MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                              hud.mode = MBProgressHUDModeIndeterminate;
+                              hud.labelText = @"收藏成功!";
+                              dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                              dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                                  // Do something...
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+                                  int random = (arc4random() % 200)+1;
+                                  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                                  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                  NSDictionary *parameters = @{
+                                                               @"auth_token": [defaults stringForKey:kAuth_token],
+                                                               @"user_id":[defaults stringForKey:kUser_id],
+                                                               @"res_id":@(random)
+                                                               };
+                                  [manager POST:TEST_FAVORITE_LIKE parameters:parameters
+                                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                            NSLog(@"=== Favorite Like Success === %@",responseObject);
+                                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                            NSLog(@"=== Favorite Like Error === %@", error);
+                                        }];
+                              });
+                              NSLog(@"Favorite Button Clicked");
+                          }];
+    [alertView addButtonWithTitle:@"再看看"
                              type:SIAlertViewButtonTypeCancel
                           handler:^(SIAlertView *alert) {
                               NSLog(@"Cancel Button Clicked");
                           }];
-    //    [alertView addButtonWithTitle:@"Button3"
-    //                             type:SIAlertViewButtonTypeDestructive
-    //                          handler:^(SIAlertView *alert) {
-    //                              NSLog(@"Button3 Clicked");
-    //                          }];
+
 
     alertView.willShowHandler = ^(SIAlertView *alertView) {
         NSLog(@"%@, willShowHandler", alertView);

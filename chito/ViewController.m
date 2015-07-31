@@ -12,12 +12,13 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <AFNetworking.h>
 #import <GoogleMaps/GoogleMaps.h>
+
 #import "MBProgressHUD.h"
 #import "GV.h"
 
 @interface ViewController () <CLLocationManagerDelegate>
 {
-    UIView *rootView;
+//    UIView *rootView;
     EAIntroView *_intro;
 }
 @end
@@ -26,8 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
+//    rootView = self.navigationController.view;
+    [self showIntroWithCrossDissolve];
 
     // 改變Token,進入下個View.
     /*
@@ -89,13 +90,23 @@
     [self background];
 
 /// ProgressHUD
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminate;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Do something...
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        });
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     });
+
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    /// GA
+    self.screenName = self.title;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -105,11 +116,10 @@
     [myLocationManager requestWhenInUseAuthorization];
     
     /// Tutorial rootview
-    rootView = self.navigationController.view;
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]) {
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self showIntroWithCrossDissolve];
-    }
+
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]) {
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
 
     if ([FBSDKAccessToken currentAccessToken]) {
         [self postToken];
@@ -233,13 +243,15 @@
     page4.bgImage = [UIImage imageNamed:@"bg4"];
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
 
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2,page3,page4]];
     [intro setDelegate:self];
     UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"iPhone6"]];
     intro.titleView = titleView;
     intro.titleViewY = 50;
 
-    [intro showInView:rootView animateDuration:0.5];}
+    [intro setDelegate:self];
+    [intro showInView:self.view animateDuration:0.5];
+}
 
 
 

@@ -31,30 +31,29 @@ class Interest
     static func createInterests() -> [Interest]
     {
         return [
-            Interest(title: "We Love Hamburgers",
-                description: "We recommand this restaurant",
+            Interest(title: "美式料理",
+                description: "漢堡,牛排,BBQ",
                 featuredImage: UIImage(named: "sort_hamburger")!), // 1
 
-            Interest(title: "Dinner with Family",
-                description: "Life tastes better with Family",
-                featuredImage: UIImage(named: "sort_dinner")!), // 2
+            Interest(title: "義式料理",
+                description: "義大利麵,披薩",
+                featuredImage: UIImage(named: "sort_italian")!), // 2
 
-            Interest(title: "Let's Japan",
-                description: "Best Choice",
+            Interest(title: "日式料理",
+                description: "壽司,丼飯,壽喜燒",
                 featuredImage: UIImage(named: "sort_japan")!), // 3
 
-            Interest(title: "Enjoy Coffee Time",
-                description: "Why not have ac cup of coffee with your best family",
+            Interest(title: "咖啡、簡餐",
+                description: "拿鐵,輕食,帕尼尼",
                 featuredImage: UIImage(named: "sort_coffee")!), // 4
 
-            Interest(title: "It's Korean Food",
-                description: "Make time, make Tetley.",
+            Interest(title: "韓式料理",
+                description: "辣炒年糕,銅板烤肉",
                 featuredImage: UIImage(named: "sort_korean")!), // 5
 
-
-            Interest(title: "TGI.Friday Cheer!!!",
-                description: "In here, it's always Friday",
-                featuredImage: UIImage(named: "sort_beer")!) // 6
+//            Interest(title: "TGI.Friday Cheer!!!",
+//                description: "In here, it's always Friday",
+//                featuredImage: UIImage(named: "sort_beer")!) // 6
         ]
     }
 }

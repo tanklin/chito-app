@@ -13,7 +13,6 @@
 #import "SecondViewController.h"
 
 @interface RightViewController()
-
 @property (strong, readwrite, nonatomic) UITableView *tableView;
 @end
 
@@ -54,30 +53,27 @@
             break;
         case 3:
             break;
-        case 4:
+        case 4: // Home
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SortView"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 5:
+        case 5: // Favorites
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"firstViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 6:
+        case 6: // History
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"visitTableViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 7:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
-                                                         animated:YES];
-            [self.sideMenuViewController hideMenuViewController];
-            break;
-        case 8:
+        case 7: // About CHiTO
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
+            break;
+        case 8: // Tutorial
             break;
         case 9:
             break;
@@ -125,11 +121,11 @@
                         @" ",
                         @" ",
                         @" ",
-                        @"Home",  //首頁
-                        @"Favorites",    //我的收藏
-                        @"History",    //最近瀏覽
-                        @"About CHiTO",   //關於CHiTO
-                        @"Tutorial",
+                        @"美食探索",  //
+                        @"我的收藏",    //
+                        @"最近瀏覽",    //
+                        @"關於CHiTO",   //
+                        @" ",
                         @" ",
                         @"Logout"];
     cell.textLabel.text = titles[indexPath.row];
@@ -140,6 +136,5 @@
 
     return cell;
 }
-
 
 @end

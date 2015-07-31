@@ -10,7 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-
+#import "GAI.h"
 
 @interface AppDelegate ()
 @end
@@ -24,6 +24,14 @@
 //    [FBSDKLoginButton class];
 
     [GMSServices provideAPIKey:@"AIzaSyC7ztLan0fjcgHcUwbAX3jplG_vq0cbd-k"];
+
+
+    /// Google Analytics
+    // Initialize a tracker using a Google Analytics property ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-65838916-1"];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
 
     // check if user is logged in and had a token
     if ([[NSUserDefaults standardUserDefaults] valueForKey:@"auth_token"]) {

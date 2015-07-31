@@ -220,7 +220,6 @@
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                 <size key="shadowOffset" width="0.0" height="1"/>
                                                             </label>
                                                         </subviews>
@@ -257,7 +256,7 @@
                                                 <outlet property="delegate" destination="GYz-i5-aDK" id="tez-eH-Jv5"/>
                                             </connections>
                                         </collectionView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPLORE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xe-aM-hq5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食探索" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xe-aM-hq5">
                                             <rect key="frame" x="28" y="79" width="264" height="54"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="54"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,18 +337,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iDW-uX-8JH">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ypT-UP-xQt">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="osu-7R-1nw">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <connections>
-                                <action selector="presentRightMenuViewController:" destination="YoI-Nu-eqF" id="fhf-SR-tON"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="ChiTOer" id="IcG-HJ-1sI"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk7-m6-qSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -377,7 +365,9 @@
                             <outlet property="delegate" destination="JUv-jS-JIS" id="wff-5d-su7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="O9t-Py-F9G"/>
+                    <navigationItem key="navigationItem" id="O9t-Py-F9G">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Ro9-56-V4C"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibU-XX-aOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -455,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFM-sJ-Jbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379" y="975"/>
+            <point key="canvasLocation" x="1123" y="975"/>
         </scene>
         <!--Please Login View Controller-->
         <scene sceneID="ZMC-Zr-0Pa">

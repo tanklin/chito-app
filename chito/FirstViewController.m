@@ -81,7 +81,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *parameters = @{
-//                                 @"auth_token": [defaults stringForKey:kAuth_token],
+                                 @"auth_token": [defaults stringForKey:kAuth_token],
                                  @"user_id":[defaults stringForKey:kUser_id]
                                  };
     [manager POST:TEST_FAVORITE_GET parameters:parameters

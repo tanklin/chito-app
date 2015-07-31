@@ -27,9 +27,10 @@
 #define TEST_LOGIN @"http://4c5f9266.ngrok.com/api/v1/login"
 #define TEST_VISIT @"http://4c5f9266.ngrok.com/api/v1/visit"
 #define TEST_VISIT_GET @"http://4c5f9266.ngrok.com/api/v1/visit_get"
+#define TEST_FAVORITE_LIKE @"http://4c5f9266.ngrok.com/api/v1/favorite_like"
 #define TEST_FAVORITE_GET @"http://4c5f9266.ngrok.com/api/v1/favorite_get"
 
-extern id kID;
+extern NSInteger kID;
 extern int *kCategoryID;
 //extern id kLati; // 緯度
 //extern id kLong; // 經度

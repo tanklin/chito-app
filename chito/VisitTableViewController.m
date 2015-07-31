@@ -29,8 +29,8 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [manager POST:kVisit_get parameters:@{
-                                         kAuth_token:[defaults stringForKey:kAuth_token],
-                                         kUser_id:kID
+                                         @"auth_tokent":[defaults stringForKey:kAuth_token],
+                                         @"user_id":[defaults stringForKey:kUser_id]
                                          }
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSData *visitData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
@@ -80,9 +80,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//    if (cell == nil) {
+    if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
+    }
 //    cell.textLabel.text = @"Name";
 //    cell.imageView.image = [UIImage imageNamed:@"title1.png"];
 //    cell.accessoryType = UITableViewCellAccessoryCheckmark;
