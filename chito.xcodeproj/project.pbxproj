@@ -10,7 +10,6 @@
 		3FA2F6D51D37CDF05529295A /* libPods-chito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABD37D7F1F779CCE737628A /* libPods-chito.a */; };
 		C11CD62A1B6235A200D2A1E1 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD6281B6235A200D2A1E1 /* RightViewController.m */; };
 		C11CD6361B62759B00D2A1E1 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD6351B62759B00D2A1E1 /* FirstViewController.m */; };
-		C11CD6391B6275AA00D2A1E1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */; };
 		C11CD63C1B62892C00D2A1E1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CD63B1B62892C00D2A1E1 /* RootViewController.m */; };
 		C1422E511B6B1A9A00433CF5 /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1422E4F1B6B1A9A00433CF5 /* libAdIdAccess.a */; };
 		C1422E521B6B1A9A00433CF5 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1422E501B6B1A9A00433CF5 /* libGoogleAnalyticsServices.a */; };
@@ -48,8 +47,6 @@
 		C11CD6281B6235A200D2A1E1 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 		C11CD6341B62759B00D2A1E1 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		C11CD6351B62759B00D2A1E1 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		C11CD63A1B62892C00D2A1E1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C11CD63B1B62892C00D2A1E1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		C1422E451B6B1A9A00433CF5 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Google_Analytics/GAI.h; sourceTree = "<group>"; };
@@ -153,8 +150,6 @@
 				C11CD6351B62759B00D2A1E1 /* FirstViewController.m */,
 				C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */,
 				C1A6AA951B67C2540058CCC4 /* VisitTableViewController.m */,
-				C11CD6371B6275AA00D2A1E1 /* SecondViewController.h */,
-				C11CD6381B6275AA00D2A1E1 /* SecondViewController.m */,
 				C1A6AA911B652D230058CCC4 /* ThirdViewController.h */,
 				C1A6AA921B652D230058CCC4 /* ThirdViewController.m */,
 			);
@@ -414,7 +409,6 @@
 				C11CD6361B62759B00D2A1E1 /* FirstViewController.m in Sources */,
 				C15C80D41B540A960024F0B5 /* AppDelegate.m in Sources */,
 				C1EFF8C91B5B50040083C001 /* MapViewController.m in Sources */,
-				C11CD6391B6275AA00D2A1E1 /* SecondViewController.m in Sources */,
 				C15C80D11B540A960024F0B5 /* main.m in Sources */,
 				C1A6AA901B64F7B10058CCC4 /* GV.m in Sources */,
 				C1BF260D1B5E245200CCB79B /* SortCollectionViewController.swift in Sources */,

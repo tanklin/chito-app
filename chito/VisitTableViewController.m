@@ -27,7 +27,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadVisitRestaurant];
-
+    UINavigationBar *bar = [self.navigationController navigationBar];
+    [bar setTintColor:[UIColor blackColor]];
+    [bar setBarTintColor:[UIColor colorWithRed:255.0/255.0 green:111.0/255.0 blue:28.0/255.0 alpha:1]];
+    [bar setTranslucent:NO];
 }
 
 - (void)loadVisitRestaurant //visit_git

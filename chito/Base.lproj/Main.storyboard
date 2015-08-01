@@ -257,20 +257,32 @@
                                             </connections>
                                         </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食探索" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xe-aM-hq5">
-                                            <rect key="frame" x="28" y="79" width="264" height="54"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="54"/>
+                                            <rect key="frame" x="23" y="11" width="264" height="54"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="66"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選擇你喜愛的類別" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-q0-udc">
+                                            <rect key="frame" x="23" y="73" width="264" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="4Mr-GZ-oRj"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="34"/>
+                                            <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="T4g-ia-f9i" firstAttribute="top" secondItem="1xe-aM-hq5" secondAttribute="bottom" constant="-24" id="6oj-HA-pFA"/>
+                                        <constraint firstItem="T4g-ia-f9i" firstAttribute="top" secondItem="1xe-aM-hq5" secondAttribute="bottom" constant="44" id="6oj-HA-pFA"/>
                                         <constraint firstAttribute="trailing" secondItem="T4g-ia-f9i" secondAttribute="trailing" id="7cx-E4-SDR"/>
-                                        <constraint firstItem="1xe-aM-hq5" firstAttribute="leading" secondItem="xx3-bX-jM9" secondAttribute="leading" constant="28" id="8V9-Og-n8G"/>
+                                        <constraint firstItem="1xe-aM-hq5" firstAttribute="leading" secondItem="xx3-bX-jM9" secondAttribute="leading" constant="23" id="8V9-Og-n8G"/>
                                         <constraint firstAttribute="bottom" secondItem="T4g-ia-f9i" secondAttribute="bottom" constant="39" id="BwI-qj-d0c"/>
                                         <constraint firstItem="T4g-ia-f9i" firstAttribute="leading" secondItem="xx3-bX-jM9" secondAttribute="leading" id="D6T-Ni-33U"/>
-                                        <constraint firstAttribute="trailing" secondItem="1xe-aM-hq5" secondAttribute="trailing" constant="28" id="ILr-li-RaT"/>
-                                        <constraint firstItem="1xe-aM-hq5" firstAttribute="top" secondItem="xx3-bX-jM9" secondAttribute="top" constant="79" id="pCR-za-MOg"/>
+                                        <constraint firstAttribute="trailing" secondItem="1xe-aM-hq5" secondAttribute="trailing" constant="33" id="ILr-li-RaT"/>
+                                        <constraint firstItem="LtZ-q0-udc" firstAttribute="leading" secondItem="1xe-aM-hq5" secondAttribute="leading" id="T6C-i7-7oC"/>
+                                        <constraint firstItem="1xe-aM-hq5" firstAttribute="top" secondItem="xx3-bX-jM9" secondAttribute="top" constant="11" id="pCR-za-MOg"/>
+                                        <constraint firstItem="LtZ-q0-udc" firstAttribute="trailing" secondItem="1xe-aM-hq5" secondAttribute="trailing" id="wJQ-uV-OsW"/>
+                                        <constraint firstItem="LtZ-q0-udc" firstAttribute="top" secondItem="1xe-aM-hq5" secondAttribute="bottom" constant="8" symbolic="YES" id="yzA-KM-Ya9"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -288,7 +300,14 @@
                             <constraint firstItem="YcO-cA-SMp" firstAttribute="leading" secondItem="sxC-ih-umv" secondAttribute="leading" id="rGN-kp-nly"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ybG-hR-vmP"/>
+                    <navigationItem key="navigationItem" id="ybG-hR-vmP">
+                        <barButtonItem key="rightBarButtonItem" image="icon_SideMenu" id="KwZ-Ll-W3x">
+                            <color key="tintColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="presentRightMenuViewController:" destination="GYz-i5-aDK" id="twH-e5-gJS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundImageView" destination="YcO-cA-SMp" id="QfI-AG-kJ8"/>
                         <outlet property="collectionView" destination="T4g-ia-f9i" id="3ml-qZ-tEz"/>
@@ -312,12 +331,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QIm-xy-n9O">
-                        <barButtonItem key="rightBarButtonItem" title="CHiTOer" id="fCy-nd-PHw">
+                        <barButtonItem key="rightBarButtonItem" image="icon_SideMenu" id="fCy-nd-PHw">
+                            <color key="tintColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="presentRightMenuViewController:" destination="aTT-eW-Lfs" id="Q9u-Jg-ZHr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Br6-bJ-Mi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -337,12 +358,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iDW-uX-8JH">
-                        <barButtonItem key="rightBarButtonItem" title="ChiTOer" id="IcG-HJ-1sI">
+                        <barButtonItem key="rightBarButtonItem" image="icon_SideMenu" id="IcG-HJ-1sI">
+                            <color key="tintColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="presentRightMenuViewController:" destination="YoI-Nu-eqF" id="BQ7-Yx-43g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk7-m6-qSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -407,55 +430,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="O9t-Py-F9G">
-                        <barButtonItem key="rightBarButtonItem" title="CHiTOer" id="Ro9-56-V4C">
+                        <barButtonItem key="rightBarButtonItem" image="icon_SideMenu" id="Ro9-56-V4C">
+                            <color key="tintColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="presentRightMenuViewController:" destination="JUv-jS-JIS" id="iNN-yV-94J"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibU-XX-aOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1945" y="319"/>
-        </scene>
-        <!--Second View Controller-->
-        <scene sceneID="wK6-Oh-j19">
-            <objects>
-                <viewController storyboardIdentifier="secondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oMt-Og-st1" customClass="SecondViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cUS-tO-u8F"/>
-                        <viewControllerLayoutGuide type="bottom" id="3YT-oa-Qsi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zol-LS-C8Z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyp-eh-vyY">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vyp-eh-vyY" secondAttribute="trailing" id="57e-oU-FQ0"/>
-                            <constraint firstItem="vyp-eh-vyY" firstAttribute="leading" secondItem="Zol-LS-C8Z" secondAttribute="leading" id="P5l-bf-cNM"/>
-                            <constraint firstItem="vyp-eh-vyY" firstAttribute="bottom" secondItem="3YT-oa-Qsi" secondAttribute="top" id="cNl-5J-hTr"/>
-                            <constraint firstItem="vyp-eh-vyY" firstAttribute="top" secondItem="cUS-tO-u8F" secondAttribute="bottom" id="d7y-mG-jtq"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="YsC-A8-fa7">
-                        <barButtonItem key="rightBarButtonItem" title="CHiTOer" id="7gR-Fe-Qbz">
-                            <connections>
-                                <action selector="presentRightMenuViewController:" destination="oMt-Og-st1" id="jzN-lJ-Cg5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="webChito" destination="vyp-eh-vyY" id="BYq-38-INg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zfu-SY-mh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1945" y="975"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="cjk-w9-D8a">
@@ -473,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MM-Gn-jrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="1622"/>
+            <point key="canvasLocation" x="1937" y="975"/>
         </scene>
         <!--Right View Controller-->
         <scene sceneID="rgR-jp-LXj">
@@ -597,24 +583,6 @@ CHiTO推薦在你附近的餐廳
             <point key="canvasLocation" x="-463" y="975"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="pLT-Lx-xy9">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IMx-fR-ulg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5AR-8p-tqK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="oMt-Og-st1" kind="relationship" relationship="rootViewController" id="sji-BC-MWA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R3U-aL-j58" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1529" y="975"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="hPi-Q7-efS">
             <objects>
                 <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ono-CN-FzJ" sceneMemberID="viewController">
@@ -672,6 +640,7 @@ CHiTO推薦在你附近的餐廳
     </scenes>
     <resources>
         <image name="Login_bg_why" width="375" height="667"/>
+        <image name="icon_SideMenu" width="30" height="30"/>
         <image name="logo" width="230" height="109"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -679,4 +648,5 @@ CHiTO推薦在你附近的餐廳
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -102,12 +102,12 @@
 //    [myLocationManager requestWhenInUseAuthorization];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    /// GA
-    self.screenName = self.title;
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    /// GA
+//    self.screenName = self.title;
+//}
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

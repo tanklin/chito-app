@@ -85,6 +85,13 @@
     
     self.navigationItem.titleView = _headerTitleSubtitleView;
 
+    UINavigationBar *bar = [self.navigationController navigationBar];
+    [bar setTintColor:[UIColor whiteColor]];
+    [bar setBarTintColor:[UIColor colorWithRed:255.0/255.0 green:111.0/255.0 blue:28.0/255.0 alpha:1]];
+    [bar setTranslucent:NO];
+
+//    self.navigationController.navigationBar.backgroundColor = [UIColor orangeColor];
+//    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -194,7 +201,7 @@
                                                         [markerData[@"longitude"] doubleValue]);
         newMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
         newMarker.map = nil;
-
+        NSLog(@"##### object id ##### %@",newMarker.objectID);
         [mutableSet addObject:newMarker];
     }
     self.markers = [mutableSet copy];
@@ -295,26 +302,25 @@
     return image;
 }
 */
-
-/// Alert視窗
-- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
 {
-//    res_id = marker.id;
     [self visitPost];
-    tel = [NSString stringWithFormat:@"%@", marker.snippet];
-    NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title]; //您撥打的餐廳是
-//    UIAlertView *windowTapped = [[UIAlertView alloc]
-//                                 initWithTitle:tel
-//                                       message:message
-//                                      delegate:nil
-//                             cancelButtonTitle:@"取消"
-//                             otherButtonTitles:@"確定撥打電話", nil];
-//    
-//    [windowTapped show];
+//    res_id = [NSString stringWithFormat:@"%@", marker.objectID];
+        //    UIAlertView *windowTapped = [[UIAlertView alloc]
+    //                                 initWithTitle:tel
+    //                                       message:message
+    //                                      delegate:nil
+    //                             cancelButtonTitle:@"取消"
+    //                             otherButtonTitles:@"確定撥打電話", nil];
+    //
+    //    [windowTapped show];
 
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:message
+    tel = [NSString stringWithFormat:@"%@", marker.snippet];
+//    NSString *message = [NSString stringWithFormat:@"您撥打的餐廳是%@", marker.title]; //您撥打的餐廳是
+
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:marker.title
                                                      andMessage:tel];
-    [alertView addButtonWithTitle:@"確定撥打電話"
+    [alertView addButtonWithTitle:@"撥打電話"
                              type:SIAlertViewButtonTypeDefault
                           handler:^(SIAlertView *alert) {
                               [self callServices];
@@ -326,9 +332,8 @@
                               MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                               hud.mode = MBProgressHUDModeIndeterminate;
                               hud.labelText = @"收藏成功!";
-                              dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                              dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.8 * NSEC_PER_SEC);
                               dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                                  // Do something...
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
 
                                   int random = (arc4random() % 200)+1;
@@ -367,11 +372,18 @@
     alertView.didDismissHandler = ^(SIAlertView *alertView) {
         NSLog(@"%@, didDismissHandler", alertView);
     };
-    
+
     alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
     
     [alertView show];
+
+    return YES;
 }
+/// Alert視窗
+//- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+//{
+////    res_id = marker.id;
+//}
 - (void)callServices
 {
     NSString *temp = [tel stringByReplacingOccurrencesOfString:@"-" withString:@""];
