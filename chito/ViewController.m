@@ -20,6 +20,7 @@
 {
 //    UIView *rootView;
     EAIntroView *_intro;
+    CLLocationManager *locationManager;
 }
 @end
 
@@ -112,7 +113,12 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    /// Tutorial rootview
+    locationManager = [[CLLocationManager alloc]init];
+    locationManager.delegate = self;
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    [locationManager startUpdatingLocation];
 
 //    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]) {
 //        [[NSUserDefaults standardUserDefaults] synchronize];

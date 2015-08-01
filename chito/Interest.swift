@@ -43,7 +43,7 @@ class Interest
                 description: "壽司,丼飯,壽喜燒",
                 featuredImage: UIImage(named: "sort_japan")!), // 3
 
-            Interest(title: "咖啡、簡餐",
+            Interest(title: "咖啡/簡餐",
                 description: "拿鐵,輕食,帕尼尼",
                 featuredImage: UIImage(named: "sort_coffee")!), // 4
 

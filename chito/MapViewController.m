@@ -223,7 +223,7 @@
     mapView_.settings.myLocationButton = YES;
     mapView_.settings.compassButton = YES;
     mapView_.settings.rotateGestures = YES;
-    mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 10, 0, self.bottomLayoutGuide.length + 10, 0);
+    mapView_.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 10, 0, self.bottomLayoutGuide.length + 80, 0);
     [mapView_ setMinZoom:8 maxZoom:18];
     [self.view addSubview:mapView_];
 }

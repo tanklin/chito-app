@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VisitTableViewController : UITableViewController
-
+@property (nonatomic, strong) IBOutlet UITableView * tbView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end

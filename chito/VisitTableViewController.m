@@ -7,8 +7,10 @@
 //
 
 #import "VisitTableViewController.h"
+#import "MBProgressHUD.h"
 #import "GV.h"
 #import <AFNetworking.h>
+#import <SIAlertView/SIAlertView.h>
 
 @interface VisitTableViewController ()
 {
@@ -18,6 +20,8 @@
     NSMutableString *titleData;
     NSMutableString *telData;
     NSMutableString *addressData;
+
+    NSString *tel;
 }
 @property (weak, nonatomic) NSArray *visitArray;
 @end
@@ -26,11 +30,29 @@
 //static NSString *visitTableViewCellIdentifier = @"visitCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"最近瀏覽";
+    [self progressHUD];
     [self loadVisitRestaurant];
+    [self reloadTableView];
     UINavigationBar *bar = [self.navigationController navigationBar];
     [bar setTintColor:[UIColor blackColor]];
     [bar setBarTintColor:[UIColor colorWithRed:255.0/255.0 green:111.0/255.0 blue:28.0/255.0 alpha:1]];
     [bar setTranslucent:NO];
+
+}
+
+- (void)reloadTableView
+{
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh)
+                  forControlEvents:UIControlEventValueChanged];
+    [self.tbView addSubview:self.refreshControl]; //把RefreshControl加到TableView中
+}
+- (void)refresh{
+    [self.tbView reloadData];
+    if (self.refreshControl) {
+        [self.refreshControl endRefreshing];
+    }
 }
 
 - (void)loadVisitRestaurant //visit_git
@@ -118,10 +140,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
-    NSLog(@"%@", jsonDataMutableArray);
     NSDictionary *tmpDict = [jsonDataMutableArray objectAtIndex:indexPath.row];
-    NSLog(@"Temp Dict: %@", tmpDict);
-
     titleData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"name"]];
     telData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"tel"]];
     addressData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"address"]];
@@ -140,8 +159,64 @@
 
     return cell;
 }
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    tel = [NSString stringWithFormat:@"%@", telData];
 
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:titleData
+                                                     andMessage:tel];
+    [alertView addButtonWithTitle:@"撥打電話"
+                             type:SIAlertViewButtonTypeDefault
+                          handler:^(SIAlertView *alert) {
+                              [self callServices];
+                              NSLog(@"Call Button Clicked");
+                          }];
+    [alertView addButtonWithTitle:@"取消"
+                             type:SIAlertViewButtonTypeCancel
+                          handler:^(SIAlertView *alert) {
+                              NSLog(@"Cancel Button Clicked");
+                          }];
 
+    alertView.willShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willShowHandler", alertView);
+    };
+    alertView.didShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didShowHandler", alertView);
+    };
+    alertView.willDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willDismissHandler", alertView);
+    };
+    alertView.didDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didDismissHandler", alertView);
+    };
+
+    alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromBottom;
+
+    [alertView show];
+}
+
+- (void)callServices
+{
+    NSString *temp = [tel stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *phoneURL = [NSString stringWithFormat:@"tel://%@", temp];
+    NSLog(@"Call %@", phoneURL);
+    BOOL ifCall = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneURL]];
+    if (!ifCall) {
+        NSLog(@"calling error");
+    }
+}
+
+- (void)progressHUD
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminate;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        // Do something...
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

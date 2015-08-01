@@ -8,12 +8,12 @@
 
 #import "FirstViewController.h"
 #import "RightViewController.h"
+#import "MBProgressHUD.h"
 #import "CSMarker.h"
 #import "GV.h"
 #import <AFNetworking.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <SIAlertView/SIAlertView.h>
-
 
 @interface FirstViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isFirstTimeGetLocation = YES;
-
+    [self progressHUD];
     [self mapViewDidLoad];
 //    [self favoriteMarkerData];
     self.title = @"我的收藏";
@@ -93,7 +93,7 @@
                               [self callServices];
                               NSLog(@"Call Button Clicked");
                           }];
-    [alertView addButtonWithTitle:@"再看看"
+    [alertView addButtonWithTitle:@"取消"
                              type:SIAlertViewButtonTypeCancel
                           handler:^(SIAlertView *alert) {
                               NSLog(@"Cancel Button Clicked");
@@ -112,7 +112,7 @@
         NSLog(@"%@, didDismissHandler", alertView);
     };
 
-    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+    alertView.transitionStyle = SIAlertViewTransitionStyleFade;
     
     [alertView show];
 
@@ -128,6 +128,17 @@
     if (!ifCall) {
         NSLog(@"calling error");
     }
+}
+
+- (void)progressHUD
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminate;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        // Do something...
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
 }
 
 - (void)getFavoriteRestaurantsJson

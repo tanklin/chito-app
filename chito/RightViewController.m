@@ -11,6 +11,8 @@
 #import "MapViewController.h"
 #import "FirstViewController.h"
 #import "SecondViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface RightViewController()
 @property (strong, readwrite, nonatomic) UITableView *tableView;
@@ -23,7 +25,7 @@
 {
     [super viewDidLoad];
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 11) / 2.0f, self.view.frame.size.width, 54 * 11) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 10) / 2.0f, self.view.frame.size.width, 54 * 10) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -35,6 +37,21 @@
         tableView;
     });
     [self.view addSubview:self.tableView];
+}
+
+- (void)logout
+{
+    UIAlertView *windowTapped = [[UIAlertView alloc]
+                                 initWithTitle:@"登出"
+                                 message:@"確定要登出CHiTO嗎?"
+                                 delegate:nil
+                                 cancelButtonTitle:@"取消"
+                                 otherButtonTitles:@"確定", nil];
+
+    [windowTapped show];
+
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    [loginManager logOut];
 }
 
 
@@ -73,11 +90,10 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 8: // Tutorial
+        case 8:
             break;
-        case 9:
-            break;
-        case 10:
+        case 9: // Logout
+            [self logout];
             break;
         default:
             break;
@@ -111,7 +127,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
+        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:22];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
@@ -126,8 +142,7 @@
                         @"最近瀏覽",    //
                         @"關於CHiTO",   //
                         @" ",
-                        @" ",
-                        @"Logout"];
+                        @"登出"];
     cell.textLabel.text = titles[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentRight;
 
