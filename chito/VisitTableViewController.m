@@ -138,10 +138,6 @@
     addressLabel.text = addressData;
     NSLog(@"$$$ Address %@", addressLabel.text);
 
-
-//    cell.textLabel.text = @"Name";
-//    cell.imageView.image = [UIImage imageNamed:@"title1.png"];
-//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     return cell;
 }
 

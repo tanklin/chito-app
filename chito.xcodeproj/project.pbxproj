@@ -142,10 +142,7 @@
 		C11CD6241B62358900D2A1E1 /* SideMenu Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C11CD63A1B62892C00D2A1E1 /* RootViewController.h */,
-				C11CD63B1B62892C00D2A1E1 /* RootViewController.m */,
-				C11CD6271B6235A200D2A1E1 /* RightViewController.h */,
-				C11CD6281B6235A200D2A1E1 /* RightViewController.m */,
+				C1422E5D1B6D06A700433CF5 /* Root Controller */,
 				C11CD6341B62759B00D2A1E1 /* FirstViewController.h */,
 				C11CD6351B62759B00D2A1E1 /* FirstViewController.m */,
 				C1A6AA941B67C2540058CCC4 /* VisitTableViewController.h */,
@@ -173,6 +170,17 @@
 				C1422E501B6B1A9A00433CF5 /* libGoogleAnalyticsServices.a */,
 			);
 			name = GA;
+			sourceTree = "<group>";
+		};
+		C1422E5D1B6D06A700433CF5 /* Root Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C11CD63A1B62892C00D2A1E1 /* RootViewController.h */,
+				C11CD63B1B62892C00D2A1E1 /* RootViewController.m */,
+				C11CD6271B6235A200D2A1E1 /* RightViewController.h */,
+				C11CD6281B6235A200D2A1E1 /* RightViewController.m */,
+			);
+			name = "Root Controller";
 			sourceTree = "<group>";
 		};
 		C15C80C21B540A960024F0B5 = {

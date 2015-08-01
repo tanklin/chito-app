@@ -26,7 +26,7 @@
     NSString *res_id;
 }
 
-@property (strong, nonatomic) NSURLSession *markerSession;
+//@property (strong, nonatomic) NSURLSession *markerSession;
 @property (copy, nonatomic) NSSet *markers;
 @property BOOL isFirstTimeGetLocation;
 
@@ -38,10 +38,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isFirstTimeGetLocation = YES;
-/// Session generate markers
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    config.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:2*1024*1024 diskCapacity:10*1024*1024 diskPath:@"MarkerData"];
-    self.markerSession = [NSURLSession sessionWithConfiguration:config];
+///// Session generate markers
+//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    config.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:2*1024*1024 diskCapacity:10*1024*1024 diskPath:@"MarkerData"];
+//    self.markerSession = [NSURLSession sessionWithConfiguration:config];
 
     [self mapViewDidLoad];
 
@@ -86,7 +86,7 @@
     self.navigationItem.titleView = _headerTitleSubtitleView;
 
     UINavigationBar *bar = [self.navigationController navigationBar];
-    [bar setTintColor:[UIColor whiteColor]];
+    [bar setTintColor:[UIColor blackColor]];
     [bar setBarTintColor:[UIColor colorWithRed:255.0/255.0 green:111.0/255.0 blue:28.0/255.0 alpha:1]];
     [bar setTranslucent:NO];
 

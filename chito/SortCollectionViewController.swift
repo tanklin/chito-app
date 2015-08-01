@@ -26,7 +26,7 @@ class SortCollectionViewController: UIViewController
          super.viewDidLoad()
         self.title = "美食探索"
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 28.0/255.0, alpha: 1)
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.translucent = false;
     }
 

@@ -12,11 +12,13 @@
 #import "GV.h"
 #import <AFNetworking.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import <SIAlertView/SIAlertView.h>
 
 
 @interface FirstViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
     GMSMapView *mapView_;
+    NSString *tel;
 }
 
 @property (copy, nonatomic) NSSet *markers;
@@ -79,7 +81,54 @@
     [self.view addSubview:mapView_];
 }
 
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
+{
+    tel = [NSString stringWithFormat:@"%@", marker.snippet];
 
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:marker.title
+                                                     andMessage:tel];
+    [alertView addButtonWithTitle:@"撥打電話"
+                             type:SIAlertViewButtonTypeDefault
+                          handler:^(SIAlertView *alert) {
+                              [self callServices];
+                              NSLog(@"Call Button Clicked");
+                          }];
+    [alertView addButtonWithTitle:@"再看看"
+                             type:SIAlertViewButtonTypeCancel
+                          handler:^(SIAlertView *alert) {
+                              NSLog(@"Cancel Button Clicked");
+                          }];
+
+    alertView.willShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willShowHandler", alertView);
+    };
+    alertView.didShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didShowHandler", alertView);
+    };
+    alertView.willDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willDismissHandler", alertView);
+    };
+    alertView.didDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didDismissHandler", alertView);
+    };
+
+    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+    
+    [alertView show];
+
+    return YES;
+}
+
+- (void)callServices
+{
+    NSString *temp = [tel stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *phoneURL = [NSString stringWithFormat:@"tel://%@", temp];
+    NSLog(@"Call %@", phoneURL);
+    BOOL ifCall = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneURL]];
+    if (!ifCall) {
+        NSLog(@"calling error");
+    }
+}
 
 - (void)getFavoriteRestaurantsJson
 {
@@ -102,19 +151,6 @@
               NSLog(@"=== Get Favorite Restaurants Error === %@", error);
           }];
 }
-
-
-//- (void)favoriteMarkerData
-//{
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"yelpJsonTest" ofType:@"json"];
-//    NSData *data = [NSData dataWithContentsOfFile:filePath];
-//    NSArray *json = [NSJSONSerialization JSONObjectWithData:data
-//                                                    options:kNilOptions
-//                                                      error:nil];
-//    NSLog(@"=== Favorite Markers === %@", json);
-//    [self createMarkerObjectsWithJson:json];
-//}
-
 
 /// Create market with Networking Json
 - (void)createMarkerObjectsWithJson:(NSObject *)json
@@ -146,5 +182,12 @@
         }
     }
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [mapView_ removeObserver:self forKeyPath:@"myLocation"];
+}
+
 
 @end
