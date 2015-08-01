@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadVisitRestaurant];
-    [self.tableView reloadData];
+
 }
 
 - (void)loadVisitRestaurant //visit_git
@@ -44,27 +44,32 @@
 
              NSLog(@"=== Post Visit response === %@", json);
 
+             NSDictionary *dicJson = (NSDictionary*)json;
              jsonDataMutableArray = [NSMutableArray new];
 
-             for (NSDictionary *dataDict in json) {
-                 telData = [dataDict objectForKey:@"title"];
-                 telData = [dataDict objectForKey:@"tel"];
-                 addressData = [dataDict objectForKey:@"address"];
+             for (NSDictionary *dataDict in dicJson[@"data"]) {
+//                 telData = [dataDict objectForKey:@"name"];
+//                 telData = [dataDict objectForKey:@"tel"];
+//                 addressData = [dataDict objectForKey:@"address"];
 
-                 NSLog(@"Title: %@", titleData);
-                 NSLog(@"Tel: %@", telData);
-                 NSLog(@"Address: %@", addressData);
+//                 NSLog(@"Name: %@", titleData);
+//                 NSLog(@"Tel: %@", telData);
+//                 NSLog(@"Address: %@", addressData);
 
-                 dataDictionaryFromArrayJson = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                titleData, @"title",
-                                                telData, @"tel",
-                                                addressData, @"address",
-                                                nil];
-                 [jsonDataMutableArray addObject:dataDictionaryFromArrayJson];
+                 [jsonDataMutableArray addObject:dataDict];
+
+//                 dataDictionaryFromArrayJson = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                                titleData, @"name",
+//                                                telData, @"tel",
+//                                                addressData, @"address",
+//                                                nil];
+//                 NSLog(@"dataDictionaryFromArrayJson %@", dataDictionaryFromArrayJson);
+//                 [jsonDataMutableArray addObject:dataDictionaryFromArrayJson];
+                 NSLog(@"jsonDataMutableArray:: %@", jsonDataMutableArray);
                  NSLog(@"=== json count \"%ld\" ===",jsonDataMutableArray.count);
+
+                 [self.tableView reloadData];
              }
-
-
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"=== Post Visit failure === %@", error);
      }];
@@ -86,13 +91,13 @@
     return header;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 50;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 90;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -110,27 +115,30 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
+    NSLog(@"%@", jsonDataMutableArray);
     NSDictionary *tmpDict = [jsonDataMutableArray objectAtIndex:indexPath.row];
+    NSLog(@"Temp Dict: %@", tmpDict);
 
-    titleData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"title"]];
+    titleData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"name"]];
     telData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"tel"]];
     addressData = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"address"]];
 
     UILabel *titleLabel = (UILabel*)[cell viewWithTag:100];
     titleLabel.text = titleData;
-    NSLog(@"$$$ 3 %@", titleLabel.text);
+    NSLog(@"$$$ Name %@", titleLabel.text);
 
     UILabel *telLabel = (UILabel*)[cell viewWithTag:200];
     telLabel.text = telData;
+    NSLog(@"$$$ Tel %@", telLabel.text);
 
     UILabel *addressLabel = (UILabel*)[cell viewWithTag:300];
     addressLabel.text = addressData;
+    NSLog(@"$$$ Address %@", addressLabel.text);
 
 
 //    cell.textLabel.text = @"Name";
 //    cell.imageView.image = [UIImage imageNamed:@"title1.png"];
 //    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-
     return cell;
 }
 

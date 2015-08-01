@@ -189,7 +189,7 @@
         newMarker.title = markerData[@"name"];
         newMarker.snippet = markerData[@"tel"];
         newMarker.appearAnimation = kGMSMarkerAnimationPop;
-        newMarker.infoWindowAnchor = CGPointMake(0.7, 0);
+        newMarker.infoWindowAnchor = CGPointMake(0.5, 0);
         newMarker.position = CLLocationCoordinate2DMake([markerData[@"latitude"] doubleValue],
                                                         [markerData[@"longitude"] doubleValue]);
         newMarker.icon = [UIImage imageNamed:@"CHiTO_Pin"];
@@ -339,7 +339,7 @@
                                                                @"user_id":[defaults stringForKey:kUser_id],
                                                                @"res_id":@(random)
                                                                };
-                                  [manager POST:TEST_FAVORITE_LIKE parameters:parameters
+                                  [manager POST:kFavorite_Like parameters:parameters
                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                             NSLog(@"=== Favorite Like Success === %@",responseObject);
                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -388,10 +388,11 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int random = (arc4random() % 200)+1;
     NSDictionary *parameters = @{
                                  @"auth_token":[defaults stringForKey:kAuth_token],
                                  @"user_id":[defaults stringForKey:kUser_id],
-                                 @"res_id":@10
+                                 @"res_id":@(random)
                                  };
     [manager POST:kVisit parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {

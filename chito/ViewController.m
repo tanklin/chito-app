@@ -98,8 +98,8 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });
 
-    CLLocationManager *myLocationManager = [[CLLocationManager alloc] init];
-    [myLocationManager requestWhenInUseAuthorization];
+//    CLLocationManager *myLocationManager = [[CLLocationManager alloc] init];
+//    [myLocationManager requestWhenInUseAuthorization];
 }
 
 - (void)viewWillAppear:(BOOL)animated

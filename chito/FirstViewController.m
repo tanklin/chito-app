@@ -84,7 +84,7 @@
                                  @"auth_token": [defaults stringForKey:kAuth_token],
                                  @"user_id":[defaults stringForKey:kUser_id]
                                  };
-    [manager POST:TEST_FAVORITE_GET parameters:parameters
+    [manager POST:kFavorite_get parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
               NSData *favoriteRestaurantsData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
