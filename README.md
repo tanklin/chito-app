@@ -1,3 +1,7 @@
-# chito-app
+# CHiTO
+
+---
+[What's CHiTO?](http://www.chito.city)
+
 
 
